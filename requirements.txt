@@ -1,1 +1,14 @@
 Django==1.9.1
+Markdown==2.6.5
+decorator==4.0.6
+django-crispy-forms-ng==2.0.0
+django-markdown-deux==1.0.5
+ipython==4.0.1
+ipython-genutils==0.1.0
+markdown2==2.3.0
+path.py==8.1.2
+pexpect==4.0.1
+pickleshare==0.5
+ptyprocess==0.5
+simplegeneric==0.8.1
+traitlets==4.0.0
