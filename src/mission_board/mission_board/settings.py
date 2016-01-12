@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'markdown_deux',
     'cs_auth',
+    'puzzle_hero',
 ]
 
 MIDDLEWARE_CLASSES = [
