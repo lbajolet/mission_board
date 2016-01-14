@@ -19,8 +19,8 @@ class Post(models.Model):
 
 class TrackStatus(models.Model):
     status = models.CharField(max_length=64)
-    track = models.ForeignKey(Track)
-    Team = models.ForeignKey(Team)
+    track = models.ForeignKey(Track, related_name='status')
+    team = models.ForeignKey(Team)
 
 
 class ChallengeStatus(models.Model):
