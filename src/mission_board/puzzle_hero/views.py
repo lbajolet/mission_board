@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 
+from cs_auth.models import Team
 from .models import Track
 from .models import Mission
 from .models import Post
@@ -37,3 +38,11 @@ class MissionBoardMission(ListView):
 			post.html_fr = markdown.markdown(post.md_fr)
 
 		return mission
+
+class MissionBoardTeams(ListView):
+	model = Team
+	context_object_name = 'teams'
+	template_name = 'puzzle_hero/mission_board_teams.html'
+
+	def get_queryset(self):
+		return Team.objects.all()
