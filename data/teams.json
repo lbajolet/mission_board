@@ -1,0 +1,38 @@
+[
+	{
+		"name": "Team 01",
+		"token": "12345678901",
+		"university": "University 1",
+		"score": 0
+	},{
+		"name": "Team 02",
+		"token": "12345678902",
+		"university": "University 2",
+		"score": 0
+	},{
+		"name": "Team 03",
+		"token": "1234567893",
+		"university": "University 3",
+		"score": 0
+	},{
+		"name": "Team 04",
+		"token": "12345678904",
+		"university": "University 4",
+		"score": 0
+	},{
+		"name": "Team 05",
+		"token": "12345678905",
+		"university": "University 5",
+		"score": 0
+	},{
+		"name": "Team 06",
+		"token": "12345678906",
+		"university": "University 6",
+		"score": 0
+	},{
+		"name": "Team 07",
+		"token": "12345678907",
+		"university": "University 7",
+		"score": 0
+	}
+]
