@@ -1,0 +1,75 @@
+{
+	"id": "track_lore",
+	"title": "Track Lore 1",
+	"missions": [
+		{
+			"id": "the_butcher",
+			"title": "The Butcher",
+			"reward": 100,
+			"status": "open",
+			"dependencies": [],
+			"posts": [
+				{
+					"id": "the_butcher_post_01",
+					"status": "open",
+					"sender": "Red Leader",
+					"en": "the_butcher/post_01.md",
+					"fr": "the_butcher/post_01.md",
+					"dependencies": []
+				}, {
+					"id": "the_butcher_post_02",
+					"status": "locked",
+					"sender": "Red Leader",
+					"en": "the_butcher/post_02.md",
+					"fr": "the_butcher/post_02.md",
+					"dependencies": [
+						{
+							"post": "the_butcher_post_01",
+							"status": "open"
+						}
+					]
+				}, {
+					"id": "the_butcher_post_03",
+					"status": "locked",
+					"sender": "Red Leader",
+					"en": "the_butcher/post_03.md",
+					"fr": "the_butcher/post_03.md",
+					"dependencies": [
+						{
+							"post": "the_butcher_post_02",
+							"status": "open"
+						}
+					]
+				}
+			]
+		}, {
+			"id": "watch_dog",
+			"title": "Watch Dog",
+			"reward": 200,
+			"status": "locked",
+			"dependencies": [ "the_butcher" ],
+			"posts": [
+				{
+					"id": "watch_dog_post_01",
+					"status": "open",
+					"sender": "Puppy Ears",
+					"en": "watch_dog/post_01.md",
+					"fr": "watch_dog/post_01.md",
+					"dependencies": []
+				}, {
+					"id": "watch_dog_post_02",
+					"status": "locked",
+					"sender": "Puppy Ears",
+					"en": "watch_dog/post_02.md",
+					"fr": "watch_dog/post_02.md",
+					"dependencies": [
+						{
+							"post": "watch_dog_post_02",
+							"status": "open"
+						}
+					]
+				}
+			]
+		}
+	]
+}
