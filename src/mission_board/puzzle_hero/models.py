@@ -4,16 +4,26 @@ from cs_auth.models import Team, Player
 
 
 class Track(models.Model):
-    pass
+    id = models.CharField(max_length=64, primary_key=True)
+    title = models.CharField(max_length=255)
 
 
-class Challenge(models.Model):
+class Mission(models.Model):
     track = models.ForeignKey(Track)
-    required_for = models.ForeignKey("self", related_name="depends_on", null=True)
+    id = models.CharField(max_length=64, primary_key=True)
+    title = models.CharField(max_length=255)
+    reward = models.IntegerField()
+    dependencies = models.ManyToManyField("self")
 
 
 class Post(models.Model):
-    challenge = models.ForeignKey(Challenge)
+    mission = models.ForeignKey(Mission)
+    id = models.CharField(max_length=64, primary_key=True)
+    sender = models.CharField(max_length=255)
+    en = models.CharField(max_length=255)
+    md_en = models.TextField()
+    fr = models.CharField(max_length=255)
+    md_fr = models.TextField()
     required_for = models.ForeignKey("self", related_name="depends_on", null=True)
 
 
@@ -23,9 +33,9 @@ class TrackStatus(models.Model):
     team = models.ForeignKey(Team)
 
 
-class ChallengeStatus(models.Model):
+class MissionStatus(models.Model):
     status = models.CharField(max_length=64)
-    challenge = models.ForeignKey(Challenge)
+    Mission = models.ForeignKey(Mission)
     Team = models.ForeignKey(Team)
 
 
