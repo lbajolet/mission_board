@@ -14,6 +14,10 @@
 	<link rel="stylesheet" href="{% static 'puzzle_hero/vendors/bootstrap/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" href="{% static 'puzzle_hero/style.css' %}">
 
+    <script src="{% static 'puzzle_hero/vendors/d3/d3.min.js' %}"></script>
+    <script src="{% static 'puzzle_hero/vendors/d3/dagre-d3.js' %}"></script>
+
+
   </head>
 
   <body>
@@ -86,6 +90,12 @@
     {% block footer_scripts %}
     <script src="{% static 'puzzle_hero/vendors/jquery/jquery-2.2.0.min.js' %}"></script>
     <script src="{% static 'puzzle_hero/vendors/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'puzzle_hero/js/mission-tree.js' %}"></script>
+	<script>
+		$(function () {
+			$('[data-toggle="popover"]').popover()
+		})
+	</script>
     {% endblock %}
 
   </body>

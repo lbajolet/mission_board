@@ -59,3 +59,67 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: transparent;
 	border-color: transparent;
 }
+
+/* mission tree */
+
+.mission-tree {
+	width: 100%;
+	height: 100%;
+}
+
+svg {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.mission-tree text {
+	font-weight: 300;
+	font-size: 14px;
+}
+
+.mission-tree .node g div {
+	width: 40px;
+	height: 40px;
+	color: #fff;
+}
+
+.mission-tree .node rect {
+	stroke-width: 2px;
+	stroke: #bbb;
+	fill: #666;
+}
+
+.mission-tree .node.closed rect {
+	stroke: rgba(0, 255, 0, 0.80);
+	fill: rgba(0, 255, 0, 0.50);
+}
+
+.mission-tree .node.open rect {
+	stroke: rgba(255, 0, 0, 0.80);
+	fill: rgba(255, 0, 0, 0.50);
+}
+
+.mission-tree .node.locked rect {
+	stroke: rgba(50, 50, 50, 0.80);
+	fill: rgba(50, 50, 50, 0.50);
+}
+
+.mission-tree .edgePath path {
+	stroke-width: 2px;
+}
+
+.mission-tree .edgePath.closed path {
+	stroke: rgba(0, 255, 0, 0.80);
+	fill: rgba(0, 255, 0, 0.80);
+}
+
+.mission-tree .edgePath.open path {
+	stroke: rgba(255, 0, 0, 0.80);
+	fill: rgba(255, 0, 0, 0.80);
+}
+
+.mission-tree .edgePath.locked path {
+	stroke: rgba(50, 50, 50, 0.80);
+	fill: rgba(50, 50, 50, 0.80);
+}
