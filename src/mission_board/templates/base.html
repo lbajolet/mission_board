@@ -12,15 +12,14 @@
     <title>Mission Board</title>
 
 	<link rel="stylesheet" href="{% static 'puzzle_hero/vendors/bootstrap/css/bootstrap.min.css' %}">
-
-    <!-- Custom styles for this template -->
+	<link rel="stylesheet" href="{% static 'puzzle_hero/style.css' %}">
 
   </head>
 
   <body>
     {% block navbar %}
-    <nav class="navbar navbar-default navbar-static-top navbar-flat">
-      <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -28,7 +27,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Mission Board</a>
+          <a class="navbar-brand" href="/">Mission Board</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -54,6 +53,17 @@
     </nav>
     {% endblock %}
 
+	<div class="text-center">
+		<div class="panel panel-custom">
+			<div class="panel-heading">
+				<h1>Rebellion Intelligence Services</h1>
+			</div>
+		</div>
+		<div class="panel panel-logo">
+			<img src="{% static 'puzzle_hero/images/logo_rebels.png' %}" alt='Rebels Logo' width='400' />
+		</div>
+	</div>
+
     <div class="container">
       {% block content %}
       <div class="starter-template">
@@ -61,7 +71,6 @@
         <p class="lead">Override this block in your template</p>
       </div>
       {% endblock %}
-
     </div>
 
     {% block messages %}
@@ -75,8 +84,8 @@
     {% endblock %}
 
     {% block footer_scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="{% static 'puzzle_hero/vendors/jquery/jquery-2.2.0.min.js' %}"></script>
+    <script src="{% static 'puzzle_hero/vendors/bootstrap/js/bootstrap.min.js' %}"></script>
     {% endblock %}
 
   </body>
