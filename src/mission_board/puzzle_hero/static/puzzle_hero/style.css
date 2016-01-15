@@ -35,6 +35,13 @@ h1, h2, h3, h4, h5, h6 {
     border-top: 1px solid rgba(221, 221, 221, 0.5);
 }
 
+/* Forms */
+
+.form-control, .btn {
+	background-color: rgba(150, 150, 150, 0.2);
+	color: #fff;
+}
+
 /* Panels */
 
 .panel-default {
@@ -111,8 +118,8 @@ svg {
 }
 
 .mission-tree .node.locked rect {
-	stroke: rgba(50, 50, 50, 0.80);
-	fill: rgba(50, 50, 50, 0.50);
+	stroke: rgba(150, 150, 150, 0.80);
+	fill: rgba(150, 150, 150, 0.50);
 }
 
 .mission-tree .edgePath path {
@@ -130,6 +137,6 @@ svg {
 }
 
 .mission-tree .edgePath.locked path {
-	stroke: rgba(50, 50, 50, 0.80);
-	fill: rgba(50, 50, 50, 0.80);
+	stroke: rgba(150, 150, 150, 0.80);
+	fill: rgba(150, 150, 150, 0.80);
 }
