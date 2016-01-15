@@ -3,6 +3,9 @@ from django.views.generic import ListView
 
 from .models import Track
 from .models import Mission
+from .models import Post
+
+import markdown
 
 # Create your views here.
 def index(request):
@@ -19,3 +22,17 @@ class MissionBoardHome(ListView):
 		for track in tracks:
 			track.missions = Mission.objects.filter(track=track)
 		return tracks
+
+class MissionBoardMission(ListView):
+	model = Mission
+	context_object_name = 'mission'
+	template_name = 'puzzle_hero/mission_board_mission.html'
+
+	def get_queryset(self):
+		mission = Mission.objects.filter(id=self.kwargs.get('mission'))[0]
+		mission.posts = Post.objects.filter(mission=mission)
+		for post in mission.posts:
+			post.html_en = markdown.markdown(post.md_en)
+			post.html_fr = markdown.markdown(post.md_fr)
+
+		return mission
