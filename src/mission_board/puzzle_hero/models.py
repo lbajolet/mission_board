@@ -39,14 +39,14 @@ class TrackStatus(models.Model):
 
 class MissionStatus(models.Model):
     status = models.CharField(max_length=64)
-    Mission = models.ForeignKey(Mission)
-    Team = models.ForeignKey(Team)
+    mission = models.ForeignKey(Mission)
+    team = models.ForeignKey(Team)
 
 
 class PostStatus(models.Model):
     status = models.CharField(max_length=64)
     message = models.ForeignKey(Post)
-    Team = models.ForeignKey(Team)
+    team = models.ForeignKey(Team)
 
 
 class Submission(models.Model):

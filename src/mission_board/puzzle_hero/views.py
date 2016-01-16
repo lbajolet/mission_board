@@ -5,7 +5,7 @@ from django.views.generic import ListView
 
 from cs_auth.models import Team
 from .forms import FlagSubmissionForm
-from .models import Track
+from .models import Mission, MissionStatus, Post, PostStatus, Track, TrackStatus
 from .models import Mission
 from .models import Post
 
@@ -49,6 +49,11 @@ class MissionBoardMission(ListView):
 
         return mission
 
+    def get_context_data(self, **kwargs):
+        context = super(MissionBoardMission, self).get_context_data(**kwargs)
+        context['flag_form'] = FlagSubmissionForm()
+        return context
+
 
 class MissionBoardTeams(ListView):
     model = Team
@@ -57,6 +62,27 @@ class MissionBoardTeams(ListView):
 
     def get_queryset(self):
         return Team.objects.all().order_by("score")
+
+
+def team_stats(request):
+    team = request.user.player.team
+
+    track_stati = TrackStatus.objects.filter(team=team)
+    completed_tracks = [ts.track for ts in track_stati]
+
+    mission_stati = MissionStatus.objects.filter(team=team)
+    completed_missions = [ms.mission for ms in mission_stati]
+
+    post_stati = PostStatus.objects.filter(team=team)
+    completed_posts = [ps.post for ps in post_stati]
+
+    context = {
+        "tracks": completed_tracks,
+        "missions": completed_missions,
+        "posts": completed_posts
+    }
+
+    return render(request, "puzzle_hero/team_stats.html", context)
 
 
 def submit_flag(request):
