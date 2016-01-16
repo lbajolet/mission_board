@@ -81,11 +81,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* messages */
-.alert {
-    position: fixed;
-    top: 60px;
-    right: 10px;
-    width: 30%;
+
+.alert .close {
+	color: #fff;
+}
+
+.alert-danger {
+    color: #fff;
+    background-color: rgba(255,0,0,0.3);
+    border-color: rgba(255, 0, 0, 0.7);
+}
+
+.alert-success {
+    color: #fff;
+    background-color: rgba(0, 255, 0, 0.3);
+    border-color: rgba(0, 255, 0, 0.7);
 }
 
 /* mission tree */
