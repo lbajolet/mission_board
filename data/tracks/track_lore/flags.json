@@ -1,0 +1,56 @@
+[
+	{
+		"flag": "123456789011",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "the_butcher",
+				"status": "closed"
+			},
+			{
+				"kind": "team_score",
+				"reward": 100
+			}
+		]
+	}, {
+		"flag": "098765432132432",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "the_butcher_post_02",
+				"status": "open"
+			}
+		]
+	}, {
+		"flag": "098765432123",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "the_butcher_post_03",
+				"status": "open"
+			}
+		]
+	}, {
+		"flag": "123456789022",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "watch_dog",
+				"status": "closed"
+			},
+			{
+				"kind": "team_score",
+				"reward": 200
+			}
+		]
+	}, {
+		"flag": "098765432123099",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "watch_dog_post_02",
+				"status": "open"
+			}
+		]
+	}
+]
