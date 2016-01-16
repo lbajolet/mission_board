@@ -6,9 +6,7 @@ import json
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mission_board.settings")
 django.setup()
 
-from puzzle_hero.models import Track
-from puzzle_hero.models import Mission
-from puzzle_hero.models import Post
+from puzzle_hero.models import Track, Mission, Post
 
 # clear database
 Track.objects.all().delete()
@@ -22,12 +20,14 @@ with open('data/tracks/tracks.json') as json_data:
 # create and save db instances
 for track_file in json_tracks:
 
+    # create track data
     with open('data/tracks/' + track_file + '/track.json') as track_data:
         json_track = json.load(track_data)
 
         track = Track()
         track.id = json_track["id"]
         track.title = json_track["title"]
+        track.initial_status = json_track["initial_status"]
         track.save()
 
         for json_mission in json_track["missions"]:
@@ -36,14 +36,14 @@ for track_file in json_tracks:
             mission.id = json_mission["id"]
             mission.title = json_mission["title"]
             mission.reward = json_mission["reward"]
-            mission.status = json_mission["status"]
+            mission.initial_status = json_mission["initial_status"]
             mission.save()
 
             for json_post in json_mission["posts"]:
                 post = Post()
                 post.mission = mission
                 post.id = json_post["id"]
-                post.status = json_post["status"]
+                post.initial_status = json_post["initial_status"]
                 post.sender = json_post["sender"]
 
                 post.en = json_post["en"]

@@ -9,12 +9,14 @@ class Flag(models.Model):
 
 class Track(models.Model):
     id = models.CharField(max_length=64, primary_key=True)
+    initial_status = models.CharField(max_length=64)
     title = models.CharField(max_length=255)
 
 
 class Mission(models.Model):
     track = models.ForeignKey(Track)
     id = models.CharField(max_length=64, primary_key=True)
+    initial_status = models.CharField(max_length=64)
     title = models.CharField(max_length=255)
     reward = models.IntegerField()
     dependencies = models.ManyToManyField("self")
@@ -23,6 +25,7 @@ class Mission(models.Model):
 class Post(models.Model):
     mission = models.ForeignKey(Mission)
     id = models.CharField(max_length=64, primary_key=True)
+    initial_status = models.CharField(max_length=64)
     sender = models.CharField(max_length=255)
     en = models.CharField(max_length=255)
     md_en = models.TextField()

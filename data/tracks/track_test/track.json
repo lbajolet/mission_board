@@ -1,24 +1,25 @@
 {
 	"id": "track_test",
 	"title": "Track Test",
+	"initial_status": "open",
 	"missions": [
 		{
 			"id": "track_test_mission_01",
 			"title": "Mission 01",
 			"reward": 100,
-			"status": "open",
+			"initial_status": "open",
 			"dependencies": [],
 			"posts": [
 				{
 					"id": "track_test_mission_01_post_01",
-					"status": "open",
+					"initial_status": "open",
 					"sender": "fake_lore_related_sender",
 					"en": "mission_01/post_01.md",
 					"fr": "mission_01/post_01.md",
 					"dependencies": []
 				}, {
 					"id": "track_test_mission_01_post_02",
-					"status": "locked",
+					"initial_status": "locked",
 					"sender": "fake_lore_related_sender",
 					"en": "mission_01/post_02.md",
 					"fr": "mission_01/post_02.md",
@@ -34,19 +35,19 @@
 			"id": "mission_02",
 			"title": "Mission 02",
 			"reward": 200,
-			"status": "locked",
+			"initial_status": "locked",
 			"dependencies": [ "track_test_mission_01" ],
 			"posts": [
 				{
 					"id": "track_test_mission_02_post_01",
-					"status": "open",
+					"initial_status": "open",
 					"sender": "fake_lore_related_sender",
 					"en": "mission_02/post_01.md",
 					"fr": "mission_02/post_01.md",
 					"dependencies": []
 				}, {
 					"id": "track_test_mission_02_post_02",
-					"status": "locked",
+					"initial_status": "locked",
 					"sender": "fake_lore_related_sender",
 					"en": "mission_02/post_02.md",
 					"fr": "mission_02/post_02.md",
