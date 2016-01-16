@@ -109,3 +109,28 @@ for track in Track.objects.all():
         print("   * " + mission.title)
         for post in Post.objects.filter(mission=mission):
             print("       " + post.id)
+
+flags = Flag.objects.all()
+print("Loaded {} flags.".format(flags.count()))
+for track in Track.objects.all():
+    for mission in Mission.objects.filter(track=track):
+        for post in Post.objects.filter(mission=mission):
+            # check if all posts can be unlocked
+            if post.initial_status == "open": continue
+            triggers = PostStatusTrigger.objects.filter(post=post, status="open")
+            if not triggers:
+               print("WARNING: post {} can't be unlocked!".format(post.id))
+        # check if all missions can be unlocked
+        if mission.initial_status == "locked" and mission.dependencies.count() == 0:
+            triggers = MissionStatusTrigger.objects.filter(mission=mission, status="open")
+            if not triggers:
+                print("WARNING: mission {} can't be unlocked!".format(mission.id))
+        triggers = MissionStatusTrigger.objects.filter(mission=mission, status="closed")
+        if not triggers:
+            print("WARNING: mission {} can't be closed!".format(mission.id))
+
+    # check if all tracks can be unlocked
+    if track.initial_status == "open": continue
+    triggers = TrackStatusTrigger.objects.filter(track=track)
+    if not triggers:
+        print("WARNING: track {} can't be unlocked!".format(track.id))
