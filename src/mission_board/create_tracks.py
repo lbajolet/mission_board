@@ -7,11 +7,18 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mission_board.settings")
 django.setup()
 
 from puzzle_hero.models import Track, Mission, Post
+from puzzle_hero.models import Flag, TrackStatusTrigger, MissionStatusTrigger, PostStatusTrigger
+from puzzle_hero.models import TeamScoreTrigger
 
 # clear database
 Track.objects.all().delete()
 Mission.objects.all().delete()
 Post.objects.all().delete()
+Flag.objects.all().delete()
+TrackStatusTrigger.objects.all().delete()
+MissionStatusTrigger.objects.all().delete()
+PostStatusTrigger.objects.all().delete()
+TeamScoreTrigger.objects.all().delete()
 
 # load track list
 with open('data/tracks/tracks.json') as json_data:
@@ -57,6 +64,42 @@ for track_file in json_tracks:
                     post.md_fr = fr.read()
 
                 post.save()
+
+    # create flags and triggers data
+    with open('data/tracks/' + track_file + '/flags.json') as flags_data:
+        json_flags = json.load(flags_data)
+
+        for json_flag in json_flags:
+            flag = Flag()
+            flag.flag = json_flag["flag"]
+            flag.save()
+
+            for json_trigger in json_flag["triggers"]:
+                kind = json_trigger["kind"]
+
+                if kind == "track_status":
+                    trigger = TrackStatusTrigger()
+                    trigger.flag = flag
+                    trigger.track = Track.objects.get(id=json_trigger["track"])
+                    trigger.status = json_trigger["status"]
+                    trigger.save()
+                elif kind == "mission_status":
+                    trigger = MissionStatusTrigger()
+                    trigger.flag = flag
+                    trigger.mission = Mission.objects.get(id=json_trigger["mission"])
+                    trigger.status = json_trigger["status"]
+                    trigger.save()
+                elif kind == "post_status":
+                    trigger = PostStatusTrigger()
+                    trigger.flag = flag
+                    trigger.post = Post.objects.get(id=json_trigger["post"])
+                    trigger.status = json_trigger["status"]
+                    trigger.save()
+                elif kind == "team_score":
+                    trigger = TeamScoreTrigger()
+                    trigger.flag = flag
+                    trigger.score = json_trigger["reward"]
+                    trigger.save()
 
 tracks = Track.objects.all()
 print("Loaded {} tracks:".format(tracks.count()))
