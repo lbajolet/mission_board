@@ -58,39 +58,29 @@ class Submission(models.Model):
     flag = models.ForeignKey(Flag)
 
 
-class Trigger(models.Model):
-
-    UNLOCK_TRACK = 0
-    UNLOCK_MISSION = 1
-    UNLOCK_POST = 2
-
-    TYPE_CHOICES = (
-        (UNLOCK_TRACK, 'unlock_track'),
-        (UNLOCK_MISSION, 'unlock_mission'),
-        (UNLOCK_POST, 'unlock_post'),
-    )
-
-    type = models.CharField(max_length=64, choices=TYPE_CHOICES)
+class TrackStatusTrigger(models.Model):
     flag = models.ForeignKey(Flag)
-
-
-class UnlockTrackTrigger(models.Model):
-    trigger = models.ForeignKey(Trigger)
     track = models.ForeignKey(Track)
+    status = models.CharField(max_length=64)
 
 
-class UnlockMissionTrigger(models.Model):
-    trigger = models.ForeignKey(Trigger)
+class MissionStatusTrigger(models.Model):
+    flag = models.ForeignKey(Flag)
     mission = models.ForeignKey(Mission)
+    status = models.CharField(max_length=64)
 
 
-class UnlockPostTrigger(models.Model):
-    trigger = models.ForeignKey(Trigger)
+class PostStatusTrigger(models.Model):
+    flag = models.ForeignKey(Flag)
     post = models.ForeignKey(Post)
+    status = models.CharField(max_length=64)
 
+class TeamScoreTrigger(models.Model):
+    flag = models.ForeignKey(Flag)
+    score = models.IntegerField()
 
 # Other possible triggers
-# - Airdrop
+# - Airdrop == score bonus? or what?
 # - Announcement
 # - Lock (say we want only one team to be able to solve a challenge...
 #         lock it back for other teams)
