@@ -57,6 +57,17 @@
     </nav>
     {% endblock %}
 
+    {% block messages %}
+    {% if messages %}
+        {% for message in messages %}
+        <div{% if message.tags %} class="alert alert-{{ message.tags }}" role="alert"{% endif %} >
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+    {% endblock %}
+
 	<div class="text-center">
 		<div class="panel panel-custom">
 			<div class="panel-heading">
@@ -76,16 +87,6 @@
       </div>
       {% endblock %}
     </div>
-
-    {% block messages %}
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endblock %}
 
     {% block footer_scripts %}
     <script src="{% static 'puzzle_hero/vendors/jquery/jquery-2.2.0.min.js' %}"></script>

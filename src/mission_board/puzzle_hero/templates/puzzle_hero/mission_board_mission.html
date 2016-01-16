@@ -35,19 +35,6 @@
 	</div>
 {% endfor %}
 
-<div class="panel panel-primary">
-	<div class="panel-heading">
-		<h3 class="panel-title">Submit a flag</h3>
-	</div>
-	<div class="panel-body">
-		<form action="/faction/flags" method="POST">
-			<div class="form-group">
-				<label for="flag">Flag</label>
-				<input type="text" placeholder="FLAG_123456789" name="flag" id="flag" class="form-control">
-			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</form>
-	</div>
-</div>
+{% include "puzzle_hero/flag_submission.html" %}
 
 {% endblock %}

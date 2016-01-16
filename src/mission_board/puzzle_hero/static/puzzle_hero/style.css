@@ -77,6 +77,14 @@ h1, h2, h3, h4, h5, h6 {
 	border-color: transparent;
 }
 
+/* messages */
+.alert {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    width: 30%;
+}
+
 /* mission tree */
 
 .mission-tree {
