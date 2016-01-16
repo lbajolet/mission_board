@@ -37,6 +37,8 @@ for track_file in json_tracks:
             mission.title = json_mission["title"]
             mission.reward = json_mission["reward"]
             mission.initial_status = json_mission["initial_status"]
+            for dep in json_mission["dependencies"]:
+                mission.dependencies.add(Mission.objects.get(id=dep))
             mission.save()
 
             for json_post in json_mission["posts"]:
