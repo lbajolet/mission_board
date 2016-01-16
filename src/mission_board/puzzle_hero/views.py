@@ -49,6 +49,10 @@ class MissionBoardMission(ListView):
 
         return mission
 
+    def get_context_data(self, **kwargs):
+        context = super(MissionBoardMission, self).get_context_data(**kwargs)
+        context['flag_form'] = FlagSubmissionForm()
+        return context
 
 class MissionBoardTeams(ListView):
     model = Team
