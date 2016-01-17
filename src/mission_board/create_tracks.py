@@ -7,8 +7,9 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mission_board.settings")
 django.setup()
 
 from puzzle_hero.models import Track, Mission, Post
-from puzzle_hero.models import Flag, TrackStatusTrigger, MissionStatusTrigger, PostStatusTrigger
-from puzzle_hero.models import TeamScoreTrigger
+from puzzle_hero.models import Flag, Trigger, TrackStatusTrigger, \
+                               MissionStatusTrigger, PostStatusTrigger, \
+                               TeamScoreTrigger
 
 # clear database
 Track.objects.all().delete()
@@ -71,33 +72,49 @@ for track_file in json_tracks:
 
         for json_flag in json_flags:
             flag = Flag()
-            flag.flag = json_flag["flag"]
+            flag.token = json_flag["flag"]
             flag.save()
 
             for json_trigger in json_flag["triggers"]:
+
+                parent_trig = Trigger()
+                parent_trig.flag = flag
+
                 kind = json_trigger["kind"]
 
                 if kind == "track_status":
+                    parent_trig.kind = 1
+                    parent_trig.save()
+
                     trigger = TrackStatusTrigger()
-                    trigger.flag = flag
+                    trigger.trigger = parent_trig
                     trigger.track = Track.objects.get(id=json_trigger["track"])
                     trigger.status = json_trigger["status"]
                     trigger.save()
                 elif kind == "mission_status":
+                    parent_trig.kind = 2
+                    parent_trig.save()
+
                     trigger = MissionStatusTrigger()
-                    trigger.flag = flag
+                    trigger.trigger = parent_trig
                     trigger.mission = Mission.objects.get(id=json_trigger["mission"])
                     trigger.status = json_trigger["status"]
                     trigger.save()
                 elif kind == "post_status":
+                    parent_trig.kind = 3
+                    parent_trig.save()
+
                     trigger = PostStatusTrigger()
-                    trigger.flag = flag
+                    trigger.trigger = parent_trig
                     trigger.post = Post.objects.get(id=json_trigger["post"])
                     trigger.status = json_trigger["status"]
                     trigger.save()
                 elif kind == "team_score":
+                    parent_trig.kind = 4
+                    parent_trig.save()
+
                     trigger = TeamScoreTrigger()
-                    trigger.flag = flag
+                    trigger.trigger = parent_trig
                     trigger.score = json_trigger["reward"]
                     trigger.save()
 

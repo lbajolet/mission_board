@@ -19,7 +19,7 @@ class Mission(models.Model):
     initial_status = models.CharField(max_length=64)
     title = models.CharField(max_length=255)
     reward = models.IntegerField()
-    dependencies = models.ManyToManyField("self")
+    dependencies = models.ManyToManyField("self", related_name="require_for")
 
 
 class Post(models.Model):
@@ -58,25 +58,43 @@ class Submission(models.Model):
     flag = models.ForeignKey(Flag)
 
 
-class TrackStatusTrigger(models.Model):
+class Trigger(models.Model):
+
+    TRACKSTATUS_TYPE = 1
+    MISSIONSTATUS_TYPE = 2
+    POSTSTATUS_TYPE = 3
+    TEAMSCORE_TYPE = 4
+    TYPE_CHOICES = (
+        (TRACKSTATUS_TYPE, 'trackstatus'),
+        (MISSIONSTATUS_TYPE, 'missionstatus'),
+        (POSTSTATUS_TYPE, 'poststatus'),
+        (TEAMSCORE_TYPE, 'teamscore'),
+    )
+
     flag = models.ForeignKey(Flag)
+    kind = models.CharField(max_length=128, choices=TYPE_CHOICES)
+
+
+class TrackStatusTrigger(models.Model):
+    trigger = models.OneToOneField(Trigger)
     track = models.ForeignKey(Track)
     status = models.CharField(max_length=64)
 
 
 class MissionStatusTrigger(models.Model):
-    flag = models.ForeignKey(Flag)
+    trigger = models.OneToOneField(Trigger)
     mission = models.ForeignKey(Mission)
     status = models.CharField(max_length=64)
 
 
 class PostStatusTrigger(models.Model):
-    flag = models.ForeignKey(Flag)
+    trigger = models.OneToOneField(Trigger)
     post = models.ForeignKey(Post)
     status = models.CharField(max_length=64)
 
+
 class TeamScoreTrigger(models.Model):
-    flag = models.ForeignKey(Flag)
+    trigger = models.OneToOneField(Trigger)
     score = models.IntegerField()
 
 # Other possible triggers

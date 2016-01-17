@@ -5,7 +5,7 @@ from django.forms import ValidationError
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
-from .models import Flag
+from .models import Flag, Submission
 
 
 class FlagField(forms.CharField):

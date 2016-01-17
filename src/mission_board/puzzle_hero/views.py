@@ -4,10 +4,11 @@ from django.shortcuts import render
 from django.views.generic import ListView
 
 from cs_auth.models import Team
+
 from .forms import FlagSubmissionForm
-from .models import Mission, MissionStatus, Post, PostStatus, Track, TrackStatus
-from .models import Mission
-from .models import Post
+from .models import Mission, MissionStatus, Post, PostStatus, Track, \
+    TrackStatus, Submission, Flag
+from .triggers import process_flag_submission
 
 import json
 import markdown
@@ -87,10 +88,34 @@ def team_stats(request):
 
 def submit_flag(request):
     if request.method == 'POST':
+        player = request.user.player
         form = FlagSubmissionForm(request.POST)
         if form.is_valid():
-            # Run triggers
-            pass
+            # Check if flag has already been submitted:
+            flag_token = form.cleaned_data["token"]
+            flag = Flag.objects.filter(token=flag_token).first()
+
+            subs = Submission.objects.filter(flag=flag,
+                                             team=player.team)
+
+            # Flag has already been submitted by this team
+            if subs:
+                messages.add_message(
+                    request,
+                    messages.WARNING,
+                    "This flag has already been submitted."
+                )
+                return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+            else:
+                process_flag_submission(flag, player)
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    'Submitted flag %s!' % form.cleaned_data["token"]
+                )
+                return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
         else:
             wrong_flag = form.data["token"]
             messages.add_message(request, messages.ERROR,
