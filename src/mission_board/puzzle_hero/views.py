@@ -14,11 +14,6 @@ import json
 import markdown
 
 
-# Create your views here.
-def index(request):
-    return render(request, "base.html")
-
-
 class MissionBoardHome(ListView):
     model = Track
     context_object_name = 'tracks'
@@ -33,6 +28,13 @@ class MissionBoardHome(ListView):
     def get_context_data(self, **kwargs):
         context = super(MissionBoardHome, self).get_context_data(**kwargs)
         context['flag_form'] = FlagSubmissionForm()
+
+        team = self.request.user.player.team
+        track_statuses = TrackStatus.objects.filter(team=team)
+        mission_statuses = MissionStatus.objects.filter(team=team)
+        context["track_statuses"] = track_statuses
+        context["mission_statuses"] = mission_statuses
+
         return context
 
 

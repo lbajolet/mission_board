@@ -11,6 +11,8 @@ class Track(models.Model):
     id = models.CharField(max_length=64, primary_key=True)
     initial_status = models.CharField(max_length=64)
     title = models.CharField(max_length=255)
+    dependencies = models.ManyToManyField("self", related_name="required_for",
+                                          blank=True, symmetrical=False)
 
 
 class Mission(models.Model):
@@ -19,7 +21,8 @@ class Mission(models.Model):
     initial_status = models.CharField(max_length=64)
     title = models.CharField(max_length=255)
     reward = models.IntegerField()
-    dependencies = models.ManyToManyField("self", related_name="require_for")
+    dependencies = models.ManyToManyField("self", related_name="required_for",
+                                          blank=True, symmetrical=False)
 
 
 class Post(models.Model):
@@ -31,7 +34,6 @@ class Post(models.Model):
     md_en = models.TextField()
     fr = models.CharField(max_length=255)
     md_fr = models.TextField()
-    required_for = models.ForeignKey("self", related_name="depends_on", null=True)
 
 
 class TrackStatus(models.Model):
@@ -48,7 +50,7 @@ class MissionStatus(models.Model):
 
 class PostStatus(models.Model):
     status = models.CharField(max_length=64)
-    message = models.ForeignKey(Post)
+    post = models.ForeignKey(Post)
     team = models.ForeignKey(Team)
 
 
@@ -72,7 +74,7 @@ class Trigger(models.Model):
     )
 
     flag = models.ForeignKey(Flag)
-    kind = models.CharField(max_length=128, choices=TYPE_CHOICES)
+    kind = models.IntegerField(choices=TYPE_CHOICES)
 
 
 class TrackStatusTrigger(models.Model):

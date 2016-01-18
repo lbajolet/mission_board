@@ -49,6 +49,8 @@ def _process_trackstatus_trigger(trigger, player):
     track_status.status = trigger.status
     track_status.save()
 
+    _process_track_dependencies(track_status.track, player.team)
+
 
 def _process_missionstatus_trigger(trigger, player):
     mission_status = MissionStatus.objects.filter(
@@ -86,3 +88,6 @@ def _process_teamscore_trigger(trigger, player):
     team = player.team
     team.score += trigger.score
     team.save()
+
+def _process_track_dependencies(track, team):
+    affected_tracks = track.required_for
