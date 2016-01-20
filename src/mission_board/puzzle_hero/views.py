@@ -13,6 +13,14 @@ from .triggers import process_flag_submission
 import json
 import markdown
 
+class Scoreboard(ListView):
+    model = Team
+    context_object_name = 'teams'
+    template_name = 'puzzle_hero/scoreboard.html'
+
+    def get_queryset(self):
+        return Team.objects.all().order_by("score")
+
 
 class MissionBoardHome(ListView):
     model = Track
@@ -56,15 +64,6 @@ class MissionBoardMission(ListView):
         context = super(MissionBoardMission, self).get_context_data(**kwargs)
         context['flag_form'] = FlagSubmissionForm()
         return context
-
-
-class MissionBoardTeams(ListView):
-    model = Team
-    context_object_name = 'teams'
-    template_name = 'puzzle_hero/mission_board_teams.html'
-
-    def get_queryset(self):
-        return Team.objects.all().order_by("score")
 
 
 def team_stats(request):
