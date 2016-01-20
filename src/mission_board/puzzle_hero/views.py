@@ -110,7 +110,7 @@ def submit_flag(request):
                 return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
             else:
-                process_flag_submission(flag, player)
+                process_flag_submission(flag, request)
                 messages.add_message(
                     request,
                     messages.SUCCESS,

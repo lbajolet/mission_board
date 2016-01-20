@@ -4,6 +4,22 @@
 
 
 {% block content %}
+
+  {% for ts in track_statuses %}
+    <h2>{{ ts.track.title }} - {{ ts.status }}</h2>
+    <ul>
+
+    {% for ms in mission_statuses %}
+      {% if ms.mission.track == ts.track %}
+        <li>
+          {{ ms.mission.title }} - {{ ms.status }}
+        </li>
+      {% endif %}
+    {% endfor %}
+
+    </ul>
+  {% endfor %}
+
 {% for track in tracks %}
 	<div class="panel panel-default">
 		<div class="panel-heading">
