@@ -22,10 +22,10 @@ class Scoreboard(ListView):
         return Team.objects.all().order_by("score")
 
 
-class MissionBoardHome(ListView):
+class TracksList(ListView):
     model = Track
     context_object_name = 'tracks'
-    template_name = 'puzzle_hero/mission_board_home.html'
+    template_name = 'puzzle_hero/tracks_list.html'
 
     def get_queryset(self):
         tracks = Track.objects.all()
@@ -34,7 +34,7 @@ class MissionBoardHome(ListView):
         return tracks
 
     def get_context_data(self, **kwargs):
-        context = super(MissionBoardHome, self).get_context_data(**kwargs)
+        context = super(TracksList, self).get_context_data(**kwargs)
         context['flag_form'] = FlagSubmissionForm()
 
         team = self.request.user.player.team
@@ -46,10 +46,10 @@ class MissionBoardHome(ListView):
         return context
 
 
-class MissionBoardMission(ListView):
+class MissionPage(ListView):
     model = Mission
     context_object_name = 'mission'
-    template_name = 'puzzle_hero/mission_board_mission.html'
+    template_name = 'puzzle_hero/mission_page.html'
 
     def get_queryset(self):
         mission = Mission.objects.filter(id=self.kwargs.get('mission'))[0]
@@ -61,7 +61,7 @@ class MissionBoardMission(ListView):
         return mission
 
     def get_context_data(self, **kwargs):
-        context = super(MissionBoardMission, self).get_context_data(**kwargs)
+        context = super(MissionPage, self).get_context_data(**kwargs)
         context['flag_form'] = FlagSubmissionForm()
         return context
 
