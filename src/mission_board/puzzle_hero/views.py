@@ -1,6 +1,9 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
 
 from cs_auth.models import Team
@@ -14,10 +17,24 @@ import json
 import markdown
 
 
+# Used as test function to in several auths on views
+def user_is_player(user):
+    return hasattr(user, "player")
+
+
 class MissionBoardHome(ListView):
     model = Track
     context_object_name = 'tracks'
     template_name = 'puzzle_hero/mission_board_home.html'
+
+    # Never do this anywhere else ;)
+    # This is only so for the cs_admins to have better feedback from homepage
+    def dispatch(self, request, *args, **kwargs):
+        if not self.request.user.is_authenticated():
+            return redirect(reverse_lazy("login"))
+        if not hasattr(request.user, "player"):
+            return redirect(reverse_lazy("admin:index"))
+        return super(MissionBoardHome, self).dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
         tracks = Track.objects.all()
@@ -38,10 +55,13 @@ class MissionBoardHome(ListView):
         return context
 
 
-class MissionBoardMission(ListView):
+class MissionBoardMission(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Mission
     context_object_name = 'mission'
     template_name = 'puzzle_hero/mission_board_mission.html'
+
+    def test_func(self):
+        return user_is_player(self.request.user)
 
     def get_queryset(self):
         mission = Mission.objects.filter(id=self.kwargs.get('mission'))[0]
@@ -58,26 +78,31 @@ class MissionBoardMission(ListView):
         return context
 
 
-class MissionBoardTeams(ListView):
+class MissionBoardTeams(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Team
     context_object_name = 'teams'
     template_name = 'puzzle_hero/mission_board_teams.html'
+
+    def test_func(self):
+        return user_is_player(self.request.user)
 
     def get_queryset(self):
         return Team.objects.all().order_by("score")
 
 
+@login_required
+@user_passes_test(user_is_player)
 def team_stats(request):
     team = request.user.player.team
 
-    track_stati = TrackStatus.objects.filter(team=team)
-    completed_tracks = [ts.track for ts in track_stati]
+    track_statuses = TrackStatus.objects.filter(team=team)
+    completed_tracks = [ts.track for ts in track_statuses]
 
-    mission_stati = MissionStatus.objects.filter(team=team)
-    completed_missions = [ms.mission for ms in mission_stati]
+    mission_statuses = MissionStatus.objects.filter(team=team)
+    completed_missions = [ms.mission for ms in mission_statuses]
 
-    post_stati = PostStatus.objects.filter(team=team)
-    completed_posts = [ps.post for ps in post_stati]
+    post_statuses = PostStatus.objects.filter(team=team)
+    completed_posts = [ps.post for ps in post_statuses]
 
     context = {
         "tracks": completed_tracks,
@@ -88,6 +113,8 @@ def team_stats(request):
     return render(request, "puzzle_hero/team_stats.html", context)
 
 
+@login_required
+@user_passes_test(user_is_player)
 def submit_flag(request):
     if request.method == 'POST':
         player = request.user.player
