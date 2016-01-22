@@ -91,6 +91,12 @@ class Submission(models.Model):
     submitter = models.ForeignKey(Player, blank=True)
     team = models.ForeignKey(Team)
     flag = models.ForeignKey(Flag)
+    time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return "[%s] %s: %s" % (self.time.strftime("%Y/%m/%d - %H:%M"),
+                                self.team.name,
+                                self.flag.token)
 
 
 class Trigger(models.Model):
