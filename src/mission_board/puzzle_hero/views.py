@@ -4,11 +4,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.views.generic import ListView
+from django.views.generic import ListView, FormView
 
 from cs_auth.models import Team
 
-from .forms import FlagSubmissionForm
+from .forms import FlagSubmissionForm, GlobalAnnouncementForm
 from .models import Mission, MissionStatus, Post, PostStatus, Track, \
     TrackStatus, Submission, Flag
 from .triggers import process_flag_submission
@@ -22,6 +22,10 @@ def user_is_player(user):
     return hasattr(user, "player")
 
 
+def user_is_csadmin(user):
+    return user.is_superuser
+
+
 class MissionBoardHome(ListView):
     model = Track
     context_object_name = 'tracks'
@@ -33,7 +37,7 @@ class MissionBoardHome(ListView):
         if not self.request.user.is_authenticated():
             return redirect(reverse_lazy("login"))
         if not hasattr(request.user, "player"):
-            return redirect(reverse_lazy("admin:index"))
+            return redirect(reverse_lazy("csadmin_index"))
         return super(MissionBoardHome, self).dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
@@ -150,3 +154,14 @@ def submit_flag(request):
             messages.add_message(request, messages.ERROR,
                                  'Invalid flag %s !' % wrong_flag)
         return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+
+@login_required
+@user_passes_test(user_is_csadmin)
+def csadmin_index(request):
+    return redirect("admin:index")
+
+
+class CSAdminGlobalAnnouncementView(FormView):
+    form_class = GlobalAnnouncementForm
+    template_name = "cs_auth/login.html"

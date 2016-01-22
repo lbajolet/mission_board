@@ -14,6 +14,9 @@ class Track(models.Model):
     dependencies = models.ManyToManyField("self", related_name="required_for",
                                           blank=True, symmetrical=False)
 
+    def __str__(self):
+        return self.title
+
 
 class Mission(models.Model):
     track = models.ForeignKey(Track)
@@ -23,6 +26,9 @@ class Mission(models.Model):
     reward = models.IntegerField()
     dependencies = models.ManyToManyField("self", related_name="required_for",
                                           blank=True, symmetrical=False)
+
+    def __str__(self):
+        return "%s: %s" % (self.track, self.title)
 
 
 class Post(models.Model):
@@ -35,11 +41,21 @@ class Post(models.Model):
     fr = models.CharField(max_length=255)
     md_fr = models.TextField()
 
+    def __str__(self):
+        return "%s: %s : %s" % (self.mission.track, self.mission, self.id)
 
+
+# TODO Enum status choices
 class TrackStatus(models.Model):
     status = models.CharField(max_length=64)
     track = models.ForeignKey(Track, related_name='status')
     team = models.ForeignKey(Team)
+
+    def __str__(self):
+        return "%s :: %s" % (self.team.name, self.track.title)
+
+    class Meta:
+        verbose_name_plural = "Track Statuses"
 
 
 class MissionStatus(models.Model):
@@ -47,13 +63,30 @@ class MissionStatus(models.Model):
     mission = models.ForeignKey(Mission)
     team = models.ForeignKey(Team)
 
+    def __str__(self):
+        return "%s :: %s :: %s" % (self.team.name, self.mission.track.title,
+                                   self.mission.title)
+
+    class Meta:
+        verbose_name_plural = "Mission Statuses"
+
 
 class PostStatus(models.Model):
     status = models.CharField(max_length=64)
     post = models.ForeignKey(Post)
     team = models.ForeignKey(Team)
 
+    def __str__(self):
+        return "%s :: %s :: %s - %s" % (self.team.name,
+                                        self.post.mission.track.title,
+                                        self.post.mission.title,
+                                        self.id)
 
+    class Meta:
+        verbose_name_plural = "Post Statuses"
+
+
+# TODO add a bad submission model
 class Submission(models.Model):
     submitter = models.ForeignKey(Player, blank=True)
     team = models.ForeignKey(Team)
@@ -105,3 +138,78 @@ class TeamScoreTrigger(models.Model):
 # - Lock (say we want only one team to be able to solve a challenge...
 #         lock it back for other teams)
 # - ... More ideas?
+
+
+class Announcement(models.Model):
+    time = models.DateTimeField(auto_now_add=True)
+    message = models.TextField()
+
+    class Meta:
+        abstract = True
+
+
+class GlobalAnnouncement(Announcement):
+    def __str__(self):
+        if len(self.message) >= 20:
+            to_s_msg = self.message[:20]
+        else:
+            to_s_msg = self.message
+
+        return "[%s] %s" % (self.time.strftime("%Y/%m/%d - %H:%M"),
+                            to_s_msg)
+
+
+class TeamAnnouncement(Announcement):
+    team = models.ForeignKey(Team)
+
+    def __str__(self):
+        if len(self.message) >= 20:
+            to_s_msg = self.message[:20] + "..."
+        else:
+            to_s_msg = self.message
+
+        return "[%s] %s: %s" % (self.time.strftime("%Y/%m/%d - %H:%M"),
+                                self.team.name,
+                                to_s_msg)
+
+
+class TrackAnnouncement(Announcement):
+    track = models.ForeignKey(Track)
+
+    def __str__(self):
+        if len(self.message) >= 20:
+            to_s_msg = self.message[:20] + "..."
+        else:
+            to_s_msg = self.message
+        return "[%s] %s: %s" % (self.time.strftime("%Y/%m/%d - %H:%M"),
+                                self.track.title,
+                                to_s_msg)
+
+
+class MissionAnnouncement(Announcement):
+    mission = models.ForeignKey(Mission)
+
+    def __str__(self):
+        if len(self.message) >= 20:
+            to_s_msg = self.message[:20] + "..."
+        else:
+            to_s_msg = self.message
+
+        return "[%s] %s: %s" % (self.time.strftime("%Y/%m/%d - %H:%M"),
+                                self.mission.title,
+                                to_s_msg)
+
+
+class PostAnnouncement(Announcement):
+    post = models.ForeignKey(Post)
+
+    def __str__(self):
+        if len(self.message) >= 20:
+            to_s_msg = self.message[:20] + "..."
+        else:
+            to_s_msg = self.message
+        return "[%s] %s: %s: %s: %s" % (self.time.strftime("%Y/%m/%d - %H:%M"),
+                                        self.post.mission.track.title,
+                                        self.post.mission.title,
+                                        self.post.post.id,
+                                        to_s_msg)
