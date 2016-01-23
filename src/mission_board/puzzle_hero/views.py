@@ -52,7 +52,6 @@ class TracksList(LoginRequiredMixin, ListView):
 
         tree_data = self._build_tree_data(track_statuses, mission_statuses)
         context["tree_data"] = tree_data
-        print(tree_data)
 
         context["nav"] = "missions"
 
