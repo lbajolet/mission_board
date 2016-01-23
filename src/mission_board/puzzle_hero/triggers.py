@@ -97,6 +97,9 @@ def _process_teamscore_trigger(trigger, request):
     team.score += trigger.score
     team.save()
 
+    request.user.player.score += trigger.score
+    request.user.player.save()
+
 
 def _process_track_dependencies(track, request):
     team = request.user.player.team

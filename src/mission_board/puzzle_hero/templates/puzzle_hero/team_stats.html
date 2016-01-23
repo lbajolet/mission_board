@@ -3,7 +3,49 @@
 {% block content %}
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Scoreboard</h3>
+      <h3 class="panel-title">Team Information</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table table-hover">
+          <tr>
+            <td>Team Name:</td>
+            <td>{{ team }}</td>
+          </tr>
+        <tr>
+          <td>University:</td>
+          <td>{{ team.university }}</td>
+        </tr>
+        <tr>
+          <td>Score:</td>
+          <td>{{ team.score }}</td>
+        </tr>
+        <tr>
+          <td>Rank:</td>
+          <td>{{ team_rank }}/{{ team_count }} pas beau ca</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Players</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table table-hover">
+        {% for player in players %}
+          <tr>
+            <td>{{ player.display_name }}</td>
+            <td>{{ player.score }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Track and Mission Statuses</h3>
     </div>
     <div class="panel-body">
       <table class="table table-hover">
@@ -14,10 +56,12 @@
             <td>{{ track.reward }}</td>
           </tr>
           {% for mission in missions %}
+            {% if mission.track == track %}
             <tr>
               <td>&emsp;{{ mission.title|title }}</td>
               <td>&emsp;{{ mission.reward }}</td>
             </tr>
+            {% endif %}
           {% endfor %}
         {% endfor %}
       </table>

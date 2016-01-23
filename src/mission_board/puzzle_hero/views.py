@@ -134,24 +134,36 @@ class Scoreboard(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return context
 
 
+
 @login_required
 @user_passes_test(user_is_player)
 def team_stats(request, team_id):
     team = Team.objects.filter(id=team_id)[0]
 
+    players = team.player_set.all().order_by("-score")
+
     track_statuses = TrackStatus.objects.filter(team=team)
-    completed_tracks = [ts.track for ts in track_statuses]
+    completed_tracks = [ts.track for ts in track_statuses if ts.status in
+                        ["open", "closed"]]
 
     mission_statuses = MissionStatus.objects.filter(team=team)
-    completed_missions = [ms.mission for ms in mission_statuses]
+    completed_missions = [ms.mission for ms in mission_statuses if ms.status in
+                          ["closed"]]
 
     post_statuses = PostStatus.objects.filter(team=team)
     completed_posts = [ps.post for ps in post_statuses]
 
+    teams = list(Team.objects.all().order_by("-score"))
+    rank = teams.index(team) + 1
+
     context = {
+        "team": team,
+        "players": players,
         "tracks": completed_tracks,
         "missions": completed_missions,
-        "posts": completed_posts
+        "posts": completed_posts,
+        "team_rank": rank,
+        "team_count": len(teams)
     }
 
     return render(request, "puzzle_hero/team_stats.html", context)
