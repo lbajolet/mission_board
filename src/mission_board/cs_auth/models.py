@@ -14,6 +14,7 @@ class Team(models.Model):
 
 class Player(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # TODO check if these fields are relevent (with fields already in User)
     first_name = models.CharField(max_length=128)
     last_name = models.CharField(max_length=128)
     display_name = models.CharField(max_length=128)
@@ -21,6 +22,6 @@ class Player(models.Model):
 
     def __str__(self):
         return "%s, %s %s, %s" % (self.display_name,
-                                          self.first_name,
-                                          self.last_name,
-                                          self.team)
+                                  self.first_name,
+                                  self.last_name,
+                                  self.team)

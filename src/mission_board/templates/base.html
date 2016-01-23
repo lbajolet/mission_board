@@ -37,7 +37,7 @@
         <ul class="nav navbar-nav">
           <li class="{% if nav == 'missions' %}active{% endif %}"><a href="/missions">Missions</a></li>
           <!--<li class="{% if nav == 'events' %}active{% endif %}"><a href="#events">Events</a></li>-->
-          <!--<li class="{% if nav == 'scoreboard' %}active{% endif %}"><a href="#scoreboard">Scoreboard</a></li>-->
+          <li class="{% if nav == 'scoreboard' %}active{% endif %}"><a href="{% url 'scoreboard' %}">Scoreboard</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">

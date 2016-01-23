@@ -16,6 +16,7 @@ from .triggers import process_flag_submission
 import json
 import markdown
 
+
 # Used as test function to in several auths on views
 def user_is_player(user):
     return hasattr(user, "player")
@@ -25,19 +26,10 @@ def user_is_csadmin(user):
     return user.is_superuser
 
 
-class TracksList(ListView):
+class TracksList(LoginRequiredMixin, ListView):
     model = Track
     context_object_name = 'tracks'
     template_name = 'puzzle_hero/tracks_list.html'
-
-    # Never do this anywhere else ;)
-    # This is only so for the cs_admins to have better feedback from homepage
-    def dispatch(self, request, *args, **kwargs):
-        if not self.request.user.is_authenticated():
-            return redirect(reverse_lazy("login"))
-        if not hasattr(request.user, "player"):
-            return redirect(reverse_lazy("csadmin_index"))
-        return super(MissionBoardHome, self).dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
         tracks = Track.objects.all()
@@ -54,6 +46,8 @@ class TracksList(ListView):
         mission_statuses = MissionStatus.objects.filter(team=team)
         context["track_statuses"] = track_statuses
         context["mission_statuses"] = mission_statuses
+
+        context["nav"] = "missions"
 
         return context
 
@@ -92,11 +86,16 @@ class Scoreboard(LoginRequiredMixin, UserPassesTestMixin, ListView):
     def get_queryset(self):
         return Team.objects.all().order_by("score")
 
+    def get_context_data(self, **kwargs):
+        context = super(Scoreboard, self).get_context_data(**kwargs)
+        context["nav"] = "scoreboard"
+        return context
+
 
 @login_required
 @user_passes_test(user_is_player)
-def team_stats(request):
-    team = request.user.player.team
+def team_stats(request, team_id):
+    team = Team.objects.filter(id=team_id)[0]
 
     track_statuses = TrackStatus.objects.filter(team=team)
     completed_tracks = [ts.track for ts in track_statuses]
