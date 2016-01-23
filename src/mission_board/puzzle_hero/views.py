@@ -1,3 +1,6 @@
+import json
+import base64
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -47,9 +50,48 @@ class TracksList(LoginRequiredMixin, ListView):
         context["track_statuses"] = track_statuses
         context["mission_statuses"] = mission_statuses
 
+        tree_data = self._build_tree_data(track_statuses, mission_statuses)
+        context["tree_data"] = tree_data
+        print(tree_data)
+
         context["nav"] = "missions"
 
         return context
+
+    @staticmethod
+    def _build_tree_data(track_statuses, mission_statuses):
+        data = {}
+        for ts in track_statuses:
+            if ts.status == "open" or ts.status == "closed":
+
+                track_data = {}
+                for ms in mission_statuses:
+
+                    if ms.mission.track != ts.track:
+                        continue
+
+                    mission_data = {}
+                    mission_data["status"] = ms.status
+                    mission_data["reward"] = ms.mission.reward
+
+                    dep_data = []
+                    for dep in ms.mission.dependencies.all():
+                        dep_data.append(dep.id)
+                    if len(dep_data) > 0:
+                        mission_data["dependencies"] = dep_data
+
+                    track_data[ms.mission.id] = mission_data
+
+                track_data = base64.b64encode(
+                    json.dumps(track_data).encode("ascii")
+                )
+                data[ts.track.id] = track_data
+
+            else:
+                data[ts.track.id] = None
+
+        return data
+
 
 
 class MissionPage(LoginRequiredMixin, UserPassesTestMixin, ListView):

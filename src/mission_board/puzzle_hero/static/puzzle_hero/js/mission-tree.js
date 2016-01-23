@@ -1,41 +1,3 @@
-  var missions = {
-    "mission_01": {
-      "status": "closed",
-      "reward": 20,
-      "dependencies": []
-    },
-    "mission_02": {
-      "status": "open",
-      "reward": 50,
-      "dependencies": [ "mission_01" ]
-    },
-    "mission_03": {
-      "status": "locked",
-      "reward": 50,
-      "dependencies": [ "mission_02" ]
-    },
-    "mission_04": {
-      "status": "locked",
-      "reward": 50,
-      "dependencies": [ "mission_03" ]
-    },
-    "mission_05": {
-      "status": "open",
-      "reward": 50,
-      "dependencies": [ "mission_01" ]
-    },
-    "mission_06": {
-      "status": "locked",
-      "reward": 50,
-      "dependencies": [ "mission_05" ]
-    },
-    "mission_07": {
-      "status": "locked",
-      "reward": 50,
-      "dependencies": [ "mission_04", "mission_06" ]
-    }
-  };
-
 function drawTree(selector, missions) {
 	var svg = d3.select(selector)
     var inner = svg.select("g")
@@ -100,6 +62,7 @@ function drawTree(selector, missions) {
 }
 
 $(".track-tree").each(function(index, item) {
-	var json = atob($(item).data('json'))
-	drawTree(item, missions);
+	var json = atob($(item).data('json'));
+  json = JSON.parse(json);
+	drawTree(item, json);
 });
