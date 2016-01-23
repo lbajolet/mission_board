@@ -4,22 +4,22 @@
 
 
 {% block content %}
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<h3 class="panel-title">Scoreboard</h3>
-	</div>
-	<div class="panel-body">
-		<table class="table table-hover">
-		{% for team in teams %}
-			<tr>
-				<td>
-					<a href="/teams/{{team.id}}">{{ team.name }}</a>
-				</td>
-				<td>{{ team.university }}</td>
-				<td>{{ team.score }}</td>
-			</tr>
-		{% endfor %}
-		</table>
-	</div>
-</div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Scoreboard</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table table-hover">
+        {% for team in teams %}
+          <tr>
+            <td>
+              <a href="/teams/{{team.id}}">{{ team.name }}</a>
+            </td>
+            <td>{{ team.university }}</td>
+            <td>{{ team.score }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
 {% endblock %}
