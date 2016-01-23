@@ -5,7 +5,7 @@ from django.forms import ValidationError
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
-from .models import Flag, Submission
+from .models import Flag, Submission, GlobalAnnouncement
 
 
 class FlagField(forms.CharField):
@@ -42,3 +42,9 @@ class FlagSubmissionForm(forms.Form):
         self.helper = FormHelper()
         self.helper.form_action = reverse_lazy('submit_flag')
         self.helper.add_input(Submit('submit', 'Submit'))
+
+
+class GlobalAnnouncementForm(forms.ModelForm):
+    class Meta:
+        model = GlobalAnnouncement
+        exclude = []

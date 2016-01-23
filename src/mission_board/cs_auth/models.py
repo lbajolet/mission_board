@@ -8,6 +8,9 @@ class Team(models.Model):
     university = models.CharField(max_length=128)
     score = models.IntegerField()
 
+    def __str__(self):
+        return "%s - %s" % (self.name, self.university)
+
 
 class Player(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -15,3 +18,9 @@ class Player(models.Model):
     last_name = models.CharField(max_length=128)
     display_name = models.CharField(max_length=128)
     team = models.ForeignKey(Team)
+
+    def __str__(self):
+        return "%s, %s %s, %s" % (self.display_name,
+                                          self.first_name,
+                                          self.last_name,
+                                          self.team)
