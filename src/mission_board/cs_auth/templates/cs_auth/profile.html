@@ -4,34 +4,66 @@
 
 {% block content %}
 
+  <div class="panel panel-default">
+    <div class="panel-body">
+		<div class="container">
+			<div class="col-xs-2">
+				<h3><img class="player-rank player-rank-xl" src="/static/puzzle_hero/images/rank{{ user.player.rank_level }}.png"/></h3>
+			</div>
+			<div class="col-xs-10">
+			  <h3>
+				  {{ user.player.display_name }}
+				  <br>
+				  <small>{{ team.university }}</small>
+			  </h3>
+			  <p class="lead"><b class="text-primary">{{ user.player.score }}</b> pts</p>
+			</div>
+		</div>
+	</div>
+
+	<div>
+    </div>
+  </div>
+
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Rebel Profile</h3>
       </div>
-      <div class="panel-body">
-      </div>
       <table class="table">
           <tr>
-            <td>Display Name: </td>
-            <td>{{ user.player.display_name }}</td>
+            <td>pseudonym </td>
+            <th>{{ user.player.display_name }}</th>
           </tr>
           <tr>
-            <td>First Name: </td>
-            <td>{{ user.first_name }}</td>
+            <td>first name</td>
+            <th>{{ user.first_name }}</td>
           </tr>
           <tr>
-            <td>Last Name: </td>
-            <td>{{ user.last_name }}</td>
+            <td>last Name</td>
+            <th>{{ user.last_name }}</td>
           </tr>
           <tr>
-            <td>Team: </td>
-            <td>{{ user.player.team.name }}</td>
-          </tr>
-          <tr>
-            <td>Score: </td>
-            <td>{{ user.player.score }}</td>
+            <td>team</td>
+			<th><a href="{% url "team_stats" user.player.team.id %}">{{ user.player.team.name }}</a></td>
           </tr>
       </table>
     </div>
+
+   <div class="panel panel-default">
+     <div class="panel-heading">
+		<h3 class="panel-title">Achievements</h3>
+     </div>
+       <table class="table table-hover">
+       </table>
+   </div>
+
+
+   <div class="panel panel-default">
+     <div class="panel-heading">
+		<h3 class="panel-title">Events</h3>
+     </div>
+       <table class="table table-hover">
+       </table>
+   </div>
 
 {% endblock %}
