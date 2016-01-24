@@ -1,5 +1,6 @@
-from django import forms
+import os
 
+from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 
@@ -79,6 +80,18 @@ class RegisterForm(UserCreationForm):
             player.save()
 
 
+class PDFField(forms.FileField):
+
+    def clean(self, *args, **kwargs):
+        data = super(PDFField, self).clean(*args, **kwargs)
+        if data:
+            filename = data.name
+            ext = os.path.splitext(filename)[1]
+            ext = ext.lower()
+            if ext != ".pdf":
+                raise forms.ValidationError("Only PDF files are allowed!")
+
+
 class ProfileForm(forms.Form):
 
     display_name = forms.CharField(max_length=128, required=False)
@@ -98,7 +111,11 @@ class ProfileForm(forms.Form):
         required=False,
     )
 
-    curriculum_vitae = forms.FileField(required=False, max_length=20000)
+    curriculum_vitae = PDFField(
+        required=False,
+        max_length=20000,
+        help_text="*.pdf only!"
+    )
 
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
@@ -108,21 +125,3 @@ class ProfileForm(forms.Form):
         self.helper.field_class = 'col-lg-8'
         self.helper.add_input(Submit('submit', 'Update Profile'))
 
-    def save(self, commit=True):
-        super(ProfileForm, self).save(commit=commit)
-        user = self.request.user
-        if self.cleaned_data.get("display_name", None):
-            user.player.display_name = self.cleaned_data.get("display_name")
-        if self.cleaned_data.get("email", None):
-            user.email = self.cleaned_data.get("email")
-        if self.cleaned_data.get("first_name", None):
-            user.first_name = self.cleaned_data.get("first_name")
-        if self.cleaned_data.get("last_name", None):
-            user.last_name = self.cleaned_data.get("last_name")
-        if self.cleaned_data.get("curriculum_vitae", None):
-            # TODO handle pdf files here
-            user.player.curriculum_vitae = self.cleaned_data.\
-                get("curriculum_vitae")
-        if commit:
-            user.player.save()
-            user.save()
