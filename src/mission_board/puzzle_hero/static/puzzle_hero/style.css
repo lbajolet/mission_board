@@ -120,6 +120,7 @@ svg {
 	width: 40px;
 	height: 40px;
 	color: #fff;
+	cursor: pointer;
 }
 
 .mission-tree .node rect {
@@ -161,3 +162,16 @@ svg {
 	stroke: rgba(150, 150, 150, 0.80);
 	fill: rgba(150, 150, 150, 0.80);
 }
+
+.mission-tree .number {
+	line-height: 40px;
+	font-size: 12px;
+}
+
+.mission-tip.mission-open h3 { color: #c83127; }
+.mission-tip.mission-open .tip-status { color: #c83127; }
+.mission-tip.mission-closed h3 { color: #3c763d; }
+.mission-tip.mission-closed .tip-status { color: #3c763d; }
+.mission-tip.mission-locked h3 { color: #777; }
+.mission-tip.mission-locked .tip-status { color: #777; }
+.mission-tip .tip-reward { color: green; }
