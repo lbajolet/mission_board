@@ -173,9 +173,23 @@ class MissionPage(LoginRequiredMixin, UserPassesTestMixin, ListView):
     def get_queryset(self):
         mission = Mission.objects.filter(id=self.kwargs.get('mission'))[0]
         mission.posts = Post.objects.filter(mission=mission)
+
+        missions_status = MissionStatus.objects.filter(
+            team=self.request.user.player.team,
+            mission=mission
+        ).first()
+        mission.status = missions_status.status
+
+        post_statuses = PostStatus.objects.filter(
+            post__mission=mission,
+            team=self.request.user.player.team
+        )
         for post in mission.posts:
             post.html_en = markdown.markdown(post.md_en)
             post.html_fr = markdown.markdown(post.md_fr)
+            for ps in post_statuses:
+                if ps.post == post:
+                    post.status = ps.status
 
         return mission
 

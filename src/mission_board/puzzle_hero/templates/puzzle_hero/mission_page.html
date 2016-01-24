@@ -18,23 +18,37 @@
       </div>
     </div>
   </div>
-  {% for post in mission.posts %}
+  {% if mission.status == "locked" %}
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <strong>
-          <i>from</i>
-          <a href="#">{{ post.sender }}</a>
-          <i>at</i>
-          date
-        </strong>
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+          This mission is currently locked
+        </div>
 
+  {% else %}
+
+    {% for post in mission.posts %}
+
+      {% if post.status != "locked" %}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>
+            <i>from</i>
+            <a href="#">{{ post.sender }}</a>
+            <i>at</i>
+            date
+          </strong>
+
+        </div>
+        <div class="panel-body">
+          {{ post.html_en|safe }}
+        </div>
       </div>
-      <div class="panel-body">
-        {{ post.html_en|safe }}
-      </div>
-    </div>
-  {% endfor %}
+      {% endif %}
+    {% endfor %}
 
   {% include "puzzle_hero/flag_submission.html" %}
+  {% endif %}
+
 
 {% endblock %}
