@@ -213,6 +213,24 @@ svg {
 	width: 50px;
 	height: 50px;
 }
+
+.access-denied {
+	font-weight: bolder;
+	animation: blink 2s steps(5, start) infinite;
+	-webkit-animation: blink 2s steps(5, start) infinite;
+}
+
+@keyframes blink {
+to {
+	visibility: hidden;
+	}
+}
+@-webkit-keyframes blink {
+to {
+	visibility: hidden;
+	}
+}
+
 .team-flag {
 	opacity: 0.8
 }
