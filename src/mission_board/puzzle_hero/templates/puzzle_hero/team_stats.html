@@ -38,7 +38,7 @@
 	  {% for player in players %}
 	    <tr>
 		  <td width="7%" class="text-center">
-			<img class="player-rank" src="/static/puzzle_hero/images/rank{{ player.rank_level }}.png"/>
+			<img class="player-rank player-rank-xs" src="/static/puzzle_hero/images/rank{{ player.rank_level }}.png"/>
 		  </td>
 		  <th width="50%">
 		    <a href="{% url "profile" player.user.id %}">{{ player.display_name }}</a>
