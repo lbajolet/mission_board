@@ -1,3 +1,5 @@
+import os
+
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.contrib.auth import login
@@ -53,6 +55,44 @@ class EditProfileView(SuccessMessageMixin, FormView):
 
     def get_success_url(self):
         return "/auth/profile/" + str(self.request.user.id)
+
+    def form_valid(self, form):
+        user = self.request.user
+        if form.cleaned_data.get("display_name", None):
+            user.player.display_name = form.cleaned_data.get("display_name")
+        if form.cleaned_data.get("email", None):
+            user.email = form.cleaned_data.get("email")
+        if form.cleaned_data.get("first_name", None):
+            user.first_name = form.cleaned_data.get("first_name")
+        if form.cleaned_data.get("last_name", None):
+            user.last_name = form.cleaned_data.get("last_name")
+        if form.cleaned_data.get("curriculum_vitae", None):
+            path = self._handle_pdf(form.cleaned_data.get("curriculum_vitae"))
+            user.player.curriculum_vitae = path
+        user.player.save()
+        user.save()
+
+        return super(EditProfileView, self).form_valid(form)
+
+    def _handle_pdf(self, data):
+        filepath = 'cv/%s/%s_%s.pdf' % (self.request.user.player.team.name,
+                                        self.request.user.first_name,
+                                        self.request.user.last_name)
+
+        filepath = os.path.join(settings.MEDIA_ROOT, filepath)
+        dirpath = os.path.dirname(filepath)
+        print(dirpath)
+
+        if not os.path.isdir(dirpath):
+            os.makedirs(dirpath)
+
+        filepath = os.path.join(dirpath, filepath)
+        print(filepath)
+        with open(filepath, 'wb') as fd:
+            for chunk in data.chunks():
+                fd.write(chunk)
+
+        return filepath
 
 
 class ProfileView(DetailView):
