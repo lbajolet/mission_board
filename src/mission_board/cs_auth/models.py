@@ -27,3 +27,27 @@ class Player(models.Model):
                                   self.first_name,
                                   self.last_name,
                                   self.team)
+
+    def rank_level(self):
+	    if self.score < 10:
+		    return 1
+	    elif self.score < 25:
+		    return 2
+	    elif self.score < 50:
+		    return 3
+	    elif self.score < 100:
+		    return 4
+	    elif self.score < 250:
+		    return 5
+	    elif self.score < 500:
+		    return 6
+	    elif self.score < 1000:
+		    return 7
+	    elif self.score < 2500:
+		    return 8
+	    elif self.score < 5000:
+		    return 9
+	    elif self.score < 10000:
+		    return 10
+	    else:
+		    return 11

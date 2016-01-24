@@ -210,6 +210,8 @@ def team_stats(request, team_id):
     team = Team.objects.filter(id=team_id)[0]
 
     players = team.player_set.all().order_by("-score")
+    for player in players:
+        player.rank_level = player.rank_level()
 
     track_statuses = TrackStatus.objects.filter(team=team)
     completed_tracks = [ts.track for ts in track_statuses if ts.status in

@@ -199,3 +199,9 @@ svg {
 .mission-tip.mission-locked h3 { color: #777; }
 .mission-tip.mission-locked .tip-status { color: #777; }
 .mission-tip .tip-reward { color: green; }
+
+.player-rank {
+	width: 20px;
+	height: 20px;
+	opacity: 0.8;
+}

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block content %}
   <div class="panel panel-default">
@@ -6,24 +7,26 @@
       <h3 class="panel-title">Team Information</h3>
     </div>
     <div class="panel-body">
-      <table class="table table-hover">
-          <tr>
-            <td>Team Name:</td>
-            <td>{{ team }}</td>
-          </tr>
-        <tr>
-          <td>University:</td>
-          <td>{{ team.university }}</td>
-        </tr>
-        <tr>
-          <td>Score:</td>
-          <td>{{ team.score }}</td>
-        </tr>
-        <tr>
-          <td>Rank:</td>
-          <td>{{ team_rank }}/{{ team_count }} pas beau ca</td>
-        </tr>
-      </table>
+		<div class="container">
+			<div class="col-xs-3">
+				graph
+			</div>
+			<div class="col-xs-9">
+			  <h3>
+				  {{ team.name }}
+				  <br>
+				  <small>{{ team.university }}</small>
+			  </h3>
+			  <ul class="list-inline">
+			    <li>rank <b class="text-primary">#{{ team_rank }}</b></li>
+				<li class="text-center">-</li>
+				<li><b class="text-primary">{{ team.score }}</b> pts</li>
+			  </ul>
+			</div>
+		</div>
+	</div>
+
+	<div>
     </div>
   </div>
 
@@ -31,40 +34,49 @@
     <div class="panel-heading">
       <h3 class="panel-title">Players</h3>
     </div>
-    <div class="panel-body">
-      <table class="table table-hover">
-        {% for player in players %}
-          <tr>
-            <td><a href="{% url "profile" player.user.id %}">{{ player.display_name }}</a></td>
-            <td>{{ player.score }}</td>
-          </tr>
-        {% endfor %}
-      </table>
-    </div>
+    <table class="table table-hover">
+	  {% for player in players %}
+	    <tr>
+		  <td width="7%" class="text-center">
+			<img class="player-rank" src="/static/puzzle_hero/images/rank{{ player.rank_level }}.png"/>
+		  </td>
+		  <th width="50%">
+		    <a href="{% url "profile" player.user.id %}">{{ player.display_name }}</a>
+		  </th>
+		  <td>rank {{ player.score }}</td>
+		  <td>score {{ player.score }}</td>
+	    </tr>
+	  {% endfor %}
+	</table>
   </div>
 
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">Track and Mission Statuses</h3>
     </div>
-    <div class="panel-body">
       <table class="table table-hover">
-
-        {% for track in tracks %}
+      {% for track in tracks %}
+        <tr>
+          <td>{{ track.title|title }}</td>
+          <td>{{ track.reward }}</td>
+        </tr>
+        {% for mission in missions %}
+          {% if mission.track == track %}
           <tr>
-            <td>{{ track.title|title }}</td>
-            <td>{{ track.reward }}</td>
+            <td>&emsp;{{ mission.title|title }}</td>
+            <td>&emsp;{{ mission.reward }}</td>
           </tr>
-          {% for mission in missions %}
-            {% if mission.track == track %}
-            <tr>
-              <td>&emsp;{{ mission.title|title }}</td>
-              <td>&emsp;{{ mission.reward }}</td>
-            </tr>
-            {% endif %}
-          {% endfor %}
+          {% endif %}
         {% endfor %}
-      </table>
+      {% endfor %}
+    </table>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+		<h3 class="panel-title">Events</h3>
     </div>
+      <table class="table table-hover">
+      </table>
   </div>
 {% endblock %}
