@@ -10,7 +10,7 @@
     {% with tid=track.id %}
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">{{ track.title }}</h3>
+        <h3 class="panel-title"><a href="{% url "track_detail" tid %}">{{ track.title }}</a></h3>
       </div>
       <div class="panel-body">
         <div class="mission-tree">
