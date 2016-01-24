@@ -192,6 +192,14 @@ svg {
 	font-size: 12px;
 }
 
+.mission-tree .glyphicon {
+	position: inherit;
+	font-size: 2em;
+	line-height: 40px;
+	padding-left: 0.1em;
+	color: rgba(30, 30, 30, 0.5)
+}
+
 .mission-tip.mission-open h3 { color: #c83127; }
 .mission-tip.mission-open .tip-status { color: #c83127; }
 .mission-tip.mission-closed h3 { color: #3c763d; }

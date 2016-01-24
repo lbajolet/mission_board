@@ -20,7 +20,7 @@ function drawTree(selector, missions) {
 			var className = mission.status;
 			g.setNode(id, {
 				labelType: "html",
-				label: "<div class='number'>"+ mission.reward +"</div>",
+				label: "<div class='number'>"+ (mission.status == "locked"? "<span class='glyphicon glyphicon-lock'></span>" : mission.reward) +"</div>",
 				rx: 5,
 				ry: 5,
 				padding: 0,
