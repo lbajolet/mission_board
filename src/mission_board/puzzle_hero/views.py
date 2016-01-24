@@ -70,6 +70,7 @@ class TracksList(LoginRequiredMixin, ListView):
                         continue
 
                     mission_data = {}
+                    mission_data["title"] = ms.mission.title
                     mission_data["status"] = ms.status
                     mission_data["reward"] = ms.mission.reward
 
@@ -123,6 +124,8 @@ class TrackDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
                     if ps.status == "closed":
                         ms.posts_completed += 1
                     ms.post_total += 1
+
+            ms.progress = ms.posts_completed / ms.post_total * 100
 
         tree_data = self._build_tree_data(mission_statuses)
 

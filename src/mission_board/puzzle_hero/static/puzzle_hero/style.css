@@ -36,6 +36,30 @@ h1, h2, h3, h4, h5, h6 {
     border-top: 1px solid rgba(221, 221, 221, 0.5);
 }
 
+.table>tbody>tr.success>th, .table>tbody>tr.success>td { background-color: rgba(30, 100, 0, 0.2); }
+tr.success a, tr.success a { color: #3c763d; }
+tr.success i { color: #3c763d; }
+tr.success a:hover, tr.success a:hover { color: #419C00; }
+.table>tbody>tr.danger>th, .table>tbody>tr.danger>td { background-color: rgba(120, 30, 30, 0.2); }
+tr.danger i { color: #c83127; }
+tr.locked i { color: #888; }
+
+.table .progress { margin-bottom: 0}
+
+/* Progressbars */
+
+.progress {
+    background-color: rgba(30,30,30,0.5);
+}
+
+.progress-bar-success {
+	background-color: rgba(90, 180, 90, 0.5);
+}
+
+.progress-bar-danger {
+	background-color: rgba(220, 80, 80, 0.9);
+}
+
 /* Forms */
 
 .form-control, .btn {
@@ -120,6 +144,7 @@ svg {
 	width: 40px;
 	height: 40px;
 	color: #fff;
+	cursor: pointer;
 }
 
 .mission-tree .node rect {
@@ -161,3 +186,16 @@ svg {
 	stroke: rgba(150, 150, 150, 0.80);
 	fill: rgba(150, 150, 150, 0.80);
 }
+
+.mission-tree .number {
+	line-height: 40px;
+	font-size: 12px;
+}
+
+.mission-tip.mission-open h3 { color: #c83127; }
+.mission-tip.mission-open .tip-status { color: #c83127; }
+.mission-tip.mission-closed h3 { color: #3c763d; }
+.mission-tip.mission-closed .tip-status { color: #3c763d; }
+.mission-tip.mission-locked h3 { color: #777; }
+.mission-tip.mission-locked .tip-status { color: #777; }
+.mission-tip .tip-reward { color: green; }

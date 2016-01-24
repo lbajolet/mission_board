@@ -14,32 +14,55 @@ function drawTree(selector, missions) {
 	});
 
 	function draw(isUpdate) {
+		var i = 1;
 		for (var id in missions) {
 			var mission = missions[id];
 			var className = mission.status;
-			var html = "<div>";
-			html += "<span class=reward>"+mission.reward+"</span>";
-			// html += '<button type="button" class="btn btn-danger" data-toggle="popover" title="Popover title" data-content="And heres some amazing content. Its very engaging. Right?">r</button>' #}
-			html += "</div>";
 			g.setNode(id, {
 				labelType: "html",
-				label: html,
+				label: "<div class='number'>"+ mission.reward +"</div>",
 				rx: 5,
 				ry: 5,
 				padding: 0,
+				id: id,
 				class: className
 			});
 
-			for(i in mission.dependencies) {
-				var did = mission.dependencies[i];
+			for(j in mission.dependencies) {
+				var did = mission.dependencies[j];
 				g.setEdge(did, id, {
 					width: 40,
 					class: missions[did].status
 				});
 			}
+
+			i += 1;
 		}
 
 		inner.call(render, g);
+
+		$("svg .node").tipsy({
+			gravity: $.fn.tipsy.autoNS,
+			fade: true,
+			html: true,
+			title: function() {
+				var mission = missions[this.id];
+				return "<div class='mission-tip mission-" + mission.status + "'>" +
+							"<h3>" + mission.title + "</h3>" +
+							"<p>Reward: <b class='tip-reward'>" + mission.reward + "</b></p>" +
+							"<p>Status: <b class='tip-status'>" + mission.status + "</b></p>" +
+						"</div>"
+				// console.log(missions)
+				// return "hello le dlskdjfd fdss fd sf sdf dfs df sdf sdf"
+			}
+		});
+		$("svg .node").click(function() {
+			window.location.href = "/mission/" + this.id;
+		});
+		// inner.selectAll("g.node")
+			// .attr("title", function(v) { return styleTooltip("name", "coucou") })
+			// .each(function(v) { $(this).tipsy({ gravity: "w", opacity: 1, html: true }); });
+
 
 		// Zoom and scale to fit
 		var graphWidth = g.graph().width;
@@ -63,6 +86,6 @@ function drawTree(selector, missions) {
 
 $(".track-tree").each(function(index, item) {
 	var json = atob($(item).data('json'));
-  json = JSON.parse(json);
+	json = JSON.parse(json);
 	drawTree(item, json);
 });
