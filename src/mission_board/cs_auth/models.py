@@ -19,6 +19,7 @@ class Player(models.Model):
     last_name = models.CharField(max_length=128)
     display_name = models.CharField(max_length=128)
     team = models.ForeignKey(Team)
+    curriculum_vitae = models.FileField(blank=True, max_length=20000)
     score = models.IntegerField(default=0)
 
     def __str__(self):

@@ -1,14 +1,17 @@
+from django.contrib.auth.models import User
 from django.conf import settings
 from django.contrib.auth import login
 from django.contrib.auth.views import logout
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
-from django.views.generic.edit import FormView
 from django.views.generic import RedirectView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import FormView, UpdateView
 
 
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm, RegisterForm, ProfileForm
+from .models import Player
 
 
 class LoginView(SuccessMessageMixin, FormView):
@@ -41,3 +44,18 @@ class RegisterView(SuccessMessageMixin, FormView):
     def form_valid(self, form):
         form.save()
         return super(RegisterView, self).form_valid(form)
+
+
+class EditProfileView(SuccessMessageMixin, FormView):
+    form_class = ProfileForm
+    template_name = "cs_auth/form_view.html"
+    success_message = "Profile successfully updated!"
+
+    def get_success_url(self):
+        return "/auth/profile/" + str(self.request.user.id)
+
+
+class ProfileView(DetailView):
+    model = User
+    template_name = "cs_auth/profile.html"
+

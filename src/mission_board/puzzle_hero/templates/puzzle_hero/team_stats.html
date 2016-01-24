@@ -35,7 +35,7 @@
       <table class="table table-hover">
         {% for player in players %}
           <tr>
-            <td>{{ player.display_name }}</td>
+            <td><a href="{% url "profile" player.user.id %}">{{ player.display_name }}</a></td>
             <td>{{ player.score }}</td>
           </tr>
         {% endfor %}
