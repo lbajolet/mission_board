@@ -25,7 +25,7 @@
     {% with tid=track.id %}
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">{{ track.title }}</h3>
+        <h3 class="panel-title"><a href="{% url "track_detail" tid %}">{{ track.title }}</a></h3>
       </div>
       <div class="panel-body">
         <div class="mission-tree">
@@ -36,7 +36,7 @@
         {% for mission in track.missions %}
           <tr>
             <td>
-              <a href="/missions/{{mission.id}}">{{ mission.title }}</a>
+              <a href="{% url "mission_page" mission.id %}">{{ mission.title }}</a>
             </td>
             <td>{{ mission.reward }}</td>
           </tr>

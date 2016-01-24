@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, FormView
+from django.views.generic import ListView, FormView, DetailView
 
 from cs_auth.models import Team
 
@@ -92,6 +92,72 @@ class TracksList(LoginRequiredMixin, ListView):
         return data
 
 
+class TrackDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+
+    model = Track
+    template_name = "puzzle_hero/track_detail.html"
+
+    def test_func(self):
+        return user_is_player(self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super(TrackDetail, self).get_context_data(**kwargs)
+
+        team = self.request.user.player.team
+        mission_statuses = MissionStatus.objects.filter(
+            team=team,
+            mission__track=self.object
+        )
+
+        post_statuses = PostStatus.objects.filter(
+            team=team,
+            post__mission__track=self.object
+        )
+
+        for ms in mission_statuses:
+            ms.posts_completed = 0
+            ms.post_total = 0
+
+            for ps in post_statuses:
+                if ps.post.mission == ms.mission:
+                    if ps.status == "closed":
+                        ms.posts_completed += 1
+                    ms.post_total += 1
+
+        tree_data = self._build_tree_data(mission_statuses)
+
+        context['flag_form'] = FlagSubmissionForm()
+        context['tree_data'] = tree_data
+        context['mission_statuses'] = mission_statuses
+        context['post_statuses'] = post_statuses
+
+        return context
+
+    def _build_tree_data(self, mission_statuses):
+        data = {}
+
+        for ms in mission_statuses:
+            if ms.mission.track != self.object:
+                continue
+
+            mission_data = {}
+            mission_data["status"] = ms.status
+            mission_data["reward"] = ms.mission.reward
+
+            dep_data = []
+            for dep in ms.mission.dependencies.all():
+                dep_data.append(dep.id)
+            if len(dep_data) > 0:
+                mission_data["dependencies"] = dep_data
+
+            data[ms.mission.id] = mission_data
+
+        data = base64.b64encode(
+            json.dumps(data).encode("ascii")
+        )
+
+        return data
+
 
 class MissionPage(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Mission
@@ -113,6 +179,8 @@ class MissionPage(LoginRequiredMixin, UserPassesTestMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(MissionPage, self).get_context_data(**kwargs)
         context['flag_form'] = FlagSubmissionForm()
+
+        context["nav"] = "mission_board"
         return context
 
 
@@ -133,7 +201,6 @@ class Scoreboard(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return context
 
 
-
 @login_required
 @user_passes_test(user_is_player)
 def team_stats(request, team_id):
@@ -143,7 +210,8 @@ def team_stats(request, team_id):
 
     track_statuses = TrackStatus.objects.filter(team=team)
     completed_tracks = [ts.track for ts in track_statuses if ts.status in
-                        ["open", "closed"]]
+                        [""
+                         "", "closed"]]
 
     mission_statuses = MissionStatus.objects.filter(team=team)
     completed_missions = [ms.mission for ms in mission_statuses if ms.status in
