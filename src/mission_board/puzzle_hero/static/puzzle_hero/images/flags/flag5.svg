@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" x="0" y="0" width="360" height="240">
+<rect width="360" height="240" x="0" y="0" fill="#ce1126" />
+<polygon points="0,0 180,120 0,240" fill="#ff8430" />
+<g transform="translate(55.000000,120.000000)">
+<g transform="scale(0.400000)">
+<g transform="translate(-125.000000,-123.000000)">
+
+<polygon style="fill:#fcd116;stroke:#000;stroke-width:4" points="125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90"/>
+</g>
+</g>
+</g>
+</svg>
+

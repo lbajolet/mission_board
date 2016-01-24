@@ -6,6 +6,7 @@ class Team(models.Model):
     name = models.CharField(max_length=128)
     token = models.CharField(max_length=128)
     university = models.CharField(max_length=128)
+    flag = models.CharField(max_length=128)
     score = models.IntegerField()
 
     def __str__(self):

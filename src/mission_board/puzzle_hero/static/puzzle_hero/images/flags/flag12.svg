@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" x="0" y="0" width="360" height="240">
+<rect width="360" height="80" x="0" y="0" fill="#00335b" />
+  <rect width="360" height="80" x="0" y="80" fill="#75aadb" />
+  <rect width="360" height="80" x="0" y="160" fill="#ce1126" />
+<circle cx="180" cy="120" r="90" fill="#ffffff" />
+</svg>
+
