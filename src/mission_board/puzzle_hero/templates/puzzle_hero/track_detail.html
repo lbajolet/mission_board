@@ -4,10 +4,6 @@
 
 {% block content %}
 
-  {% for ann in announcements %}
-    {{ ann }}
-  {% endfor %}
-
   {% if status == "locked" %}
 
     <div class="panel panel-default">
@@ -60,52 +56,58 @@
               <th width="10%" class="text-success">{{ ms.mission.reward }}</td>
               <td width="10%"><i>{{ ms.status }}</i></td>
               <td>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{ ms.progress }}%">
-                    {% if ms.posts_completed > 0 %}
-                      <span>{{ ms.posts_completed }} / {{ ms.post_total }}</span>
-                    {% endif %}
-                  </div>
-                </div>
-              </td>
+				  <div class="progress">
+					  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{ ms.progress }}%">
+						  {% if ms.posts_completed > 0 %}
+					        <span>{{ ms.posts_completed }} / {{ ms.post_total }}</span>
+						  {% endif %}
+					</div>
+				  </div>
+			  </td>
             </tr>
-          {% elif ms.status == "closed" %}
+		  {% elif ms.status == "closed" %}
             <tr class="success">
               <th width="40%">
                 <a href="{% url "mission_page" ms.mission.id %}">{{ ms.mission.title }}</a>
               </th>
               <th width="10%" class="text-success">{{ ms.mission.reward }}</td>
-              <td width="10%"><i>{{ ms.status }}</i></td>
+			  <td width="10%"><i>{{ ms.status }}</i></td>
               <td>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                    <span>{{ ms.posts_completed }} / {{ ms.post_total }}</span>
-                  </div>
-                </div>
-              </td>
+				  <div class="progress">
+					  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+					    <span>{{ ms.posts_completed }} / {{ ms.post_total }}</span>
+					</div>
+				  </div>
+			  </td>
             </tr>
-          {% else %}
+		  {% else %}
             <tr class="locked">
               <th width="40%">
                 {{ ms.mission.title }}
               </th>
               <th width="10%" class="text-success">{{ ms.mission.reward }}</td>
-              <td width="10%"><i>{{ ms.status }}</i></td>
+			  <td width="10%"><i>{{ ms.status }}</i></td>
               <td>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                  </div>
-                </div>
-              </td>
-            </tr>
-          {% endif %}
+				  <div class="progress">
+					  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+					</div>
+				  </div>
+			  </td>
+</tr>
+		  {% endif %}
         {% endfor %}
       </table>
     </div>
 
-    {% include "puzzle_hero/flag_submission.html" %}
+  {% for ann in announcements %}
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ ann.time }}</h3>
+      </div>
+      <div class="panel-body">{{ ann.message }}</div>
+    </div>
+  {% endfor %}
 
-  {% endif %}
-
+  {% include "puzzle_hero/flag_submission.html" %}
 
 {% endblock %}

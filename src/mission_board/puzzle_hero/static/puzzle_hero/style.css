@@ -45,6 +45,7 @@ tr.danger i { color: #c83127; }
 tr.locked i { color: #888; }
 
 .table .progress { margin-bottom: 0}
+.panel-heading .progress { margin-bottom: 10px}
 
 /* Progressbars */
 
@@ -89,6 +90,17 @@ tr.locked i { color: #888; }
 	color: #eee;
 	background-color: rgba(50, 120, 180, 0.1);
 	border-color: rgba(50, 120, 180, 0.1);
+}
+
+.panel-warning {
+	background-color: rgba(255, 180, 0, 0.1);
+	border-color: rgba(255, 180, 0, 0.1);
+}
+
+.panel-warning .panel-heading {
+	color: #eee;
+	background-color: rgba(255, 180, 0, 0.1);
+	border-color: rgba(255, 180, 0, 0.1);
 }
 
 .panel-rebels {

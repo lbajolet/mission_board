@@ -23,6 +23,7 @@ class TrackStatusAdmin(admin.ModelAdmin):
 
 class MissionStatusAdmin(admin.ModelAdmin):
     ordering = ("team__name", "mission__title")
+    list_display = ('team', 'mission', 'status')
 
 
 class PostStatusAdmin(admin.ModelAdmin):

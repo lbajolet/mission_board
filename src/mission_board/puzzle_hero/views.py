@@ -14,7 +14,7 @@ from cs_auth.models import Team
 from .forms import FlagSubmissionForm, GlobalAnnouncementForm
 from .models import Mission, MissionStatus, Post, PostStatus, Track, \
     TrackStatus, Submission, Flag, GlobalAnnouncement, TeamAnnouncement, \
-    TrackAnnouncement, MissionAnnouncement
+    TrackAnnouncement, MissionAnnouncement, PostAnnouncement
 from .triggers import process_flag_submission
 
 import json
@@ -54,8 +54,7 @@ class TracksList(LoginRequiredMixin, ListView):
         tree_data = self._build_tree_data(track_statuses, mission_statuses)
         context["tree_data"] = tree_data
 
-        context["global_announcements"] = GlobalAnnouncement.objects.all()
-        context["team_announcements"] = TeamAnnouncement.objects.filter(team=team)
+        context["team_announcements"] = TeamAnnouncement.objects.filter(team=team).order_by("-time")
 
         context["nav"] = "missions"
 
@@ -137,7 +136,7 @@ class TrackDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         context['tree_data'] = tree_data
         context['announcements'] = TrackAnnouncement.objects.filter(
             track=self.object
-        )
+        ).order_by('-time')
         context['mission_statuses'] = mission_statuses
         context['post_statuses'] = post_statuses
         context['status'] = TrackStatus.objects.filter(track=self.object,
@@ -153,6 +152,7 @@ class TrackDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
                 continue
 
             mission_data = {}
+            mission_data["title"] = ms.mission.title
             mission_data["status"] = ms.status
             mission_data["reward"] = ms.mission.reward
 
@@ -193,13 +193,22 @@ class MissionPage(LoginRequiredMixin, UserPassesTestMixin, ListView):
             post__mission=mission,
             team=self.request.user.player.team
         )
+
+        mission.posts_total = 0
+        mission.posts_completed = 0
+
         for post in mission.posts:
             post.html_en = markdown.markdown(post.md_en)
             post.html_fr = markdown.markdown(post.md_fr)
             for ps in post_statuses:
                 if ps.post == post:
                     post.status = ps.status
+                    if ps.status == "closed":
+                        mission.posts_completed += 1
+                    mission.posts_total += 1
+            post.announcements = PostAnnouncement.objects.filter(post=post).order_by('-time')
 
+        mission.progress = mission.posts_completed / mission.posts_total * 100
         mission.announcements = MissionAnnouncement.objects.filter(
             mission=mission
         )
@@ -311,6 +320,7 @@ class GlobalAnnouncementList(LoginRequiredMixin, ListView):
     model = GlobalAnnouncement
     template_name = "puzzle_hero/announcements.html"
     context_object_name = "announcements"
+    ordering = '-time'
 
     def get_context_data(self, **kwargs):
         context = super(GlobalAnnouncementList, self).get_context_data(**kwargs)

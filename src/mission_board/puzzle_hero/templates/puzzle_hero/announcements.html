@@ -2,19 +2,20 @@
 
 {% load crispy_forms_tags %}
 
-
 {% block content %}
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Announcements</h3>
-    </div>
-    <table class="table table-hover">
-      {% for ann in announcements %}
-        <tr>
-          <td>{{ ann.time }}</td>
-          <td>{{ ann.message }}</td>
-        </tr>
-      {% endfor %}
-    </table>
-  </div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h1>Announcements</h1>
+		</div>
+	</div>
+
+	{% for ann in announcements %}
+		<div class="panel panel-warning">
+			<div class="panel-heading">
+				<h3 class="panel-title">{{ ann.time }}</h3>
+			</div>
+			<div class="panel-body">{{ ann.message }}</div>
+		</div>
+	{% endfor %}
+
 {% endblock %}

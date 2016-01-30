@@ -6,14 +6,6 @@
 
 {% block content %}
 
-  {% for ann in global_announcements %}
-    {{ ann }}
-  {% endfor %}
-
-  {% for ann in team_announcements %}
-    {{ ann }}
-  {% endfor %}
-
   {% for track in tracks %}
     {% if track.disabled == False %}
       {% with tid=track.id %}
@@ -29,6 +21,15 @@
         </div>
       {% endwith %}
     {% endif %}
+  {% endfor %}
+
+  {% for ann in team_announcements %}
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ ann.time }}</h3>
+      </div>
+      <div class="panel-body">{{ ann.message }}</div>
+    </div>
   {% endfor %}
 
   {% include "puzzle_hero/flag_submission.html" %}
