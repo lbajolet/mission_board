@@ -217,5 +217,5 @@ class PostAnnouncement(Announcement):
         return "[%s] %s: %s: %s: %s" % (self.time.strftime("%Y/%m/%d - %H:%M"),
                                         self.post.mission.track.title,
                                         self.post.mission.title,
-                                        self.post.post.id,
+                                        self.post.id,
                                         to_s_msg)

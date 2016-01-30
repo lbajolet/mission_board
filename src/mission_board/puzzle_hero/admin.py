@@ -23,7 +23,19 @@ class TrackStatusAdmin(admin.ModelAdmin):
 
 class MissionStatusAdmin(admin.ModelAdmin):
     ordering = ("team__name", "mission__title")
-    list_display = ('team', 'mission', 'status')
+    list_display = ('team', 'get_university', 'get_track', 'mission', 'status')
+    search_fields = ('status', 'team__name', 'mission__title',
+                     'mission__track__title', 'team__university')
+
+    def get_track(self, obj):
+        return obj.mission.track.title
+    get_track.short_description = 'Track'
+    get_track.admin_order_field = 'mission__track__title'
+
+    def get_university(self, obj):
+        return obj.team.university
+    get_university.short_description = 'University'
+    get_university.admin_order_field = 'team__university'
 
 
 class PostStatusAdmin(admin.ModelAdmin):

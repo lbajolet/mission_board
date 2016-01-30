@@ -10,7 +10,7 @@ class Team(models.Model):
     score = models.IntegerField()
 
     def __str__(self):
-        return "%s - %s" % (self.name, self.university)
+        return self.name
 
 
 class Player(models.Model):
@@ -30,25 +30,25 @@ class Player(models.Model):
                                   self.team)
 
     def rank_level(self):
-	    if self.score < 10:
-		    return 1
-	    elif self.score < 25:
-		    return 2
-	    elif self.score < 50:
-		    return 3
-	    elif self.score < 100:
-		    return 4
-	    elif self.score < 250:
-		    return 5
-	    elif self.score < 500:
-		    return 6
-	    elif self.score < 1000:
-		    return 7
-	    elif self.score < 2500:
-		    return 8
-	    elif self.score < 5000:
-		    return 9
-	    elif self.score < 10000:
-		    return 10
-	    else:
-		    return 11
+        if self.score < 10:
+            return 1
+        elif self.score < 25:
+            return 2
+        elif self.score < 50:
+            return 3
+        elif self.score < 100:
+            return 4
+        elif self.score < 250:
+            return 5
+        elif self.score < 500:
+            return 6
+        elif self.score < 1000:
+            return 7
+        elif self.score < 2500:
+            return 8
+        elif self.score < 5000:
+            return 9
+        elif self.score < 10000:
+            return 10
+        else:
+            return 11
