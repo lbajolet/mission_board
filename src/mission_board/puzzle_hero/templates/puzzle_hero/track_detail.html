@@ -20,6 +20,19 @@
       </div>
     </div>
 
+  {% elif track.disabled %}
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h1 class="access-denied text-center">TRACK DISABLED
+          <br>
+          <br>
+          <small>WE MIGHT HAVE BEEN SPOTTED. <br />
+            REFRAIN OF CONTRIBUTING TO THIS TASK UNTIL ISSUES ARE RESOLVED.</small>
+        </h1>
+      </div>
+    </div>
+
   {% else %}
 
     <div class="panel panel-default">
@@ -90,7 +103,7 @@
       </table>
     </div>
 
-  {% include "puzzle_hero/flag_submission.html" %}
+    {% include "puzzle_hero/flag_submission.html" %}
 
   {% endif %}
 

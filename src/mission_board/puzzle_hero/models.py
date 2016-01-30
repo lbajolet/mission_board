@@ -13,6 +13,7 @@ class Track(models.Model):
     title = models.CharField(max_length=255)
     dependencies = models.ManyToManyField("self", related_name="required_for",
                                           blank=True, symmetrical=False)
+    disabled = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -26,6 +27,7 @@ class Mission(models.Model):
     reward = models.IntegerField()
     dependencies = models.ManyToManyField("self", related_name="required_for",
                                           blank=True, symmetrical=False)
+    disabled = models.BooleanField(default=False)
 
     def __str__(self):
         return "%s: %s" % (self.track, self.title)

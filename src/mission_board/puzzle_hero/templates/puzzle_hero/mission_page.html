@@ -23,39 +23,55 @@
       </div>
     </div>
   </div>
+
   {% if mission.status == "locked" %}
+
     <div class="panel panel-default">
-        <div class="panel-body">
-			<h1 class="access-denied text-center">ACCESS DENIED
-				<br>
-				<br>
-				<small>YOU DO NOT HAVE THE NECESSARY CLEARANCE TO ACCESS THIS FILE.</small>
-			</h1>
-        </div>
+      <div class="panel-body">
+        <h1 class="access-denied text-center">ACCESS DENIED
+          <br>
+          <br>
+          <small>YOU DO NOT HAVE THE NECESSARY CLEARANCE TO ACCESS THIS FILE.</small>
+        </h1>
+      </div>
+    </div>
+
+  {% elif mission.disabled %}
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h1 class="access-denied text-center">MISSION DISABLED
+          <br>
+          <br>
+          <small>WE MIGHT HAVE BEEN SPOTTED. <br />
+            REFRAIN OF CONTRIBUTING TO THIS TASK UNTIL ISSUES ARE RESOLVED.</small>
+        </h1>
+      </div>
+    </div>
 
   {% else %}
 
     {% for post in mission.posts %}
 
       {% if post.status != "locked" %}
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <strong>
-            <i>from</i>
-            <a href="#">{{ post.sender }}</a>
-            <i>at</i>
-            date
-          </strong>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>
+              <i>from</i>
+              <a href="#">{{ post.sender }}</a>
+              <i>at</i>
+              date
+            </strong>
 
+          </div>
+          <div class="panel-body">
+            {{ post.html_en|safe }}
+          </div>
         </div>
-        <div class="panel-body">
-          {{ post.html_en|safe }}
-        </div>
-      </div>
       {% endif %}
     {% endfor %}
 
-  {% include "puzzle_hero/flag_submission.html" %}
+    {% include "puzzle_hero/flag_submission.html" %}
   {% endif %}
 
 

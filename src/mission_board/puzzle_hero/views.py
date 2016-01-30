@@ -7,7 +7,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.utils.decorators import method_decorator
 from django.views.generic import ListView, FormView, DetailView
 
 from cs_auth.models import Team
