@@ -205,7 +205,7 @@ class MissionPage(LoginRequiredMixin, UserPassesTestMixin, ListView):
                     if ps.status == "closed":
                         mission.posts_completed += 1
                     mission.posts_total += 1
-            post.announcements = PostAnnouncement.objects.filter(post=post)
+            post.announcements = PostAnnouncement.objects.filter(post=post).order_by('-time')
 
         mission.progress = mission.posts_completed / mission.posts_total * 100
         mission.announcements = MissionAnnouncement.objects.filter(
