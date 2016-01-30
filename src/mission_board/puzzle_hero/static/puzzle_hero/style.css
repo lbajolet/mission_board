@@ -45,6 +45,7 @@ tr.danger i { color: #c83127; }
 tr.locked i { color: #888; }
 
 .table .progress { margin-bottom: 0}
+.panel-heading .progress { margin-bottom: 10px}
 
 /* Progressbars */
 
