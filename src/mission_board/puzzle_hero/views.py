@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.utils.decorators import method_decorator
 from django.views.generic import ListView, FormView, DetailView
 
 from cs_auth.models import Team
@@ -140,6 +141,8 @@ class TrackDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         )
         context['mission_statuses'] = mission_statuses
         context['post_statuses'] = post_statuses
+        context['status'] = TrackStatus.objects.filter(track=self.object,
+                                                       team=team).first().status
 
         return context
 
@@ -314,7 +317,6 @@ class GlobalAnnouncementList(LoginRequiredMixin, ListView):
         context = super(GlobalAnnouncementList, self).get_context_data(**kwargs)
         context["nav"] = "announcements"
         return context
-
 
 
 @login_required
