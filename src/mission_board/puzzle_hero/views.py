@@ -319,6 +319,7 @@ class GlobalAnnouncementList(LoginRequiredMixin, ListView):
     model = GlobalAnnouncement
     template_name = "puzzle_hero/announcements.html"
     context_object_name = "announcements"
+    ordering = '-time'
 
     def get_context_data(self, **kwargs):
         context = super(GlobalAnnouncementList, self).get_context_data(**kwargs)
