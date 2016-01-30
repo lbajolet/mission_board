@@ -137,7 +137,7 @@ class TrackDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         context['tree_data'] = tree_data
         context['announcements'] = TrackAnnouncement.objects.filter(
             track=self.object
-        )
+        ).order_by('-time')
         context['mission_statuses'] = mission_statuses
         context['post_statuses'] = post_statuses
 
