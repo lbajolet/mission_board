@@ -192,13 +192,21 @@ class MissionPage(LoginRequiredMixin, UserPassesTestMixin, ListView):
             post__mission=mission,
             team=self.request.user.player.team
         )
+
+        mission.posts_total = 0
+        mission.posts_completed = 0
+
         for post in mission.posts:
             post.html_en = markdown.markdown(post.md_en)
             post.html_fr = markdown.markdown(post.md_fr)
             for ps in post_statuses:
                 if ps.post == post:
                     post.status = ps.status
+                    if ps.status == "closed":
+                        mission.posts_completed += 1
+                    mission.posts_total += 1
 
+        mission.progress = mission.posts_completed / mission.posts_total * 100
         mission.announcements = MissionAnnouncement.objects.filter(
             mission=mission
         )

@@ -10,17 +10,20 @@
   {% endfor %}
 
   <div class="panel panel-default">
-    <div class="panel-heading container-fluid">
-      <div class="col-xs-9">
-        <h3>{{mission.title}}</h3>
-      </div>
-      <div class="col-xs-3">
-        <ul class="list-unstyled">
-          <li><i>status:</i> <strong>{{ mission.status }}</strong></li>
-          <li><i>last update:</i><strong>date</strong></li>
-          <li><i>reward:</i> <strong>{{ mission.reward }} pts</strong></li>
-        </ul>
-      </div>
+    <div class="panel-heading">
+      <h1>
+		{{mission.title}}
+		<small>{{ mission.reward }} pts</small>
+	  </h1>
+      {% if mission.status != "locked" %}
+	    <div class="progress">
+	      <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{ mission.progress }}%">
+			  {% if mission.posts_completed > 0 %}
+		        <span>{{ mission.posts_completed }} / {{ mission.posts_total }}</span>
+			  {% endif %}
+		  </div>
+	    </div>
+      {% endif %}
     </div>
   </div>
   {% if mission.status == "locked" %}
@@ -32,7 +35,7 @@
 				<small>YOU DO NOT HAVE THE NECESSARY CLEARANCE TO ACCESS THIS FILE.</small>
 			</h1>
         </div>
-
+	</div>
   {% else %}
 
     {% for post in mission.posts %}
