@@ -4,6 +4,11 @@
 
 
 {% block content %}
+
+  {% for ann in mission.announcements %}
+    {{ ann }}
+  {% endfor %}
+
   <div class="panel panel-default">
     <div class="panel-heading container-fluid">
       <div class="col-xs-9">

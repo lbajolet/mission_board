@@ -13,7 +13,8 @@ from cs_auth.models import Team
 
 from .forms import FlagSubmissionForm, GlobalAnnouncementForm
 from .models import Mission, MissionStatus, Post, PostStatus, Track, \
-    TrackStatus, Submission, Flag
+    TrackStatus, Submission, Flag, GlobalAnnouncement, TeamAnnouncement, \
+    TrackAnnouncement, MissionAnnouncement
 from .triggers import process_flag_submission
 
 import json
@@ -52,6 +53,9 @@ class TracksList(LoginRequiredMixin, ListView):
 
         tree_data = self._build_tree_data(track_statuses, mission_statuses)
         context["tree_data"] = tree_data
+
+        context["global_announcements"] = GlobalAnnouncement.objects.all()
+        context["team_announcements"] = TeamAnnouncement.objects.filter(team=team)
 
         context["nav"] = "missions"
 
@@ -131,6 +135,9 @@ class TrackDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
         context['flag_form'] = FlagSubmissionForm()
         context['tree_data'] = tree_data
+        context['announcements'] = TrackAnnouncement.objects.filter(
+            track=self.object
+        )
         context['mission_statuses'] = mission_statuses
         context['post_statuses'] = post_statuses
 
@@ -190,6 +197,10 @@ class MissionPage(LoginRequiredMixin, UserPassesTestMixin, ListView):
             for ps in post_statuses:
                 if ps.post == post:
                     post.status = ps.status
+
+        mission.announcements = MissionAnnouncement.objects.filter(
+            mission=mission
+        )
 
         return mission
 

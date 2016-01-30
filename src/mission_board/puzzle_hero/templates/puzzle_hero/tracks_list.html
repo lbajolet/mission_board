@@ -6,6 +6,14 @@
 
 {% block content %}
 
+  {% for ann in global_announcements %}
+    {{ ann }}
+  {% endfor %}
+
+  {% for ann in team_announcements %}
+    {{ ann }}
+  {% endfor %}
+
   {% for track in tracks %}
     {% with tid=track.id %}
     <div class="panel panel-default">
