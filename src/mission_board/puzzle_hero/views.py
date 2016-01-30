@@ -314,6 +314,18 @@ def submit_flag(request):
         return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
+class GlobalAnnouncementList(LoginRequiredMixin, ListView):
+    model = GlobalAnnouncement
+    template_name = "puzzle_hero/announcements.html"
+    context_object_name = "announcements"
+
+    def get_context_data(self, **kwargs):
+        context = super(GlobalAnnouncementList, self).get_context_data(**kwargs)
+        context["nav"] = "announcements"
+        return context
+
+
+
 @login_required
 @user_passes_test(user_is_csadmin)
 def csadmin_index(request):
