@@ -54,8 +54,7 @@ class TracksList(LoginRequiredMixin, ListView):
         tree_data = self._build_tree_data(track_statuses, mission_statuses)
         context["tree_data"] = tree_data
 
-        context["global_announcements"] = GlobalAnnouncement.objects.all()
-        context["team_announcements"] = TeamAnnouncement.objects.filter(team=team)
+        context["team_announcements"] = TeamAnnouncement.objects.filter(team=team).order_by("-time")
 
         context["nav"] = "missions"
 
