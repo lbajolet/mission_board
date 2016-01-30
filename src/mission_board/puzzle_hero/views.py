@@ -14,7 +14,7 @@ from cs_auth.models import Team
 from .forms import FlagSubmissionForm, GlobalAnnouncementForm
 from .models import Mission, MissionStatus, Post, PostStatus, Track, \
     TrackStatus, Submission, Flag, GlobalAnnouncement, TeamAnnouncement, \
-    TrackAnnouncement, MissionAnnouncement
+    TrackAnnouncement, MissionAnnouncement, PostAnnouncement
 from .triggers import process_flag_submission
 
 import json
@@ -205,6 +205,7 @@ class MissionPage(LoginRequiredMixin, UserPassesTestMixin, ListView):
                     if ps.status == "closed":
                         mission.posts_completed += 1
                     mission.posts_total += 1
+            post.announcements = PostAnnouncement.objects.filter(post=post)
 
         mission.progress = mission.posts_completed / mission.posts_total * 100
         mission.announcements = MissionAnnouncement.objects.filter(

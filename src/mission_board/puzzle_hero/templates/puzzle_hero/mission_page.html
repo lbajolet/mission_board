@@ -41,20 +41,28 @@
     {% for post in mission.posts %}
 
       {% if post.status != "locked" %}
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <strong>
-            <i>from</i>
-            <a href="#">{{ post.sender }}</a>
-            <i>at</i>
-            date
-          </strong>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>
+              <i>from</i>
+              <a href="#">{{ post.sender }}</a>
+              <i>at</i>
+              date
+            </strong>
+          </div>
+          <div class="panel-body">
+            {{ post.html_en|safe }}
+          </div>
+        </div>
 
-        </div>
-        <div class="panel-body">
-          {{ post.html_en|safe }}
-        </div>
-      </div>
+	    {% for ann in post.announcements %}
+		  <div class="panel panel-warning">
+		    <div class="panel-heading">
+			  <h3 class="panel-title">{{ ann.time }}</h3>
+		    </div>
+		    <div class="panel-body">{{ ann.message }}</div>
+		  </div>
+	    {% endfor %}
       {% endif %}
     {% endfor %}
 
