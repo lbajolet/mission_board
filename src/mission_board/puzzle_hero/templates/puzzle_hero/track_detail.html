@@ -30,7 +30,7 @@
 			  <td width="10%"><i>{{ ms.status }}</i></td>
               <td>
 				  <div class="progress">
-					  <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{ ms.progress }}%">
+					  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{ ms.progress }}%">
 						  {% if ms.posts_completed > 0 %}
 					        <span>{{ ms.posts_completed }} / {{ ms.post_total }}</span>
 						  {% endif %}
@@ -47,7 +47,7 @@
 			  <td width="10%"><i>{{ ms.status }}</i></td>
               <td>
 				  <div class="progress">
-					  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+					  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
 					    <span>{{ ms.posts_completed }} / {{ ms.post_total }}</span>
 					</div>
 				  </div>
@@ -62,7 +62,7 @@
 			  <td width="10%"><i>{{ ms.status }}</i></td>
               <td>
 				  <div class="progress">
-					  <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+					  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
 					</div>
 				  </div>
 			  </td>
