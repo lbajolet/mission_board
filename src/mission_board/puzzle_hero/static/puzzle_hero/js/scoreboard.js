@@ -1,3 +1,5 @@
+var format = d3.time.format("%m/%d %H:%M")
+
 function drawGraph(selector, data) {
 	var svg = d3.select(selector),
 		width = $(selector).parent().width(),
@@ -36,7 +38,7 @@ function drawGraph(selector, data) {
 	.offset([120, 40])
 	.html(function(d) {
 		return "<strong>" + d.team + "</strong><br>" +
-				"<i>" + d.timestamp + "</i><br>" +
+				"<i>" + format(new Date(d.timestamp * 1000)) + "</i><br>" +
 				d.score + " pts";
 	});
 	svg.call(tip);
@@ -48,13 +50,14 @@ function drawGraph(selector, data) {
 			.attr('stroke', team.color);
 
 		var last = team.scores[team.scores.length - 1]
-		console.log(last);
-		svg.append("text")
+		svg.append("a")
 			.attr("class", "team-lbl")
 			.attr("transform", "translate(" + x(last.timestamp) + "," + y(last.score) + ")")
-			.attr("dx", "15px")
-			.attr("text-anchor", "start")
-			.text(team.team);
+			.attr("xlink:href", "/team/" + team.id)
+			.append("text")
+				.attr("dx", "15px")
+				.attr("text-anchor", "start")
+				.text(team.name);
 
 		svg.selectAll("dot")
 			.data(team.scores)
