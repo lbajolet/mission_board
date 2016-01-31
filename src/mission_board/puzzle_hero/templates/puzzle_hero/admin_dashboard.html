@@ -1,0 +1,119 @@
+{% extends "admin.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+		<div class="col-xs-8">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<svg id="scoregraph" height="300" data-json="ew0KCSJtaW5EYXRlIjogMTQ1Nzc0MDgwMCwNCgkibWF4RGF0ZSI6IDE0NTc4NzIyMDAsDQoJIm1pblNjb3JlIjogMCwNCgkibWF4U2NvcmUiOiA2MDAsDQoJInRlYW1zIjogW3sNCgkJInRlYW0iOiAidGVhbSAxIiwNCgkJImNvbG9yIjogIiM2QkUyNjEiLA0KCQkic2NvcmVzIjogW3sNCgkJCSJ0ZWFtIjogInRlYW0gMSIsDQoJCQkidGltZXN0YW1wIjogMTQ1Nzc0MDgwMCwNCgkJCSJzY29yZSI6IDANCgkJfSwgew0KCQkJInRlYW0iOiAidGVhbSAxIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3NzUwODAwLA0KCQkJInNjb3JlIjogMjEwDQoJCX0sIHsNCgkJCSJ0ZWFtIjogInRlYW0gMSIsDQoJCQkidGltZXN0YW1wIjogMTQ1Nzc2MDgwMCwNCgkJCSJzY29yZSI6IDIyMA0KCQl9LCB7DQoJCQkidGVhbSI6ICJ0ZWFtIDEiLA0KCQkJInRpbWVzdGFtcCI6IDE0NTc3NzA4MDAsDQoJCQkic2NvcmUiOiAzMDANCgkJfSwgew0KCQkJInRlYW0iOiAidGVhbSAxIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3NzgwODAwLA0KCQkJInNjb3JlIjogMzQwDQoJCX0sIHsNCgkJCSJ0ZWFtIjogInRlYW0gMSIsDQoJCQkidGltZXN0YW1wIjogMTQ1Nzg3MjIwMCwNCgkJCSJzY29yZSI6IDUwMA0KCQl9XQ0KCX0sIHsNCgkJInRlYW0iOiAidGVhbSAyIiwNCgkJImNvbG9yIjogIiM5NjU0QUYiLA0KCQkic2NvcmVzIjogW3sNCgkJCSJ0ZWFtIjogInRlYW0gMiIsDQoJCQkidGltZXN0YW1wIjogMTQ1Nzc0MDgwMCwNCgkJCSJzY29yZSI6IDANCgkJfSwgew0KCQkJInRlYW0iOiAidGVhbSAyIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3NzUwODAwLA0KCQkJInNjb3JlIjogNTANCgkJfSwgew0KCQkJInRlYW0iOiAidGVhbSAyIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3NzcwODAwLA0KCQkJInNjb3JlIjogMjAwDQoJCX0sIHsNCgkJCSJ0ZWFtIjogInRlYW0gMiIsDQoJCQkidGltZXN0YW1wIjogMTQ1Nzc5MDgwMCwNCgkJCSJzY29yZSI6IDM1MA0KCQl9LCB7DQoJCQkidGVhbSI6ICJ0ZWFtIDIiLA0KCQkJInRpbWVzdGFtcCI6IDE0NTc4MDA4MDAsDQoJCQkic2NvcmUiOiA0MDANCgkJfSwgew0KCQkJInRlYW0iOiAidGVhbSAyIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3ODcwMDAwLA0KCQkJInNjb3JlIjogNjAwDQoJCX1dDQoJfSwgew0KCQkidGVhbSI6ICJ0ZWFtIDMiLA0KCQkiY29sb3IiOiAiIzcxQTE2NCIsDQoJCSJzY29yZXMiOiBbew0KCQkJInRlYW0iOiAidGVhbSAzIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3NzQwODAwLA0KCQkJInNjb3JlIjogMA0KCQl9LCB7DQoJCQkidGVhbSI6ICJ0ZWFtIDMiLA0KCQkJInRpbWVzdGFtcCI6IDE0NTc3NjA4MDAsDQoJCQkic2NvcmUiOiAzMA0KCQl9LCB7DQoJCQkidGVhbSI6ICJ0ZWFtIDMiLA0KCQkJInRpbWVzdGFtcCI6IDE0NTc3OTA4MDAsDQoJCQkic2NvcmUiOiAxMDANCgkJfSwgew0KCQkJInRlYW0iOiAidGVhbSAzIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3ODAwODAwLA0KCQkJInNjb3JlIjogMTUwDQoJCX0sIHsNCgkJCSJ0ZWFtIjogInRlYW0gMyIsDQoJCQkidGltZXN0YW1wIjogMTQ1NzgyMDgwMCwNCgkJCSJzY29yZSI6IDMwMA0KCQl9LCB7DQoJCQkidGVhbSI6ICJ0ZWFtIDMiLA0KCQkJInRpbWVzdGFtcCI6IDE0NTc4NDIyMDAsDQoJCQkic2NvcmUiOiAzNTANCgkJfV0NCgl9XQ0KfQ=="></svg>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">Last Announcement</div>
+					<div class="panel-body">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce massa sem, malesuada a leo at, mattis ornare mauris. Ut bibendum metus in suscipit efficitur. Suspendisse potenti. Nunc quam enim, dignissim id tellus vel, ullamcorper gravida nunc. Nulla fermentum justo a erat maximus, quis consectetur leo aliquet. Quisque aliquet non ligula et ultrices. Cras volutpat sit amet leo nec facilisis.
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">Last Events</div>
+					<table class="table">
+						<tr>
+							<td>13/11 13:54</td>
+							<td>UQUAM</td>
+							<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce massa sem, malesuada a leo at, mattis ornare mauris.</td>
+						</tr>
+						<tr>
+							<td>13/11 13:54</td>
+							<td>UQUAM</td>
+							<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce massa sem, malesuada a leo at, mattis ornare mauris.</td>
+						</tr>
+						<tr>
+							<td>13/11 13:54</td>
+							<td>UQUAM</td>
+							<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce massa sem, malesuada a leo at, mattis ornare mauris.</td>
+						</tr>
+						<tr>
+							<td>13/11 13:54</td>
+							<td>UQUAM</td>
+							<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce massa sem, malesuada a leo at, mattis ornare mauris.</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-4 panels-status">
+			<div class="panel panel-danger">
+				<div class="panel-body">
+					<h3>Track 01</h3>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-success" style="width: 35%">
+						<span class="sr-only">35% Complete (success)</span>
+					  </div>
+					  <div class="progress-bar progress-bar-danger" style="width: 20%">
+						<span class="sr-only">20% Complete (warning)</span>
+					  </div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h3>Track 01</h3>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-success" style="width: 35%">
+						<span class="sr-only">35% Complete (success)</span>
+					  </div>
+					  <div class="progress-bar progress-bar-danger" style="width: 20%">
+						<span class="sr-only">20% Complete (warning)</span>
+					  </div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-danger">
+				<div class="panel-body">
+					<h3>Track 01</h3>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-success" style="width: 35%">
+						<span class="sr-only">35% Complete (success)</span>
+					  </div>
+					  <div class="progress-bar progress-bar-danger" style="width: 20%">
+						<span class="sr-only">20% Complete (warning)</span>
+					  </div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h3>Track 01</h3>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-success" style="width: 35%">
+						<span class="sr-only">35% Complete (success)</span>
+					  </div>
+					  <div class="progress-bar progress-bar-danger" style="width: 20%">
+						<span class="sr-only">20% Complete (warning)</span>
+					  </div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h3>Track 01</h3>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-success" style="width: 35%">
+						<span class="sr-only">35% Complete (success)</span>
+					  </div>
+					  <div class="progress-bar progress-bar-danger" style="width: 20%">
+						<span class="sr-only">20% Complete (warning)</span>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+{% endblock %}
