@@ -12,30 +12,46 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h1>
-		{{mission.title}}
-		<small>{{ mission.reward }} pts</small>
-	  </h1>
+        {{mission.title}}
+        <small>{{ mission.reward }} pts</small>
+      </h1>
       {% if mission.status != "locked" %}
-	    <div class="progress">
-	      <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{ mission.progress }}%">
-			  {% if mission.posts_completed > 0 %}
-		        <span>{{ mission.posts_completed }} / {{ mission.posts_total }}</span>
-			  {% endif %}
-		  </div>
-	    </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{ mission.progress }}%">
+            {% if mission.posts_completed > 0 %}
+              <span>{{ mission.posts_completed }} / {{ mission.posts_total }}</span>
+            {% endif %}
+          </div>
+        </div>
       {% endif %}
     </div>
   </div>
+
   {% if mission.status == "locked" %}
+
     <div class="panel panel-default">
-        <div class="panel-body">
-			<h1 class="access-denied text-center">ACCESS DENIED
-				<br>
-				<br>
-				<small>YOU DO NOT HAVE THE NECESSARY CLEARANCE TO ACCESS THIS FILE.</small>
-			</h1>
-        </div>
-	</div>
+      <div class="panel-body">
+        <h1 class="access-denied text-center">ACCESS DENIED
+          <br>
+          <br>
+          <small>YOU DO NOT HAVE THE NECESSARY CLEARANCE TO ACCESS THIS FILE.</small>
+        </h1>
+      </div>
+    </div>
+
+  {% elif mission.disabled %}
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h1 class="access-denied text-center">MISSION DISABLED
+          <br>
+          <br>
+          <small>WE MIGHT HAVE BEEN SPOTTED. <br />
+            REFRAIN OF CONTRIBUTING TO THIS TASK UNTIL ISSUES ARE RESOLVED.</small>
+        </h1>
+      </div>
+    </div>
+
   {% else %}
 
     {% for post in mission.posts %}
@@ -55,18 +71,18 @@
           </div>
         </div>
 
-	    {% for ann in post.announcements %}
-		  <div class="panel panel-warning">
-		    <div class="panel-heading">
-			  <h3 class="panel-title">{{ ann.time }}</h3>
-		    </div>
-		    <div class="panel-body">{{ ann.message }}</div>
-		  </div>
-	    {% endfor %}
+        {% for ann in post.announcements %}
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{ ann.time }}</h3>
+            </div>
+            <div class="panel-body">{{ ann.message }}</div>
+          </div>
+        {% endfor %}
       {% endif %}
     {% endfor %}
 
-  {% include "puzzle_hero/flag_submission.html" %}
+    {% include "puzzle_hero/flag_submission.html" %}
   {% endif %}
 
 

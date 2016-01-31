@@ -139,6 +139,8 @@ class TrackDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         ).order_by('-time')
         context['mission_statuses'] = mission_statuses
         context['post_statuses'] = post_statuses
+        context['status'] = TrackStatus.objects.filter(track=self.object,
+                                                       team=team).first().status
 
         return context
 
@@ -324,7 +326,6 @@ class GlobalAnnouncementList(LoginRequiredMixin, ListView):
         context = super(GlobalAnnouncementList, self).get_context_data(**kwargs)
         context["nav"] = "announcements"
         return context
-
 
 
 @login_required
