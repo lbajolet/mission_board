@@ -6,98 +6,98 @@
 
   {% if status == "locked" %}
 
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h1 class="access-denied text-center">ACCESS DENIED
-          <br>
-          <br>
-          <small>YOU DO NOT HAVE THE NECESSARY CLEARANCE TO ACCESS THIS FILE.</small>
-        </h1>
-      </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h1 class="access-denied text-center">ACCESS DENIED
+        <br>
+        <br>
+        <small>YOU DO NOT HAVE THE NECESSARY CLEARANCE TO ACCESS THIS FILE.</small>
+      </h1>
     </div>
+  </div>
 
   {% elif track.disabled %}
 
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h1 class="access-denied text-center">TRACK DISABLED
-          <br>
-          <br>
-          <small>WE MIGHT HAVE BEEN SPOTTED. <br />
-            REFRAIN OF CONTRIBUTING TO THIS TASK UNTIL ISSUES ARE RESOLVED.</small>
-        </h1>
-      </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h1 class="access-denied text-center">TRACK DISABLED
+        <br>
+        <br>
+        <small>WE MIGHT HAVE BEEN SPOTTED. <br />
+          REFRAIN OF CONTRIBUTING TO THIS TASK UNTIL ISSUES ARE RESOLVED.</small>
+      </h1>
     </div>
+  </div>
 
   {% else %}
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">{{ track.title }}</h3>
-      </div>
-      <div class="panel-body">
-        <div class="mission-tree">
-          <svg class="track-tree" data-json="{{ tree_data }}"><g /></svg>
-        </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{ track.title }}</h3>
+    </div>
+    <div class="panel-body">
+      <div class="mission-tree">
+        <svg class="track-tree" data-json="{{ tree_data }}"><g /></svg>
       </div>
     </div>
+  </div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Missions</h3>
-      </div>
-      <table class="table">
-        {% for ms in mission_statuses %}
-          {% if ms.status == "open" %}
-            <tr class="danger">
-              <th width="40%">
-                <a href="{% url "mission_page" ms.mission.id %}">{{ ms.mission.title }}</a>
-              </th>
-              <th width="10%" class="text-success">{{ ms.mission.reward }}</td>
-              <td width="10%"><i>{{ ms.status }}</i></td>
-              <td>
-				  <div class="progress">
-					  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{ ms.progress }}%">
-						  {% if ms.posts_completed > 0 %}
-					        <span>{{ ms.posts_completed }} / {{ ms.post_total }}</span>
-						  {% endif %}
-					</div>
-				  </div>
-			  </td>
-            </tr>
-		  {% elif ms.status == "closed" %}
-            <tr class="success">
-              <th width="40%">
-                <a href="{% url "mission_page" ms.mission.id %}">{{ ms.mission.title }}</a>
-              </th>
-              <th width="10%" class="text-success">{{ ms.mission.reward }}</td>
-			  <td width="10%"><i>{{ ms.status }}</i></td>
-              <td>
-				  <div class="progress">
-					  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-					    <span>{{ ms.posts_completed }} / {{ ms.post_total }}</span>
-					</div>
-				  </div>
-			  </td>
-            </tr>
-		  {% else %}
-            <tr class="locked">
-              <th width="40%">
-                {{ ms.mission.title }}
-              </th>
-              <th width="10%" class="text-success">{{ ms.mission.reward }}</td>
-			  <td width="10%"><i>{{ ms.status }}</i></td>
-              <td>
-				  <div class="progress">
-					  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-					</div>
-				  </div>
-			  </td>
-</tr>
-		  {% endif %}
-        {% endfor %}
-      </table>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Missions</h3>
     </div>
+    <table class="table">
+      {% for ms in mission_statuses %}
+        {% if ms.status == "open" %}
+          <tr class="danger">
+            <th width="40%">
+              <a href="{% url "mission_page" ms.mission.id %}">{{ ms.mission.title }}</a>
+            </th>
+            <th width="10%" class="text-success">{{ ms.mission.reward }}</td>
+            <td width="10%"><i>{{ ms.status }}</i></td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{ ms.progress }}%">
+                  {% if ms.posts_completed > 0 %}
+                    <span>{{ ms.posts_completed }} / {{ ms.post_total }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            </td>
+          </tr>
+        {% elif ms.status == "closed" %}
+          <tr class="success">
+            <th width="40%">
+              <a href="{% url "mission_page" ms.mission.id %}">{{ ms.mission.title }}</a>
+            </th>
+            <th width="10%" class="text-success">{{ ms.mission.reward }}</td>
+            <td width="10%"><i>{{ ms.status }}</i></td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                  <span>{{ ms.posts_completed }} / {{ ms.post_total }}</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+        {% else %}
+          <tr class="locked">
+            <th width="40%">
+              {{ ms.mission.title }}
+            </th>
+            <th width="10%" class="text-success">{{ ms.mission.reward }}</td>
+            <td width="10%"><i>{{ ms.status }}</i></td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                </div>
+              </div>
+            </td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+  </div>
 
   {% for ann in announcements %}
     <div class="panel panel-warning">
