@@ -61,21 +61,6 @@
 				}
 			]
 		}, {
-			"id": "track_test_mission_04",
-			"title": "Mission 04",
-			"reward": 400,
-			"initial_status": "locked",
-			"dependencies": [ "track_test_mission_03" ],
-			"posts": [
-				{
-					"id": "track_test_mission_04_post_01",
-					"initial_status": "open",
-					"sender": "fake_lore_related_sender",
-					"en": "mission_04/post_01.md",
-					"fr": "mission_04/post_01.md"
-				}
-			]
-		}, {
 			"id": "track_test_mission_05",
 			"title": "Mission 05",
 			"reward": 500,
@@ -91,11 +76,26 @@
 				}
 			]
 		}, {
+			"id": "track_test_mission_04",
+			"title": "Mission 04",
+			"reward": 400,
+			"initial_status": "locked",
+			"dependencies": [ "track_test_mission_03", "track_test_mission_05" ],
+			"posts": [
+				{
+					"id": "track_test_mission_04_post_01",
+					"initial_status": "open",
+					"sender": "fake_lore_related_sender",
+					"en": "mission_04/post_01.md",
+					"fr": "mission_04/post_01.md"
+				}
+			]
+		}, {
 			"id": "track_test_mission_06",
 			"title": "Mission 06",
 			"reward": 600,
 			"initial_status": "locked",
-			"dependencies": [ "track_test_mission_05" ],
+			"dependencies": [ "track_test_mission_05", "track_test_mission_03" ],
 			"posts": [
 				{
 					"id": "track_test_mission_06_post_01",

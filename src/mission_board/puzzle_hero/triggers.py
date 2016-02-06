@@ -1,6 +1,7 @@
 from django.contrib import messages
 
-from .models import Submission, Trigger, TrackStatus, MissionStatus, PostStatus
+from .models import Submission, Trigger, TrackStatus, MissionStatus, PostStatus, \
+        Event, PlayerEvent
 
 
 def process_flag_submission(flag, request):
@@ -15,6 +16,14 @@ def _create_submission(flag, player):
     sub.submitter = player
     sub.team = player.team
     sub.save()
+
+    ev = PlayerEvent(
+        player_event=True,
+        type="flag_submission",
+        message="Flag submitted!",
+        player=player
+    )
+    ev.save()
 
 
 def _process_triggers(flag, request):
@@ -121,6 +130,15 @@ def _process_track_dependencies(track, request):
                 'A new track has opened: %s!' % track_status.track.title
             )
 
+            player = request.user.player
+            ev = PlayerEvent(
+                player_event=True,
+                type="track_unlock",
+                message="%s unlocked" % track_status.track.title,
+                player=player
+            )
+            ev.save()
+
 
 def _process_mission_dependencies(mission, request):
     team = request.user.player.team
@@ -143,4 +161,13 @@ def _process_mission_dependencies(mission, request):
                 messages.SUCCESS,
                 'New mission available: %s!' % mission_status.mission.title
             )
+
+            player = request.user.player
+            ev = PlayerEvent(
+                player_event=True,
+                type="mission_unlock",
+                message="%s unlocked" % mission_status.mission.title,
+                player=player
+            )
+            ev.save()
 

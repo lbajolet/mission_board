@@ -11,6 +11,7 @@ from django.views.generic import RedirectView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, UpdateView
 
+from puzzle_hero.models import PlayerEvent
 
 from .forms import LoginForm, RegisterForm, ProfileForm
 from .models import Player
@@ -98,4 +99,12 @@ class EditProfileView(SuccessMessageMixin, FormView):
 class ProfileView(DetailView):
     model = User
     template_name = "cs_auth/profile.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ProfileView, self).get_context_data()
+        context['events'] = PlayerEvent.objects.filter(
+            player=self.request.user.player
+        ).order_by('-time')
+
+        return context
 

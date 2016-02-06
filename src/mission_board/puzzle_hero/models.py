@@ -221,3 +221,14 @@ class PostAnnouncement(Announcement):
                                         self.post.mission.title,
                                         self.post.id,
                                         to_s_msg)
+
+
+class Event(models.Model):
+    player_event = models.BooleanField(default=False)
+    type = models.CharField(max_length=128)
+    message = models.TextField()
+    time = models.DateTimeField(auto_now_add=True)
+
+
+class PlayerEvent(Event):
+    player = models.ForeignKey(Player)

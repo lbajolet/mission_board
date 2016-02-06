@@ -54,6 +54,22 @@
 		<h3 class="panel-title">Achievements</h3>
      </div>
        <table class="table table-hover">
+         {% for event in events %}
+           <tr>
+             <td>{{ event.time }}</td>
+             <td>
+               {% if event.type == 'flag_submission' %}
+                 Submitted a flag!
+               {% elif event.type == 'track_unlock' %}
+                 Unlocked a track!
+               {% elif event.type == 'mission_unlock' %}
+                 Unlocked a mission!
+               {% else %}
+                 {{ event.type }}
+               {% endif %}
+             </td>
+           </tr>
+         {% endfor %}
        </table>
    </div>
 

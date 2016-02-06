@@ -2,7 +2,8 @@ from django.contrib import admin
 
 from .models import Track, Mission, Post, TrackStatus, MissionStatus, \
     PostStatus, Submission, GlobalAnnouncement, TeamAnnouncement, \
-    TrackAnnouncement, MissionAnnouncement, PostAnnouncement
+    TrackAnnouncement, MissionAnnouncement, PostAnnouncement, Event, \
+    PlayerEvent
 
 
 class TrackAdmin(admin.ModelAdmin):
@@ -54,6 +55,14 @@ class PostAnnouncementAdmin(admin.ModelAdmin):
     pass
 
 
+class EventAdmin(admin.ModelAdmin):
+    pass
+
+
+class PlayerEventAdmin(admin.ModelAdmin):
+    pass
+
+
 admin.site.register(Track, TrackAdmin)
 admin.site.register(Mission, MissionAdmin)
 admin.site.register(Post, PostAdmin)
@@ -66,3 +75,5 @@ admin.site.register(TeamAnnouncement, TeamAnnouncementAdmin)
 admin.site.register(TrackAnnouncement, TrackAnnouncementAdmin)
 admin.site.register(MissionAnnouncement, MissionAnnouncementAdmin)
 admin.site.register(PostAnnouncement, PostAnnouncementAdmin)
+admin.site.register(Event, EventAdmin)
+admin.site.register(PlayerEvent, PlayerEventAdmin)

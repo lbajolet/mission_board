@@ -14,7 +14,7 @@ from cs_auth.models import Team
 from .forms import FlagSubmissionForm, GlobalAnnouncementForm
 from .models import Mission, MissionStatus, Post, PostStatus, Track, \
     TrackStatus, Submission, Flag, GlobalAnnouncement, TeamAnnouncement, \
-    TrackAnnouncement, MissionAnnouncement, PostAnnouncement
+    TrackAnnouncement, MissionAnnouncement, PostAnnouncement, Event, PlayerEvent
 from .triggers import process_flag_submission
 
 import json
@@ -251,8 +251,7 @@ def team_stats(request, team_id):
 
     track_statuses = TrackStatus.objects.filter(team=team)
     completed_tracks = [ts.track for ts in track_statuses if ts.status in
-                        [""
-                         "", "closed"]]
+                        ["closed"]]
 
     mission_statuses = MissionStatus.objects.filter(team=team)
     completed_missions = [ms.mission for ms in mission_statuses if ms.status in
@@ -264,6 +263,22 @@ def team_stats(request, team_id):
     teams = list(Team.objects.all().order_by("-score"))
     rank = teams.index(team) + 1
 
+    for ts in track_statuses:
+        ts.miss_completed = 0
+        ts.miss_total = 0
+
+        for ms in mission_statuses:
+            if ms.mission.track == ts.track:
+                if ms.status == 'closed':
+                    ts.miss_completed += 1
+                ts.miss_total += 1
+
+        ts.progress = ts.miss_completed / ts.miss_total * 100
+
+    events = PlayerEvent.objects.filter(
+        player__team=team,
+    ).order_by('-time')
+
     context = {
         "team": team,
         "players": players,
@@ -271,7 +286,9 @@ def team_stats(request, team_id):
         "missions": completed_missions,
         "posts": completed_posts,
         "team_rank": rank,
-        "team_count": len(teams)
+        "team_count": len(teams),
+        "track_statuses": track_statuses,
+        "events": events,
     }
 
     return render(request, "puzzle_hero/team_stats.html", context)
