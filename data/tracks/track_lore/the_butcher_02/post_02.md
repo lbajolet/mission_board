@@ -1,10 +1,21 @@
-## Principal mission
+## Eliminate the Butcher
+
+**Mission Type:** Elimination
+**Target:** The Butcher
+
+**Target Informations:**
+* Is one of the governors, directed by the restricted council
+* The most radical in the entire Empire
+* In charge of the explusion of the dissidents
+* Tortures dissidents to get informations about the rebellion (his pseudo comes from here)
+* It is said that half of the people he interrogates die, the other half has after-effects for their entire life.
 
 **Description:**
 Our most important infiltrated within the empire, Watch Dog, is in great danger. The Empire knows we put someone up to help us. This is the perfect opportunity to get rid of the butcher, while saving the agent Watch Dog. The empire is about to investigate all its members.
 
 **Objective:**
 Your goal is to hide evidence of collaboration with the rebellion in the personal files of the butcher.
+
 
 **File to hide:**
 

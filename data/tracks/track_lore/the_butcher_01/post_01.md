@@ -1,4 +1,4 @@
-## Secondary mission
+## Information Gathering
 
 **Objective:**
 We found some pages of a millitiaman’s journal in the dome’s garbage. Unfortunately, almost all of it was unreadable, and the only paragraph we recovered is encrypted. You must decrypt this paragraph, it may contain important informations about the Empire.
