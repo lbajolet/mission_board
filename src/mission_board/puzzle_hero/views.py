@@ -297,9 +297,12 @@ def team_stats(request, team_id):
 @login_required
 @user_passes_test(user_is_player)
 def submit_flag(request):
-    if request.method == 'POST':
+    if request.method == 'POST' or request.method == 'GET':
         player = request.user.player
-        form = FlagSubmissionForm(request.POST)
+        if request.method == 'POST':
+            form = FlagSubmissionForm(request.POST)
+        else:
+            form = FlagSubmissionForm(request.GET)
         if form.is_valid():
             # Check if flag has already been submitted:
             flag_token = form.cleaned_data["token"]
