@@ -1,16 +1,70 @@
-import os
 import json
+import hashlib
+import os
+import re
+import shutil
+import sys
 
 from django.core.management import BaseCommand
+from django.conf import settings
 
 from puzzle_hero.models import Track, Mission, Post
 from puzzle_hero.models import Flag, Trigger, TrackStatusTrigger, \
                                MissionStatusTrigger, PostStatusTrigger, \
                                TeamScoreTrigger
 
+global count
+count = 0
+
 
 class Command(BaseCommand):
     help = "Initialize create a status for each track for each team."
+
+    def relocate_ressources(self, dirname, text):
+
+        res_pattern = """\[[a-zA-Z0-9. \/]+\]\(([a-zA-Z0-9. \/]+)\)"""
+        r = re.compile(res_pattern)
+        matches = re.findall(r, text)
+
+        if matches:
+            for match in matches:
+                src = os.path.join(dirname, match)
+                dst = self.convert_path(match)
+
+                self.copy_to_staticdir(src, dst)
+                text = text.replace(match, os.path.join(settings.STATIC_URL,
+                                                        dst))
+
+        return text
+
+    def convert_path(self, path):
+
+        global count
+        count += 1
+
+        # this is "insecure" but it will do for the weekend =P
+        to_hash = ("%s%s%s" % (count, path, "kek")).encode("ascii")
+        hashed = hashlib.sha256(to_hash).hexdigest()
+
+        new = os.path.join(hashed, path)
+
+        print("Relocated resource file:")
+        print("  - From:", path)
+        print("  - To:  ", new)
+
+        return new
+
+    def copy_to_staticdir(self, src, dst):
+
+        if not os.path.isfile(src):
+            print("File does not exist:", src)
+            sys.exit(0)
+
+        dst = os.path.join(settings.STATICFILES_DIRS[0], dst)
+        if not os.path.isdir(os.path.dirname(dst)):
+            os.makedirs(os.path.dirname(dst))
+
+        shutil.copy2(src, dst)
 
     def handle(self, *args, **options):
         # clear database
@@ -59,12 +113,27 @@ class Command(BaseCommand):
                         post.sender = json_post["sender"]
 
                         post.en = json_post["en"]
-                        with open('../../data/tracks/' + track_file + '/' + post.en) as fr:
-                            post.md_en = fr.read()
+                        posts_dir = os.path.join('../../data/tracks/', track_file)
+                        with open(os.path.join(posts_dir, post.en)) as fr:
+                            post_text = fr.read()
+                            post_dir = os.path.join(
+                                posts_dir,
+                                os.path.dirname(post.en)
+                            )
+
+                            post.md_en = self.relocate_ressources(post_dir,
+                                                                  post_text)
 
                         post.fr = json_post["fr"]
-                        with open('../../data/tracks/' + track_file + '/' + post.fr) as fr:
-                            post.md_fr = fr.read()
+                        with open(os.path.join(posts_dir, post.fr)) as fr:
+                            post_text = fr.read()
+                            post_dir = os.path.join(
+                                posts_dir,
+                                os.path.dirname(post.en)
+                            )
+
+                            post.md_fr = self.relocate_ressources(post_dir,
+                                                                  post_text)
 
                         post.save()
 
@@ -151,6 +220,7 @@ class Command(BaseCommand):
             # check if all tracks can be unlocked
             if track.initial_status == "open":
                 continue
+
             triggers = TrackStatusTrigger.objects.filter(track=track)
             if not triggers:
                 print("WARNING: track {} can't be unlocked!".format(track.id))
