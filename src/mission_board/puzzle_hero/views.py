@@ -318,7 +318,8 @@ def submit_flag(request):
                     messages.WARNING,
                     "This flag has already been submitted."
                 )
-                return HttpResponseRedirect(request.META['HTTP_REFERER'])
+                return HttpResponseRedirect(request.META.get('HTTP_REFERER',
+                                                             reverse_lazy('tracklist')))
 
             else:
                 process_flag_submission(flag, request)
@@ -330,7 +331,7 @@ def submit_flag(request):
                 if request.META.get('HTTP_REFERER', None):
                     return HttpResponseRedirect(request.META['HTTP_REFERER'])
                 else:
-                    return HttpResponseRedirect(reverse_lazy('index'))
+                    return HttpResponseRedirect(reverse_lazy('tracklist'))
 
         else:
             wrong_flag = form.data["token"]
