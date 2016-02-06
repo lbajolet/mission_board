@@ -1,11 +1,11 @@
 {
 	"id": "track_lore",
-	"title": "Track Lore 1",
+	"title": "The mole",
 	"initial_status": "open",
 	"missions": [
 		{
-			"id": "the_butcher",
-			"title": "The Butcher",
+			"id": "the_butcher_01",
+			"title": "The Butcher 1",
 			"reward": 100,
 			"initial_status": "open",
 			"dependencies": [],
@@ -14,41 +14,53 @@
 					"id": "the_butcher_post_01",
 					"initial_status": "open",
 					"sender": "Red Leader",
-					"en": "the_butcher/post_01.md",
-					"fr": "the_butcher/post_01.md"
-				}, {
-					"id": "the_butcher_post_02",
-					"initial_status": "locked",
-					"sender": "Red Leader",
-					"en": "the_butcher/post_02.md",
-					"fr": "the_butcher/post_02.md"
-				}, {
-					"id": "the_butcher_post_03",
-					"initial_status": "locked",
-					"sender": "Red Leader",
-					"en": "the_butcher/post_03.md",
-					"fr": "the_butcher/post_03.md"
+					"en": "the_butcher_01/post_01.md",
+					"fr": "the_butcher_01/post_01.md"
 				}
 			]
 		}, {
-			"id": "watch_dog",
-			"title": "Watch Dog",
+			"id": "watch_dog_01",
+			"title": "Watch Dog 1",
 			"reward": 200,
-			"initial_status": "locked",
-			"dependencies": [ "the_butcher" ],
+			"initial_status": "open",
+			"dependencies": [],
 			"posts": [
 				{
 					"id": "watch_dog_post_01",
 					"initial_status": "open",
 					"sender": "Puppy Ears",
-					"en": "watch_dog/post_01.md",
-					"fr": "watch_dog/post_01.md"
-				}, {
+					"en": "watch_dog_01/post_01.md",
+					"fr": "watch_dog_01/post_01.md"
+				}
+			]
+		}, {
+			"id": "watch_dog_02",
+			"title": "Watch Dog 2",
+			"reward": 200,
+			"initial_status": "locked",
+			"dependencies": ["the_butcher_01", "watch_dog_01"],
+			"posts": [
+				{
 					"id": "watch_dog_post_02",
-					"initial_status": "locked",
+					"initial_status": "open",
 					"sender": "Puppy Ears",
-					"en": "watch_dog/post_02.md",
-					"fr": "watch_dog/post_02.md"
+					"en": "watch_dog_02/post_02.md",
+					"fr": "watch_dog_02/post_02.md"
+				}
+			]
+		}, {
+			"id": "the_butcher_02",
+			"title": "The Butcher 2",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": ["the_butcher_01", "watch_dog_02"],
+			"posts": [
+				{
+					"id": "the_butcher_post_02",
+					"initial_status": "open",
+					"sender": "Red Leader",
+					"en": "the_butcher_02/post_02.md",
+					"fr": "the_butcher_02/post_02.md"
 				}
 			]
 		}

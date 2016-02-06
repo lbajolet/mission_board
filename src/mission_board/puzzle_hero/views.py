@@ -327,7 +327,10 @@ def submit_flag(request):
                     messages.SUCCESS,
                     'Submitted flag %s!' % form.cleaned_data["token"]
                 )
-                return HttpResponseRedirect(request.META['HTTP_REFERER'])
+                if request.META.get('HTTP_REFERER', None):
+                    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+                else:
+                    return HttpResponseRedirect(reverse_lazy('index'))
 
         else:
             wrong_flag = form.data["token"]

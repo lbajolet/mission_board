@@ -1,0 +1,116 @@
+{
+	"id": "track_tutorial",
+	"title": "Tutorial",
+	"initial_status": "open",
+	"missions": [
+		{
+			"id": "track_tutorial_mission_01",
+			"title": "Welcome Rebels!",
+			"reward": 1,
+			"initial_status": "open",
+			"dependencies": [],
+			"posts": [
+				{
+					"id": "track_tutorial_mission_01_post_01",
+					"initial_status": "open",
+					"sender": "Drill Sergent",
+					"en": "mission_01/post_01.md",
+					"fr": "mission_01/post_01.md"
+				},{
+					"id": "track_tutorial_mission_01_post_02",
+					"initial_status": "locked",
+					"sender": "Drill Sergent",
+					"en": "mission_01/post_02.md",
+					"fr": "mission_01/post_02.md"
+				}
+			]
+		},{
+			"id": "track_tutorial_mission_02",
+			"title": "Ancient Crypto",
+			"reward": 2,
+			"initial_status": "locked",
+			"dependencies": ["track_tutorial_mission_01"],
+			"posts": [
+				{
+					"id": "track_tutorial_mission_02_post_01",
+					"initial_status": "open",
+					"sender": "Drill Sergent",
+					"en": "mission_02/post_01.md",
+					"fr": "mission_02/post_01.md"
+				},{
+					"id": "track_tutorial_mission_02_post_02",
+					"initial_status": "locked",
+					"sender": "Drill Sergent",
+					"en": "mission_02/post_02.md",
+					"fr": "mission_02/post_02.md"
+				},{
+					"id": "track_tutorial_mission_02_post_03",
+					"initial_status": "locked",
+					"sender": "Drill Sergent",
+					"en": "mission_02/post_03.md",
+					"fr": "mission_02/post_03.md"
+				}
+			]
+		},{
+			"id": "track_tutorial_mission_03",
+			"title": "Hidden Data",
+			"reward": 3,
+			"initial_status": "locked",
+			"dependencies": ["track_tutorial_mission_02"],
+			"posts": [
+				{
+					"id": "track_tutorial_mission_03_post_01",
+					"initial_status": "open",
+					"sender": "Drill Sergent",
+					"en": "mission_03/post_01.md",
+					"fr": "mission_03/post_01.md"
+				}
+			]
+		},{
+			"id": "track_tutorial_mission_04",
+			"title": "Rebel Cache",
+			"reward": 4,
+			"initial_status": "locked",
+			"dependencies": ["track_tutorial_mission_03"],
+			"posts": [
+				{
+					"id": "track_tutorial_mission_04_post_01",
+					"initial_status": "open",
+					"sender": "Drill Sergent",
+					"en": "mission_04/post_01.md",
+					"fr": "mission_04/post_01.md"
+				}
+			]
+		},{
+			"id": "track_tutorial_mission_05",
+			"title": "A reminder of the past",
+			"reward": 4,
+			"initial_status": "locked",
+			"dependencies": ["track_tutorial_mission_03"],
+			"posts": [
+				{
+					"id": "track_tutorial_mission_05_post_01",
+					"initial_status": "open",
+					"sender": "Drill Sergent",
+					"en": "mission_05/post_01.md",
+					"fr": "mission_05/post_01.md"
+				}
+			]
+		},{
+			"id": "track_tutorial_mission_06",
+			"title": "Godspeed",
+			"reward": 5,
+			"initial_status": "locked",
+			"dependencies": ["track_tutorial_mission_04", "track_tutorial_mission_05"],
+			"posts": [
+				{
+					"id": "track_tutorial_mission_06_post_01",
+					"initial_status": "open",
+					"sender": "Drill Sergent",
+					"en": "mission_06/post_01.md",
+					"fr": "mission_06/post_01.md"
+				}
+			]
+		}
+	]
+}

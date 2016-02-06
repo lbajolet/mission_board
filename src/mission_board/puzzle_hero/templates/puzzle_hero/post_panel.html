@@ -1,0 +1,20 @@
+{% if post.status == "closed" %}
+	<div class="panel panel-success">
+{% else %}
+	<div class="panel panel-default">
+{% endif %}
+	<div class="panel-heading">
+		<strong><i>from</i> <a href="#">{{ post.sender }}</a></strong>
+	</div>
+	<div class="panel-body">
+		{{ post.html_en|safe }}
+	</div>
+</div>
+{% for ann in post.announcements %}
+  <div class="panel panel-warning">
+	<div class="panel-heading">
+	  <h3 class="panel-title">{{ ann.time }}</h3>
+	</div>
+	<div class="panel-body">{{ ann.message }}</div>
+  </div>
+{% endfor %}
