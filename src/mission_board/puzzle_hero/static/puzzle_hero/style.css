@@ -154,6 +154,13 @@ tr.locked i { color: #888; }
     border-color: rgba(0, 255, 0, 0.7);
 }
 
+.alert-warning {
+    color: #fff;
+    background-color: rgba(255, 255, 0, 0.3);
+    border-color: rgba(255, 255, 0, 0.7);
+}
+
+
 /* mission tree */
 
 .mission-tree {
