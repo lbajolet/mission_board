@@ -8,18 +8,7 @@
 
   {% for track in tracks %}
     {% if track.disabled == False %}
-      {% with tid=track.id %}
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title"><a href="{% url "track_detail" tid %}">{{ track.title }}</a></h3>
-          </div>
-          <div class="panel-body">
-            <div class="mission-tree">
-              <svg class="track-tree" data-json="{{ tree_data|keyvalue:tid }}"><g /></svg>
-            </div>
-          </div>
-        </div>
-      {% endwith %}
+	  {% include "puzzle_hero/track_panel.html" with track=track json_tree=tree_data|keyvalue:track.id %}
     {% endif %}
   {% endfor %}
 
