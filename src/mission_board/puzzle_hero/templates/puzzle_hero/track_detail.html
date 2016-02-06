@@ -5,44 +5,13 @@
 {% block content %}
 
   {% if status == "locked" %}
-
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h1 class="access-denied text-center">ACCESS DENIED
-        <br>
-        <br>
-        <small>YOU DO NOT HAVE THE NECESSARY CLEARANCE TO ACCESS THIS FILE.</small>
-      </h1>
-    </div>
-  </div>
-
+    {% include "puzzle_hero/denied_panel.html" %}
   {% elif track.disabled %}
-
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h1 class="access-denied text-center">TRACK DISABLED
-        <br>
-        <br>
-        <small>WE MIGHT HAVE BEEN SPOTTED. <br />
-          REFRAIN OF CONTRIBUTING TO THIS TASK UNTIL ISSUES ARE RESOLVED.</small>
-      </h1>
-    </div>
-  </div>
-
+    {% include "puzzle_hero/disabled_panel.html" %}
   {% else %}
+	{% include "puzzle_hero/track_panel.html" with track=track json_tree=tree_data %}
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">{{ track.title }}</h3>
-    </div>
-    <div class="panel-body">
-      <div class="mission-tree">
-        <svg class="track-tree" data-json="{{ tree_data }}"><g /></svg>
-      </div>
-    </div>
-  </div>
-
-  <div class="panel panel-default">
+   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">Missions</h3>
     </div>
@@ -99,6 +68,8 @@
     </table>
   </div>
 
+  {% endif %}
+
   {% for ann in announcements %}
     <div class="panel panel-warning">
       <div class="panel-heading">
@@ -108,6 +79,10 @@
     </div>
   {% endfor %}
 
-  {% include "puzzle_hero/flag_submission.html" %}
+  {% if track.status != "closed" %}
+    {% include "puzzle_hero/flag_submission.html" %}
+  {% endif %}
+
+  {% endif %}
 
 {% endblock %}

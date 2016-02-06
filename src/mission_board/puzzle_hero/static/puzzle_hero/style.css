@@ -113,6 +113,16 @@ tr.locked i { color: #888; }
 	border-color: rgba(50, 180, 50, 0.1);
 }
 
+.panel-success .panel-heading {
+	color: #eee;
+	background-color: rgba(50, 180, 50, 0.1);
+	border-color: rgba(50, 180, 50, 0.1);
+}
+
+.panel-success a { color: #27C854; }
+.panel-success a:hover { color: #5BFF27; }
+.panel-success h1, .panel-success h2, .panel-success h3, .panel-success h4 { color: #27C854; }
+
 .panel-rebels {
 	background-color: rgba(150, 150, 150, 0.1);
 	padding-bottom: 5px;

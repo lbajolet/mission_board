@@ -1,0 +1,18 @@
+{% load treetags %}
+
+{% if track.status == "closed" %}
+<div class="panel panel-success">
+{% else %}
+<div class="panel panel-default">
+{% endif %}
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a href="{% url "track_detail" track.id %}">{{ track.title }}</a>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<div class="mission-tree">
+			<svg class="track-tree" data-json="{{ json_tree }}"><g /></svg>
+		</div>
+	</div>
+</div>

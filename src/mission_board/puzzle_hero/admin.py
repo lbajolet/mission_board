@@ -2,7 +2,8 @@ from django.contrib import admin
 
 from .models import Track, Mission, Post, TrackStatus, MissionStatus, \
     PostStatus, Submission, GlobalAnnouncement, TeamAnnouncement, \
-    TrackAnnouncement, MissionAnnouncement, PostAnnouncement
+    TrackAnnouncement, MissionAnnouncement, PostAnnouncement, Event, \
+    PlayerEvent
 
 
 class TrackAdmin(admin.ModelAdmin):
@@ -23,7 +24,19 @@ class TrackStatusAdmin(admin.ModelAdmin):
 
 class MissionStatusAdmin(admin.ModelAdmin):
     ordering = ("team__name", "mission__title")
-    list_display = ('team', 'mission', 'status')
+    list_display = ('team', 'get_university', 'get_track', 'mission', 'status')
+    search_fields = ('status', 'team__name', 'mission__title',
+                     'mission__track__title', 'team__university')
+
+    def get_track(self, obj):
+        return obj.mission.track.title
+    get_track.short_description = 'Track'
+    get_track.admin_order_field = 'mission__track__title'
+
+    def get_university(self, obj):
+        return obj.team.university
+    get_university.short_description = 'University'
+    get_university.admin_order_field = 'team__university'
 
 
 class PostStatusAdmin(admin.ModelAdmin):
@@ -54,6 +67,14 @@ class PostAnnouncementAdmin(admin.ModelAdmin):
     pass
 
 
+class EventAdmin(admin.ModelAdmin):
+    pass
+
+
+class PlayerEventAdmin(admin.ModelAdmin):
+    pass
+
+
 admin.site.register(Track, TrackAdmin)
 admin.site.register(Mission, MissionAdmin)
 admin.site.register(Post, PostAdmin)
@@ -66,3 +87,5 @@ admin.site.register(TeamAnnouncement, TeamAnnouncementAdmin)
 admin.site.register(TrackAnnouncement, TrackAnnouncementAdmin)
 admin.site.register(MissionAnnouncement, MissionAnnouncementAdmin)
 admin.site.register(PostAnnouncement, PostAnnouncementAdmin)
+admin.site.register(Event, EventAdmin)
+admin.site.register(PlayerEvent, PlayerEventAdmin)
