@@ -1,0 +1,127 @@
+[
+	{
+		"flag": "UQAM{ThisIsTheFirstFlag}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_tutorial_mission_01_post_01",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_tutorial_mission_01_post_02",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "This-Is-The-Second-Flag-In-A-Strange-Format",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_tutorial_mission_01_post_02",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_tutorial_mission_01",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{ThisFlagUsesAReallyWeakEncryption}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_tutorial_mission_02_post_01",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_tutorial_mission_02_post_02",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{WhoUsesBase64AsACipher???}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_tutorial_mission_02_post_02",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_tutorial_mission_02_post_03",
+				"status": "open"
+			},{
+				"kind": "team_score",
+				"reward": 1
+			}
+		]
+	},{
+		"flag": "UQAM{Rule1:Don'tGetCaught!}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_tutorial_mission_02_post_03",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_tutorial_mission_02",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{FlagsCanByHiddenEverywhere}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_tutorial_mission_03_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_tutorial_mission_03",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{ThisIsYourFirstRebelCache}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_tutorial_mission_04_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_tutorial_mission_04",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{ETS}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_tutorial_mission_05_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_tutorial_mission_05",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{IAmReadyNow!}",
+		"triggers": [
+			{
+				"kind": "track_status",
+				"track": "track_tutorial",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_tutorial_mission_06_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_tutorial_mission_06",
+				"status": "closed"
+			}
+		]
+	}
+]
