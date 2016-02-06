@@ -2,7 +2,8 @@ from django.conf.urls import url
 from django.contrib.auth.decorators import login_required
 
 from .views import submit_flag, team_stats, Scoreboard, \
-    TracksList, MissionPage, csadmin_index, TrackDetail, GlobalAnnouncementList
+    TracksList, MissionPage, csadmin_index, TrackDetail, GlobalAnnouncementList, \
+	admin_dashboard
 
 urlpatterns = [
     url(r'^cs_admin/$', csadmin_index, name="csadmin_index"),
@@ -13,6 +14,7 @@ urlpatterns = [
     url(r'^mission/(?P<mission>\w+)$', MissionPage.as_view(), name="mission_page"),
     url(r'^scoreboard/$', Scoreboard.as_view(), name="scoreboard"),
     url(r'^announcements/$', GlobalAnnouncementList.as_view(), name="announcements"),
+    url(r'^admin_dashboard/$', admin_dashboard, name="admin_dashboard"),
     # url(r'^missions$', TracksList.as_view(), name="tracklist"),
     url(r'^$', TracksList.as_view(), name="tracklist"),
 ]

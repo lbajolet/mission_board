@@ -354,3 +354,9 @@ def csadmin_index(request):
 class CSAdminGlobalAnnouncementView(FormView):
     form_class = GlobalAnnouncementForm
     template_name = "cs_auth/login.html"
+
+@login_required
+@user_passes_test(user_is_csadmin)
+def admin_dashboard(request):
+    context = {}
+    return render(request, "puzzle_hero/admin_dashboard.html", context)

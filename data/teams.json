@@ -3,36 +3,50 @@
 		"name": "Team 01",
 		"token": "12345678901",
 		"university": "University 1",
-		"score": 0
+		"score": 0,
+		"color": "#67DB96",
+		"flag": "flag1"
 	},{
 		"name": "Team 02",
 		"token": "12345678902",
 		"university": "University 2",
-		"score": 0
+		"score": 0,
+		"color": "#D14DE0",
+		"flag": "flag2"
 	},{
 		"name": "Team 03",
 		"token": "12345678903",
 		"university": "University 3",
-		"score": 0
+		"score": 0,
+		"color": "#DF4A2A",
+		"flag": "flag3"
 	},{
 		"name": "Team 04",
 		"token": "12345678904",
 		"university": "University 4",
-		"score": 0
+		"score": 0,
+		"color": "#6C9BD1",
+		"flag": "flag4"
 	},{
 		"name": "Team 05",
 		"token": "12345678905",
 		"university": "University 5",
-		"score": 0
+		"score": 0,
+		"color": "#D0D73A",
+		"flag": "flag5"
 	},{
 		"name": "Team 06",
 		"token": "12345678906",
 		"university": "University 6",
-		"score": 0
+		"score": 0,
+		"color": "#DB3878",
+		"flag": "flag6"
 	},{
 		"name": "Team 07",
 		"token": "12345678907",
 		"university": "University 7",
-		"score": 0
+		"score": 0,
+		"color": "#DFA035",
+		"flag": "flag7"
 	}
 ]

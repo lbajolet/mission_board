@@ -26,6 +26,8 @@ class Command(BaseCommand):
                 team.name = json_team["name"]
                 team.university = json_team["university"]
                 team.token = json_team["token"]
+                team.color = json_team["color"]
+                team.flag = json_team["flag"]
                 team.score = json_team["score"]
                 team.save()
 

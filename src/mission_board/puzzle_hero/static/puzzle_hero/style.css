@@ -92,6 +92,11 @@ tr.locked i { color: #888; }
 	border-color: rgba(50, 120, 180, 0.1);
 }
 
+.panel-danger {
+	background-color: rgba(180, 50, 50, 0.1);
+	border-color: rgba(180, 50, 50, 0.1);
+}
+
 .panel-warning {
 	background-color: rgba(255, 180, 0, 0.1);
 	border-color: rgba(255, 180, 0, 0.1);
@@ -101,6 +106,11 @@ tr.locked i { color: #888; }
 	color: #eee;
 	background-color: rgba(255, 180, 0, 0.1);
 	border-color: rgba(255, 180, 0, 0.1);
+}
+
+.panel-success {
+	background-color: rgba(50, 180, 50, 0.1);
+	border-color: rgba(50, 180, 50, 0.1);
 }
 
 .panel-rebels {
@@ -220,6 +230,64 @@ svg {
 .mission-tip.mission-locked .tip-status { color: #777; }
 .mission-tip .tip-reward { color: green; }
 
+/* score graph */
+
+#scoregraph .domain {
+	display: none;
+}
+
+#scoregraph .tick text {
+	fill: #ffffff;
+	margin-right: 10px;
+}
+
+#scoregraph .tick line {
+	stroke: #fff;
+    stroke-width: 1px;
+	opacity: 0.5;
+}
+
+#scoregraph .team-line {
+	fill: none;
+	stroke-width: 3px;
+	opacity: 0.7;
+}
+
+#scoregraph .team-line:hover {
+	stroke-width: 5px;
+	opacity: 1.0;
+}
+
+#scoregraph .score-dot {
+	fill: #000;
+	stroke: #fff;
+    stroke-width: 2px;
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+#scoregraph .score-dot:hover {
+	fill: #ffd100;
+	stroke: #fff;
+    stroke-width: 2px;
+	opacity: 1.0;
+}
+
+#scoregraph .team-lbl {
+	fill: #ffffff;
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+.d3-tip {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 5px;
+}
+
+/* players */
+
 .player-rank {
 	opacity: 0.8;
 }
@@ -258,3 +326,12 @@ to {
 .team-flag-xl {
 	width: 160px;
 }
+
+/* status */
+
+.panels-status h3, .panels-status .progress {
+	margin: 0;
+}
+
+.panels-status .panel-success h3 { color: rgb(50, 180, 50) };
+.panels-status .panel-danger h3 { color: rgb(180, 50, 50) };
