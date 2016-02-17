@@ -7,7 +7,7 @@ class Team(models.Model):
     token = models.CharField(max_length=128)
     university = models.CharField(max_length=128)
     flag = models.CharField(max_length=128)
-    color = models.CharField(max_length=128)
+    color = models.CharField(max_length=128, default="#000000")
     score = models.IntegerField()
 
     def __str__(self):

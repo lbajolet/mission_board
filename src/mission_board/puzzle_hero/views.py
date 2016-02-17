@@ -1,5 +1,7 @@
 import json
 import base64
+import math
+import time
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -7,6 +9,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.utils import timezone
+from django.utils.decorators import method_decorator
 from django.views.generic import ListView, FormView, DetailView
 
 from cs_auth.models import Team
@@ -14,7 +18,8 @@ from cs_auth.models import Team
 from .forms import FlagSubmissionForm, GlobalAnnouncementForm
 from .models import Mission, MissionStatus, Post, PostStatus, Track, \
     TrackStatus, Submission, Flag, GlobalAnnouncement, TeamAnnouncement, \
-    TrackAnnouncement, MissionAnnouncement, PostAnnouncement, Event, PlayerEvent
+    TrackAnnouncement, MissionAnnouncement, PostAnnouncement, Event, \
+    PlayerEvent, Trigger, TeamScoreTrigger, GlobalStatus, ScoreEvent
 from .triggers import process_flag_submission
 
 import json
@@ -30,7 +35,41 @@ def user_is_csadmin(user):
     return user.is_superuser
 
 
+def global_status_ok(function=None):
+
+    def _decorator(view_function):
+        def _view(request, *args, **kwargs):
+            gs = GlobalStatus.objects.all().first()
+
+            if not gs:
+                message = "Mission Board is not accessible yet!"
+                return render(request, "puzzle_hero/global_status.html",
+                              context={"message": message})
+
+            if gs.status == "finished":
+                message = "Missions have been completed!"
+                return render(request, "puzzle_hero/global_status.html",
+                              context={"message": message})
+
+            if gs.paused:
+                message = ("We might have been spotted! "
+                           "You must refrain from accomplishing "
+                           "missions for now.")
+                return render(request, "puzzle_hero/global_status.html",
+                              context={"message": message})
+
+            else:
+                return view_function(request, *args, **kwargs)
+        return _view
+
+    if function is None:
+        return _decorator
+    else:
+        return _decorator(function)
+
+
 class TracksList(LoginRequiredMixin, ListView):
+
     model = Track
     context_object_name = 'tracks'
     template_name = 'puzzle_hero/tracks_list.html'
@@ -232,12 +271,86 @@ class Scoreboard(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return user_is_player(self.request.user)
 
     def get_queryset(self):
-        return Team.objects.all().order_by("score")
+        return Team.objects.all().order_by("-score")
 
     def get_context_data(self, **kwargs):
         context = super(Scoreboard, self).get_context_data(**kwargs)
         context["nav"] = "scoreboard"
+
+        graph_data = self.build_graph_data()
+        context["scoreboard"] = base64.b64encode(
+            json.dumps(graph_data).encode("ascii")
+        )
+
         return context
+
+    def build_graph_data(self):
+
+        min_date = GlobalStatus.objects.all().first().start_time
+        max_date = timezone.now()
+        min_date = int(time.mktime(min_date.timetuple()))
+        max_date = int(time.mktime(max_date.timetuple()))
+
+        team_dict = {}
+        teams = Team.objects.all().order_by("-score")
+
+        min_score = 0
+        max_score = math.ceil(teams[0].score / 100) * 100
+
+        # score_submissions = Submission.objects.filter(
+        #     flag__trigger__kind=Trigger.TEAMSCORE_TYPE
+        # ).select_related()
+
+        for team in teams:
+            team_dict[team.name] = {
+                "team": team.name,
+                "color": team.color,
+                "scores": [{
+                    "team": team.name,
+                    "timestamp": min_date,
+                    "score": 0
+                }]
+            }
+
+        score_events = ScoreEvent.objects.all()
+
+        for se in score_events:
+            timestamp = se.time
+            timestamp = int(timestamp.timestamp())
+            new_score = {
+                "team": se.team.name,
+                "timestamp": timestamp,
+                "score": se.score_total
+            }
+            team_dict[se.team.name]["scores"].append(new_score)
+
+
+        # for sub in score_submissions:
+        #     for trigger in sub.flag.trigger_set.filter(
+        #             kind=Trigger.TEAMSCORE_TYPE):
+        #         timestamp = sub.time
+        #         timestamp = int(time.mktime(timestamp.timetuple())) * 1000
+        #         new_score = {
+        #             "team": sub.team.name,
+        #             "timestamp": timestamp,
+        #             "score": trigger.teamscoretrigger.score
+        #         }
+        #         team_dict[sub.team.name]["scores"].append(new_score)
+
+        data = {
+            "minDate": min_date,
+            "maxDate": max_date,
+            "minScore": min_score,
+            "maxScore": max_score,
+            "teams": []
+        }
+
+        for k, v in team_dict.items():
+            data["teams"].append(v)
+
+        print(json.dumps(data, indent=4))
+
+        return data
 
 
 @login_required
@@ -367,3 +480,4 @@ class CSAdminGlobalAnnouncementView(FormView):
 def admin_dashboard(request):
     context = {}
     return render(request, "puzzle_hero/admin_dashboard.html", context)
+

@@ -25,6 +25,7 @@ class Command(BaseCommand):
         call_command("createtracks")
         self.createsuperuser()
         call_command("initstatuses")
+        call_command("createsubmissions")
 
     @staticmethod
     def delete_db_file():

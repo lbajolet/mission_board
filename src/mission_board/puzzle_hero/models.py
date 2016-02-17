@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 from cs_auth.models import Team, Player
 
@@ -93,7 +94,7 @@ class Submission(models.Model):
     submitter = models.ForeignKey(Player, blank=True)
     team = models.ForeignKey(Team)
     flag = models.ForeignKey(Flag)
-    time = models.DateTimeField(auto_now_add=True)
+    time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return "[%s] %s: %s" % (self.time.strftime("%Y/%m/%d - %H:%M"),
@@ -227,8 +228,20 @@ class Event(models.Model):
     player_event = models.BooleanField(default=False)
     type = models.CharField(max_length=128)
     message = models.TextField()
-    time = models.DateTimeField(auto_now_add=True)
+    time = models.DateTimeField(default=timezone.now)
 
 
 class PlayerEvent(Event):
     player = models.ForeignKey(Player)
+
+
+class ScoreEvent(Event):
+    score_delta = models.IntegerField()
+    score_total = models.IntegerField()
+    team = models.ForeignKey(Team)
+
+
+class GlobalStatus(models.Model):
+    status = models.CharField(max_length=64)
+    paused = models.BooleanField(default=False)
+    start_time = models.DateTimeField()

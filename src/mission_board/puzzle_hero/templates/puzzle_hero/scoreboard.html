@@ -6,7 +6,7 @@
 {% block content %}
 	<div class="panel panel-default">
 		<div class="panel-body">
-		    <svg id="scoregraph" height="600" data-json="ew0KCSJtaW5EYXRlIjogMTQ1Nzc0MDgwMCwNCgkibWF4RGF0ZSI6IDE0NTc4NzIyMDAsDQoJIm1pblNjb3JlIjogMCwNCgkibWF4U2NvcmUiOiA2MDAsDQoJInRlYW1zIjogW3sNCgkJInRlYW0iOiAidGVhbSAxIiwNCgkJImNvbG9yIjogIiM2QkUyNjEiLA0KCQkic2NvcmVzIjogW3sNCgkJCSJ0ZWFtIjogInRlYW0gMSIsDQoJCQkidGltZXN0YW1wIjogMTQ1Nzc0MDgwMCwNCgkJCSJzY29yZSI6IDANCgkJfSwgew0KCQkJInRlYW0iOiAidGVhbSAxIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3NzUwODAwLA0KCQkJInNjb3JlIjogMjEwDQoJCX0sIHsNCgkJCSJ0ZWFtIjogInRlYW0gMSIsDQoJCQkidGltZXN0YW1wIjogMTQ1Nzc2MDgwMCwNCgkJCSJzY29yZSI6IDIyMA0KCQl9LCB7DQoJCQkidGVhbSI6ICJ0ZWFtIDEiLA0KCQkJInRpbWVzdGFtcCI6IDE0NTc3NzA4MDAsDQoJCQkic2NvcmUiOiAzMDANCgkJfSwgew0KCQkJInRlYW0iOiAidGVhbSAxIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3NzgwODAwLA0KCQkJInNjb3JlIjogMzQwDQoJCX0sIHsNCgkJCSJ0ZWFtIjogInRlYW0gMSIsDQoJCQkidGltZXN0YW1wIjogMTQ1Nzg3MjIwMCwNCgkJCSJzY29yZSI6IDUwMA0KCQl9XQ0KCX0sIHsNCgkJInRlYW0iOiAidGVhbSAyIiwNCgkJImNvbG9yIjogIiM5NjU0QUYiLA0KCQkic2NvcmVzIjogW3sNCgkJCSJ0ZWFtIjogInRlYW0gMiIsDQoJCQkidGltZXN0YW1wIjogMTQ1Nzc0MDgwMCwNCgkJCSJzY29yZSI6IDANCgkJfSwgew0KCQkJInRlYW0iOiAidGVhbSAyIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3NzUwODAwLA0KCQkJInNjb3JlIjogNTANCgkJfSwgew0KCQkJInRlYW0iOiAidGVhbSAyIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3NzcwODAwLA0KCQkJInNjb3JlIjogMjAwDQoJCX0sIHsNCgkJCSJ0ZWFtIjogInRlYW0gMiIsDQoJCQkidGltZXN0YW1wIjogMTQ1Nzc5MDgwMCwNCgkJCSJzY29yZSI6IDM1MA0KCQl9LCB7DQoJCQkidGVhbSI6ICJ0ZWFtIDIiLA0KCQkJInRpbWVzdGFtcCI6IDE0NTc4MDA4MDAsDQoJCQkic2NvcmUiOiA0MDANCgkJfSwgew0KCQkJInRlYW0iOiAidGVhbSAyIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3ODcwMDAwLA0KCQkJInNjb3JlIjogNjAwDQoJCX1dDQoJfSwgew0KCQkidGVhbSI6ICJ0ZWFtIDMiLA0KCQkiY29sb3IiOiAiIzcxQTE2NCIsDQoJCSJzY29yZXMiOiBbew0KCQkJInRlYW0iOiAidGVhbSAzIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3NzQwODAwLA0KCQkJInNjb3JlIjogMA0KCQl9LCB7DQoJCQkidGVhbSI6ICJ0ZWFtIDMiLA0KCQkJInRpbWVzdGFtcCI6IDE0NTc3NjA4MDAsDQoJCQkic2NvcmUiOiAzMA0KCQl9LCB7DQoJCQkidGVhbSI6ICJ0ZWFtIDMiLA0KCQkJInRpbWVzdGFtcCI6IDE0NTc3OTA4MDAsDQoJCQkic2NvcmUiOiAxMDANCgkJfSwgew0KCQkJInRlYW0iOiAidGVhbSAzIiwNCgkJCSJ0aW1lc3RhbXAiOiAxNDU3ODAwODAwLA0KCQkJInNjb3JlIjogMTUwDQoJCX0sIHsNCgkJCSJ0ZWFtIjogInRlYW0gMyIsDQoJCQkidGltZXN0YW1wIjogMTQ1NzgyMDgwMCwNCgkJCSJzY29yZSI6IDMwMA0KCQl9LCB7DQoJCQkidGVhbSI6ICJ0ZWFtIDMiLA0KCQkJInRpbWVzdGFtcCI6IDE0NTc4NDIyMDAsDQoJCQkic2NvcmUiOiAzNTANCgkJfV0NCgl9XQ0KfQ=="></svg>
+		    <svg id="scoregraph" height="600" data-json="{{ scoreboard }}"></svg>
 		</div>
 	</div>
 
@@ -17,8 +17,11 @@
     <table class="table table-hover">
       {% for team in teams %}
         <tr>
+          <td><i class="glyphicon glyphicon-unchecked center" style="color: {{ team.color }};"></i></td>
           <th>
-            <a href="{% url "team_stats" team.id %}">{{ team.name }}</a>
+            <a href="{% url "team_stats" team.id %}">
+              {{ team.name }}
+            </a>
           </th>
           <td>{{ team.university }}</td>
           <td>{{ team.score }}</td>
