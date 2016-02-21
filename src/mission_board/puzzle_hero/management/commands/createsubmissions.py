@@ -36,15 +36,13 @@ class Command(BaseCommand):
 
             start = gs.start_time
             end = timezone.now()
-            fake_now = start
-            for flag in flag_set:
 
-                delta = end - fake_now
-                int_delta = (delta.days * 24 * 60 * 60) + delta.seconds
-                random_second = random.randrange(int_delta)
-                rand_time = fake_now + datetime.timedelta(seconds=random_second)
-                fake_now = rand_time
+            delta = end - start
+            for idx, flag in enumerate(flag_set):
+                submit_delta = delta / len(flag_set) * idx
+                submit_time = start + submit_delta
 
                 player = Player.objects.filter(team=team).first()
                 process_flag_submission(flag, player=player,
-                                        datetime=rand_time)
+                                        datetime=submit_time)
+

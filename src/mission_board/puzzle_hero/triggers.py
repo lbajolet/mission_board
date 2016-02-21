@@ -24,7 +24,7 @@ def _create_submission(flag, player, datetime=None):
     sub.save()
 
     ev = PlayerEvent(
-        player_event=True,
+        is_player_event=True,
         type="flag_submission",
         message="Flag submitted!",
         player=player
@@ -142,8 +142,9 @@ def _process_teamscore_trigger(trigger, sub, request=None):
         team=team
     )
 
+    # TODO this doesnt work
     if request:
-        se.player_event = True
+        se.is_player_event = True
         se.player = request.user
 
     se.save()
@@ -172,7 +173,7 @@ def _process_track_dependencies(track, sub, request=None):
 
             player = request.user.player
             ev = PlayerEvent(
-                player_event=True,
+                is_player_event=True,
                 type="track_unlock",
                 message="%s unlocked" % track_status.track.title,
                 player=player
@@ -206,7 +207,7 @@ def _process_mission_dependencies(mission, sub, request=None):
 
                 player = request.user.player
                 ev = PlayerEvent(
-                    player_event=True,
+                    is_player_event=True,
                     type="mission_unlock",
                     message="%s unlocked" % mission_status.mission.title,
                     player=player

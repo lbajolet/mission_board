@@ -284,7 +284,8 @@ class Scoreboard(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
         return context
 
-    def build_graph_data(self):
+    @staticmethod
+    def build_graph_data():
 
         min_date = GlobalStatus.objects.all().first().start_time
         max_date = timezone.now()
@@ -324,19 +325,6 @@ class Scoreboard(LoginRequiredMixin, UserPassesTestMixin, ListView):
             }
             team_dict[se.team.name]["scores"].append(new_score)
 
-
-        # for sub in score_submissions:
-        #     for trigger in sub.flag.trigger_set.filter(
-        #             kind=Trigger.TEAMSCORE_TYPE):
-        #         timestamp = sub.time
-        #         timestamp = int(time.mktime(timestamp.timetuple())) * 1000
-        #         new_score = {
-        #             "team": sub.team.name,
-        #             "timestamp": timestamp,
-        #             "score": trigger.teamscoretrigger.score
-        #         }
-        #         team_dict[sub.team.name]["scores"].append(new_score)
-
         data = {
             "minDate": min_date,
             "maxDate": max_date,
@@ -347,8 +335,6 @@ class Scoreboard(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
         for k, v in team_dict.items():
             data["teams"].append(v)
-
-        print(json.dumps(data, indent=4))
 
         return data
 
@@ -479,5 +465,57 @@ class CSAdminGlobalAnnouncementView(FormView):
 @user_passes_test(user_is_csadmin)
 def admin_dashboard(request):
     context = {}
+
+    # Latest scoring
+    latest_scores = ScoreEvent.objects.all().order_by("-time")[0:4]
+    context["latest_scores"] = latest_scores
+
+    # Latest announcement
+    latest_ann = GlobalAnnouncement.objects.all().order_by("-time").first()
+    context["latest_announcement"] = latest_ann
+
+    # Latest events
+    latest_ev = Event.objects.all().order_by("-time")[0:4]
+    context["latest_events"] = latest_ev
+
+    # Tracks
+    tracks = Track.objects.all()
+    mission_statuses = MissionStatus.objects.all()
+
+    for track in tracks:
+
+        track.closed_count = 0
+        track.locked_count = 0
+        track.open_count = 0
+        track.total_statuses = 0
+
+        for ms in mission_statuses:
+            # Not the right track
+            if ms.mission.track != track:
+                continue
+
+            track.total_statuses += 1
+
+            if ms.status == "closed":
+                track.closed_count += 1
+
+            elif ms.status == "open":
+                track.open_count += 1
+
+            elif ms.status == "locked":
+                track.locked_count += 1
+
+        track.closed_percent = track.closed_count * 100 / track.total_statuses
+        track.open_percent = track.open_count * 100 / track.total_statuses
+        track.locked_percent = track.locked_count * 100 / track.total_statuses
+
+    context["tracks"] = tracks
+
+    # Scoreboard yo
+    graph_data = Scoreboard.build_graph_data()
+    context["scoreboard"] = base64.b64encode(
+        json.dumps(graph_data).encode("ascii")
+    )
+
     return render(request, "puzzle_hero/admin_dashboard.html", context)
 

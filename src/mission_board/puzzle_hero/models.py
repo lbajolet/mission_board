@@ -225,7 +225,7 @@ class PostAnnouncement(Announcement):
 
 
 class Event(models.Model):
-    player_event = models.BooleanField(default=False)
+    is_player_event = models.BooleanField(default=False)
     type = models.CharField(max_length=128)
     message = models.TextField()
     time = models.DateTimeField(default=timezone.now)
