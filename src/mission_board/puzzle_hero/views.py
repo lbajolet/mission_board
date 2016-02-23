@@ -70,15 +70,18 @@ def global_status_ok(function=None):
 
 class TracksList(LoginRequiredMixin, ListView):
 
-    model = Track
-    context_object_name = 'tracks'
+    model = TrackStatus
+    context_object_name = 'track_statuses'
     template_name = 'puzzle_hero/tracks_list.html'
 
     def get_queryset(self):
-        tracks = Track.objects.all()
-        for track in tracks:
-            track.missions = Mission.objects.filter(track=track)
-        return tracks
+        team = self.request.user.player.team
+
+        track_statuses = TrackStatus.objects.filter(team=team)
+        for track_status in track_statuses:
+            track_status.track.missions = Mission.objects.filter(track=track_status.track)
+
+        return track_statuses
 
     def get_context_data(self, **kwargs):
         context = super(TracksList, self).get_context_data(**kwargs)
@@ -87,7 +90,6 @@ class TracksList(LoginRequiredMixin, ListView):
         team = self.request.user.player.team
         track_statuses = TrackStatus.objects.filter(team=team)
         mission_statuses = MissionStatus.objects.filter(team=team)
-        context["track_statuses"] = track_statuses
         context["mission_statuses"] = mission_statuses
 
         tree_data = self._build_tree_data(track_statuses, mission_statuses)
