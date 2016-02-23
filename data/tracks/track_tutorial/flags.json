@@ -121,7 +121,24 @@
 				"kind": "mission_status",
 				"mission": "track_tutorial_mission_06",
 				"status": "closed"
+			}, {
+				"kind": "track_status",
+				"track": "track_blind_test",
+				"status": "open"
+			}, {
+				"kind": "mission_status",
+				"mission": "sound_01",
+				"status": "open"
+			}, {
+				"kind": "track_status",
+				"track": "track_crypto",
+				"status": "open"
+			}, {
+				"kind": "mission_status",
+				"mission": "hidden_01",
+				"status": "open"
 			}
+
 		]
 	}
 ]

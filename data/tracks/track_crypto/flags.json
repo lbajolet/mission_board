@@ -1,0 +1,47 @@
+[
+	{
+		"flag": "UQAM{I4mRo0tingForY0urTe4m!}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "hidden_01",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "hidden_02",
+				"status": "open"
+			},
+			{
+				"kind": "team_score",
+				"reward": 50
+			}
+		]
+	}, {
+		"flag": "UQAM{N1ceCurve5!!}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "hidden_02",
+				"status": "closed"
+			},
+			{
+				"kind": "team_score",
+				"reward": 100
+			}
+		]
+	}, {
+		"flag": "UQAM{Noth1ngR3ma1ning}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "hidden_03",
+				"status": "closed"
+			},
+			{
+				"kind": "team_score",
+				"reward": 200
+			}
+		]
+	}
+]

@@ -1,0 +1,56 @@
+[
+	{
+		"flag": "UQAM{mitsuda}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "sound_post_01",
+				"status": "closed"
+			}, {
+				"kind": "mission_status",
+				"mission": "sound_01",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "sound_02",
+				"status": "open"
+			},
+			{
+				"kind": "team_score",
+				"reward": 100
+			}
+		]
+	}, {
+		"flag": "UQAM{héral}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "sound_02",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "sound_03",
+				"status": "open"
+			},
+			{
+				"kind": "team_score",
+				"reward": 100
+			}
+		]
+	}, {
+		"flag": "UQAM{åkerfeldt}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "sound_03",
+				"status": "closed"
+			},
+			{
+				"kind": "team_score",
+				"reward": 100
+			}
+		]
+	}
+]
