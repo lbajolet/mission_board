@@ -137,6 +137,9 @@ class Command(BaseCommand):
 
                         post.save()
 
+        # create and save db instances
+        for track_file in json_tracks:
+
             # create flags and triggers data
             with open('../../data/tracks/' + track_file + '/flags.json') as flags_data:
                 json_flags = json.load(flags_data)
