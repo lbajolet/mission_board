@@ -22,7 +22,7 @@ class Command(BaseCommand):
 
     def relocate_ressources(self, dirname, text):
 
-        res_pattern = """\[[a-zA-Z0-9. \/]+\]\(([a-zA-Z0-9. \/]+)\)"""
+        res_pattern = """\[[a-zA-Z0-9._ \/]+\]\(([a-zA-Z0-9._ \/]+)\)"""
         r = re.compile(res_pattern)
         matches = re.findall(r, text)
 
