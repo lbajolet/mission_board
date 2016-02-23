@@ -67,8 +67,9 @@ def _process_trackstatus_trigger(trigger, sub, request=None):
         track_status.track = trigger.track
     else:
         track_status = track_status[0]
-    track_status.status = trigger.status
-    track_status.save()
+    if track_status.status != "closed":
+        track_status.status = trigger.status
+        track_status.save()
 
     _process_track_dependencies(track_status.track, sub, request)
 
@@ -86,8 +87,9 @@ def _process_missionstatus_trigger(trigger, sub, request=None):
         mission_status.track = trigger.mission
     else:
         mission_status = mission_status[0]
-    mission_status.status = trigger.status
-    mission_status.save()
+    if mission_status.status != "closed":
+        mission_status.status = trigger.status
+        mission_status.save()
 
     _process_mission_dependencies(mission_status.mission, sub, request)
 
@@ -105,8 +107,9 @@ def _process_poststatus_trigger(trigger, sub):
         post_status.track = trigger.post
     else:
         post_status = post_status[0]
-    post_status.status = trigger.status
-    post_status.save()
+    if post_status.status != "closed":
+        post_status.status = trigger.status
+        post_status.save()
 
 
 def _process_teamscore_trigger(trigger, sub, request=None):
