@@ -39,7 +39,7 @@ class Command(BaseCommand):
 
             delta = end - start
             for idx, flag in enumerate(flag_set):
-                submit_delta = delta / len(flag_set) * idx
+                submit_delta = delta / (len(flag_set) + 1) * (idx + 1)
                 submit_time = start + submit_delta
 
                 player = Player.objects.filter(team=team).first()
