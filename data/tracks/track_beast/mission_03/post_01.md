@@ -10,5 +10,3 @@ Obviously, this is not a TRAP.
 **Mission Type:** Going deeper
 
 **Objectives:** Peel the message and find the enclosed valuable information.
-
-**Notes:** Flag is not in the standard format.

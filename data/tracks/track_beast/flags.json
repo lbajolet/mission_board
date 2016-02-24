@@ -40,7 +40,7 @@
 		]
 	},
 	{
-		"flag": "unstacked",
+		"flag": "UQAM{dolliness}",
 		"triggers": [
 			{
 				"kind": "mission_status",
