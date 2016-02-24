@@ -1,0 +1,51 @@
+perlmaster : I think someone is spying on us we need to encrypt our messages.
+yoda       : Good idea, we should use this script from now on.
+
+import struct
+import random
+import os
+
+def padding(value, N):
+    bytes_value    = hex(value)[2:].replace("L", "").decode("hex")
+    nb_bytes_N     = len(hex(N)[2:].replace("L", "")) / 2 - 1
+    nb_bytes_value = len(bytes_value)
+    remaining = nb_bytes_N - nb_bytes_value - 5
+    final = struct.pack("<I", remaining) + "\x80" + os.urandom(remaining) + bytes_value
+    return int(final.encode("hex"), 16)
+
+def unpad(value):
+    hexa = hex(value)[2:].replace("L", "")
+    if len(hexa) % 2 == 1:
+        hexa = "0" + hexa
+    padded = hexa.decode("hex")
+
+    if len(padded) < 6:
+        print("Unexcepted size of %d." % len(padded))
+        return None
+
+    length = struct.unpack("<I", padded[:4])[0]
+    magic = padded[4]
+
+    if magic != "\x80":
+        print("Invalid padding expected 0x80 got %s" % hex(ord(magic)))
+        return None
+
+    return padded[5 + length:]
+
+def encrypt(message):
+    p = 2280513704087298036129174978630412167397990271336449321695887012857651455794435561228907714517504186815308633508380902254625691575635048834723919805588012689940966596686927035214449988970671464802065489508583372289448354156410765644468800277378324120728893634726999843120468336746582066560420154260708554017200988737553008490374568229241644785934008746868639680729891184495273085159215287233707352926676078416831053798250049342110056981826678222078213380613135541408112791313388515299893632687060689581887220247707360303409951528894546307526308244833754557005419278224193391840337764065180985010348623219909334330781
+    e = 4
+
+    message = int(message.encode("hex"), 16)
+    padded = padding(message, p)
+    result = pow(padded, e, p)
+
+    return hex(result)[2:].replace("L", "")
+
+message = raw_input("Enter your message to encrypt : ")
+encrypted = encrypt(message)
+print("***SECRET***%s***SECRET***" % encrypted)
+
+perlmaster : ***SECRET***b1cd4e5e7f62df55eb369c2973ef3f1b9817ad439425284960fa42e707d40ce077e212574e13fae7d1f1d5d8c85d9a736926b2d4a2b4da6219b86e6b604c40041431aea735d5c895c842129d7c9dfbc5dff3ec4b52d155c694e1ca2ad3ba011b6392773bd6a6c7b3aa831522ddd34ecd0949a2af4d6c5c5682bc457cd60519470db3ba255e414445ca388d53c29e7b62cc64566bc6a4182d3c67c933f3fea053430ee3a76fb8098dc65b34b3a74f102404701a20518754a60dac77d00f7ef02923d2ab03f24a5803d01006bd58988e6a4728d631958cd01b222997e2cda6050c3f6cabebd96e3f2ee11d3deddc10a82788c89e76bca517f2667f738f4f9d68a***SECRET***
+yoda       : ***SECRET***90279da2780d1640d64a38789ef229ce8d3ad4185d037f782a78327afe5d262e03c3905e0e47cb05c800a82478d7bbe054b4044e41190f82fa75564faffc971dc85f2e6ac0abf75a3dc2f580279929317087ef424b61852fcc90a5d356c430560dff8c11254984c3c6af9455fb19cf94059985977af8d1377a5f70ec6787f4d8f55d1d4600d6fbf795e489a93c783a7959fb903b283c2b0b8594132e4ad480fd847e806939924c64c14324ca3df2a459d414bebbb2c7fc79f3c87ac7cce5cc7bcff959241c7296211e1d7eff12fa997850a10b202bef658d3b2635390a9255c02f46097b6185c4f2dc6cf52b87eefe1a96058751d6115650ed463045fefb07e***SECRET***
+perlmaster : ***SECRET***e4278a08418cb2cf9c47e0021c66b91ee0e69a7218777370926bfcbc063bda7874c855c0d702810bf3e4652348d793d6378fe128fdef530fbc993cca9493286ed7fbde268bf8afc917a7af1ac7906ab86e83f5ffc1a7d191c24e2e3c8869866f27a34ebbc46277392e18347b003b231737650dd03e86a3b52cbfa5af3e15d5efbed10e685874361588a23d82a296c8027310f7d6370476ba796dbc9e387e3cc945e05fdaa38ff7087d9324f9ce40b64a7c072fbd71ca6973684cce7013fd31aa765c521fa301d2da9b7245c3509bff0f291aea0429387df1c9fe405c98879689ef54362f6e7d3eba2cd73ee59759cfc1f9aad1278745be8813d92f7e98e1b35***SECRET***

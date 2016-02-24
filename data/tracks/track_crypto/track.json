@@ -1,0 +1,53 @@
+{
+	"id": "track_crypto",
+	"title": "Spies",
+	"initial_status": "locked",
+	"missions": [
+		{
+			"id": "hidden_01",
+			"title": "Spying - Ep 01",
+			"reward": 50,
+			"initial_status": "locked",
+			"dependencies": [],
+			"posts": [
+				{
+					"id": "hidden_post_01",
+					"initial_status": "open",
+					"sender": "Arterix",
+					"en": "spying01/post.md",
+					"fr": "spying01/post.md"
+				}
+			]
+		}, {
+			"id": "hidden_02",
+			"title": "Spying - Ep 02",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": ["hidden_01"],
+			"posts": [
+				{
+					"id": "hidden_post_02",
+					"initial_status": "open",
+					"sender": "Arterix",
+					"en": "spying02/post.md",
+					"fr": "spying02/post.md"
+				}
+			]
+		}, {
+			"id": "hidden_03",
+			"title": "Spying - Ep 03",
+			"reward": 200,
+			"initial_status": "locked",
+			"dependencies": ["hidden_02"],
+			"posts": [
+				{
+					"id": "hidden_post_03",
+					"initial_status": "open",
+					"sender": "Arterix",
+					"en": "spying03/post.md",
+					"fr": "spying03/post.md"
+				}
+			]
+		}
+	]
+}

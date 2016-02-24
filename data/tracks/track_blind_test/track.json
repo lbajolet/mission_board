@@ -1,0 +1,53 @@
+{
+	"id": "track_blind_test",
+	"title": "Unknown Sounds",
+	"initial_status": "locked",
+	"missions": [
+		{
+			"id": "sound_01",
+			"title": "Mystery Man",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": [],
+			"posts": [
+				{
+					"id": "sound_post_01",
+					"initial_status": "open",
+					"sender": "Tingull",
+					"en": "sound01/post.md",
+					"fr": "sound01/post.md"
+				}
+			]
+		}, {
+			"id": "sound_02",
+			"title": "Familiar Sounds",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": ["sound_01"],
+			"posts": [
+				{
+					"id": "sound_post_02",
+					"initial_status": "open",
+					"sender": "Tingull",
+					"en": "sound02/post.md",
+					"fr": "sound02/post.md"
+				}
+			]
+		}, {
+			"id": "sound_03",
+			"title": "Torture Sounds",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": ["sound_02"],
+			"posts": [
+				{
+					"id": "sound_post_03",
+					"initial_status": "open",
+					"sender": "Tingull",
+					"en": "sound03/post.md",
+					"fr": "sound03/post.md"
+				}
+			]
+		}
+	]
+}
