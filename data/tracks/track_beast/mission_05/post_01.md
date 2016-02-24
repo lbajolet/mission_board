@@ -6,7 +6,7 @@ a famous wiki of the old era. The only extra information we have is this bit of 
 
 
 ```
-perl -ne 'print if(("x"x$_)!~/^(..+)\1+$/);'
+perl -ne 'print if(("x"x$_)!~/^(..+)\1+$/&&1<$_);'
 ```
 
 **Objectives:** Find the url of the wiki page he was talking about.
