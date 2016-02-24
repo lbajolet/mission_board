@@ -68,6 +68,32 @@ def global_status_ok(function=None):
         return _decorator(function)
 
 
+def global_status_scoreboard(function=None):
+
+    def _decorator(view_function):
+        def _view(request, *args, **kwargs):
+            gs = GlobalStatus.objects.all().first()
+
+            if not gs:
+                message = "Mission Board is not accessible yet!"
+                return render(request, "puzzle_hero/global_status.html",
+                              context={"message": message})
+
+            if gs.scoreboard_hidden:
+                message = "The scoreboard is not available for now!"
+                return render(request, "puzzle_hero/global_status.html",
+                              context={"message": message})
+
+            else:
+                return view_function(request, *args, **kwargs)
+        return _view
+
+    if function is None:
+        return _decorator
+    else:
+        return _decorator(function)
+
+
 class TracksList(LoginRequiredMixin, ListView):
 
     model = TrackStatus

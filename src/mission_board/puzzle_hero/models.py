@@ -245,3 +245,4 @@ class GlobalStatus(models.Model):
     status = models.CharField(max_length=64)
     paused = models.BooleanField(default=False)
     start_time = models.DateTimeField()
+    scoreboard_hidden = models.BooleanField(default=False)
