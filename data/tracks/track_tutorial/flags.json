@@ -121,7 +121,12 @@
 				"kind": "mission_status",
 				"mission": "track_tutorial_mission_06",
 				"status": "closed"
+			},{
+				"kind": "track_status",
+				"track": "track_beast",
+				"status": "open"
 			}
+
 		]
 	}
 ]

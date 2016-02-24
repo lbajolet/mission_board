@@ -1,0 +1,87 @@
+{
+	"id": "track_beast",
+	"title": "The Beast",
+	"initial_status": "locked",
+	"missions": [
+		{
+			"id": "track_beast_mission_01",
+			"title": "BSDM!",
+			"reward": 50,
+			"initial_status": "open",
+			"dependencies": [],
+			"posts": [
+				{
+					"id": "track_beast_mission_01_post_01",
+					"initial_status": "open",
+					"sender": "Undisclosed",
+					"en": "mission_01/post_01.md",
+					"fr": "mission_01/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_beast_mission_02",
+			"title": "BFF!",
+			"reward": 75,
+			"initial_status": "locked",
+			"dependencies": ["track_beast_mission_01"],
+			"posts": [
+				{
+					"id": "track_beast_mission_02_post_01",
+					"initial_status": "open",
+					"sender": "Undisclosed",
+					"en": "mission_02/post_01.md",
+					"fr": "mission_02/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_beast_mission_03",
+			"title": "Matryoshka!",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": ["track_beast_mission_02"],
+			"posts": [
+				{
+					"id": "track_beast_mission_03_post_01",
+					"initial_status": "open",
+					"sender": "Undisclosed",
+					"en": "mission_03/post_01.md",
+					"fr": "mission_03/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_beast_mission_04",
+			"title": "perlre",
+			"reward": 200,
+			"initial_status": "locked",
+			"dependencies": ["track_beast_mission_03"],
+			"posts": [
+				{
+					"id": "track_beast_mission_04_post_01",
+					"initial_status": "open",
+					"sender": "Undisclosed",
+					"en": "mission_04/post_01.md",
+					"fr": "mission_04/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_beast_mission_05",
+			"title": "unknown_wiki",
+			"reward": 150,
+			"initial_status": "locked",
+			"dependencies": ["track_beast_mission_03"],
+			"posts": [
+				{
+					"id": "track_beast_mission_05_post_01",
+					"initial_status": "open",
+					"sender": "Undisclosed",
+					"en": "mission_05/post_01.md",
+					"fr": "mission_05/post_01.md"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,97 @@
+[
+	{
+		"flag": "UQAM{Debian}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_beast_mission_01",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "track_beast_mission_02",
+				"status": "open"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_beast_mission_01_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{106407de969935aa69412a58013f7153}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_beast_mission_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_beast_mission_02_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "track_beast_mission_03",
+				"status": "open"
+			}
+		]
+	},
+	{
+		"flag": "unstacked",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_beast_mission_03",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "track_beast_mission_04",
+				"status": "open"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "track_beast_mission_05",
+				"status": "open"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_beast_mission_03_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{bididididididi}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_beast_mission_04",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_beast_mission_04_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{https://en.wikipedia.org/wiki/Prime_number}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_beast_mission_05",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_beast_mission_05_post_01",
+				"status": "closed"
+			}
+		]
+	}
+]
