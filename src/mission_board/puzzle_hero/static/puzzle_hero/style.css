@@ -247,6 +247,10 @@ svg {
 .mission-tip.mission-locked .tip-status { color: #777; }
 .mission-tip .tip-reward { color: green; }
 
+.mission-icon {
+	width: 100%;
+}
+
 /* score graph */
 
 #scoregraph .domain {

@@ -9,6 +9,7 @@
 			"reward": 1,
 			"initial_status": "open",
 			"dependencies": [],
+			"kind": "dev",
 			"posts": [
 				{
 					"id": "track_tutorial_mission_01_post_01",
@@ -30,6 +31,7 @@
 			"reward": 2,
 			"initial_status": "locked",
 			"dependencies": ["track_tutorial_mission_01"],
+			"kind": "crypto",
 			"posts": [
 				{
 					"id": "track_tutorial_mission_02_post_01",
@@ -57,6 +59,7 @@
 			"reward": 3,
 			"initial_status": "locked",
 			"dependencies": ["track_tutorial_mission_02"],
+			"kind": "recon",
 			"posts": [
 				{
 					"id": "track_tutorial_mission_03_post_01",
@@ -72,6 +75,7 @@
 			"reward": 4,
 			"initial_status": "locked",
 			"dependencies": ["track_tutorial_mission_03"],
+			"kind": "qrcode",
 			"posts": [
 				{
 					"id": "track_tutorial_mission_04_post_01",
@@ -87,6 +91,7 @@
 			"reward": 4,
 			"initial_status": "locked",
 			"dependencies": ["track_tutorial_mission_03"],
+			"kind": "csgames",
 			"posts": [
 				{
 					"id": "track_tutorial_mission_05_post_01",
@@ -102,6 +107,7 @@
 			"reward": 5,
 			"initial_status": "locked",
 			"dependencies": ["track_tutorial_mission_04", "track_tutorial_mission_05"],
+			"kind": "lore",
 			"posts": [
 				{
 					"id": "track_tutorial_mission_06_post_01",

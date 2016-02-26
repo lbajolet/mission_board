@@ -9,6 +9,7 @@
 			"reward": 50,
 			"initial_status": "locked",
 			"dependencies": [],
+			"kind": "crypto",
 			"posts": [
 				{
 					"id": "hidden_post_01",
@@ -24,6 +25,7 @@
 			"reward": 100,
 			"initial_status": "locked",
 			"dependencies": ["hidden_01"],
+			"kind": "crypto",
 			"posts": [
 				{
 					"id": "hidden_post_02",
@@ -39,6 +41,7 @@
 			"reward": 200,
 			"initial_status": "locked",
 			"dependencies": ["hidden_02"],
+			"kind": "crypto",
 			"posts": [
 				{
 					"id": "hidden_post_03",

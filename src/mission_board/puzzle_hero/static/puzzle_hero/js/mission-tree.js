@@ -17,10 +17,11 @@ function drawTree(selector, missions) {
 		var i = 1;
 		for (var id in missions) {
 			var mission = missions[id];
+console.log(mission);
 			var className = mission.status;
 			g.setNode(id, {
 				labelType: "html",
-				label: "<div class='number'>"+ (mission.status == "locked"? "<span class='glyphicon glyphicon-lock'></span>" : mission.reward) +"</div>",
+				label: "<img class='mission-icon' src='/static/puzzle_hero/images/icons/"+ (mission.status == "locked"? "lock" : mission.kind) + ".png'></div>",
 				rx: 5,
 				ry: 5,
 				padding: 0,
@@ -49,6 +50,7 @@ function drawTree(selector, missions) {
 				var mission = missions[this.id];
 				return "<div class='mission-tip mission-" + mission.status + "'>" +
 							"<h3>" + mission.title + "</h3>" +
+							"<p>Kind: <b>" + mission.kind + "</b></p>" +
 							"<p>Reward: <b class='tip-reward'>" + mission.reward + "</b></p>" +
 							"<p>Status: <b class='tip-status'>" + mission.status + "</b></p>" +
 						"</div>"

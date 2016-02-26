@@ -9,6 +9,7 @@
 			"reward": 100,
 			"initial_status": "locked",
 			"dependencies": [],
+			"kind": "sounds",
 			"posts": [
 				{
 					"id": "sound_post_01",
@@ -24,6 +25,7 @@
 			"reward": 100,
 			"initial_status": "locked",
 			"dependencies": ["sound_01"],
+			"kind": "sounds",
 			"posts": [
 				{
 					"id": "sound_post_02",
@@ -39,6 +41,7 @@
 			"reward": 100,
 			"initial_status": "locked",
 			"dependencies": ["sound_02"],
+			"kind": "sounds",
 			"posts": [
 				{
 					"id": "sound_post_03",

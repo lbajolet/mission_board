@@ -9,6 +9,7 @@
 			"reward": 50,
 			"initial_status": "open",
 			"dependencies": [],
+			"kind": "dev",
 			"posts": [
 				{
 					"id": "track_beast_mission_01_post_01",
@@ -25,6 +26,7 @@
 			"reward": 75,
 			"initial_status": "locked",
 			"dependencies": ["track_beast_mission_01"],
+			"kind": "dev",
 			"posts": [
 				{
 					"id": "track_beast_mission_02_post_01",
@@ -41,6 +43,7 @@
 			"reward": 100,
 			"initial_status": "locked",
 			"dependencies": ["track_beast_mission_02"],
+			"kind": "dev",
 			"posts": [
 				{
 					"id": "track_beast_mission_03_post_01",
@@ -57,6 +60,7 @@
 			"reward": 200,
 			"initial_status": "locked",
 			"dependencies": ["track_beast_mission_03"],
+			"kind": "dev",
 			"posts": [
 				{
 					"id": "track_beast_mission_04_post_01",
@@ -73,6 +77,7 @@
 			"reward": 150,
 			"initial_status": "locked",
 			"dependencies": ["track_beast_mission_03"],
+			"kind": "dev",
 			"posts": [
 				{
 					"id": "track_beast_mission_05_post_01",

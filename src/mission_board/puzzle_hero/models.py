@@ -25,6 +25,7 @@ class Mission(models.Model):
     id = models.CharField(max_length=64, primary_key=True)
     initial_status = models.CharField(max_length=64)
     title = models.CharField(max_length=255)
+    kind = models.CharField(max_length=255)
     reward = models.IntegerField()
     dependencies = models.ManyToManyField("self", related_name="required_for",
                                           blank=True, symmetrical=False)

@@ -86,6 +86,7 @@ class Command(BaseCommand):
 
             # create track data
             with open('../../data/tracks/' + track_file + '/track.json') as track_data:
+                print("Load track " + track_file)
                 json_track = json.load(track_data)
 
                 track = Track()
@@ -100,6 +101,7 @@ class Command(BaseCommand):
                     mission.id = json_mission["id"]
                     mission.title = json_mission["title"]
                     mission.reward = json_mission["reward"]
+                    mission.kind = json_mission["kind"]
                     mission.initial_status = json_mission["initial_status"]
                     for dep in json_mission["dependencies"]:
                         mission.dependencies.add(Mission.objects.get(id=dep))

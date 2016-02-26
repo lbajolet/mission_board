@@ -9,6 +9,7 @@
 			"reward": 100,
 			"initial_status": "open",
 			"dependencies": [],
+			"kind": "trivia",
 			"posts": [
 				{
 					"id": "the_butcher_post_01",
@@ -24,6 +25,7 @@
 			"reward": 200,
 			"initial_status": "open",
 			"dependencies": [],
+			"kind": "logic",
 			"posts": [
 				{
 					"id": "watch_dog_post_01",
@@ -39,6 +41,7 @@
 			"reward": 200,
 			"initial_status": "locked",
 			"dependencies": ["the_butcher_01", "watch_dog_01"],
+			"kind": "sponsors",
 			"posts": [
 				{
 					"id": "watch_dog_post_02",
@@ -54,6 +57,7 @@
 			"reward": 100,
 			"initial_status": "locked",
 			"dependencies": ["the_butcher_01", "watch_dog_02"],
+			"kind": "games",
 			"posts": [
 				{
 					"id": "the_butcher_post_02",

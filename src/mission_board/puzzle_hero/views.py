@@ -143,6 +143,7 @@ class TracksList(LoginRequiredMixin, ListView):
                     mission_data["title"] = ms.mission.title
                     mission_data["status"] = ms.status
                     mission_data["reward"] = ms.mission.reward
+                    mission_data["kind"] = ms.mission.kind
 
                     dep_data = []
                     for dep in ms.mission.dependencies.all():
