@@ -481,13 +481,16 @@ class GlobalAnnouncementList(LoginRequiredMixin, ListView):
 
 @login_required
 @user_passes_test(user_is_csadmin)
-def csadmin_index(request):
-    return redirect("admin:index")
+def csadmin_panel(request):
+    return render(request, template_name="puzzle_hero/admin_panel.html")
 
 
+@login_required
+@user_passes_test(user_is_csadmin)
 class CSAdminGlobalAnnouncementView(FormView):
     form_class = GlobalAnnouncementForm
     template_name = "cs_auth/login.html"
+
 
 @login_required
 @user_passes_test(user_is_csadmin)
