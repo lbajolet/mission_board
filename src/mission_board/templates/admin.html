@@ -36,7 +36,7 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="{% if nav == 'dashboard' %}active{% endif %}"><a href="{% url 'dashboard' %}">Admin Panel</a></li>
+          <li class="{% if nav == 'admin_panel' %}active{% endif %}"><a href="{% url 'admin_panel' %}">Admin Panel</a></li>
           <li class="{% if nav == 'dashboard' %}active{% endif %}"><a href="{% url 'dashboard' %}">Admin Dashboard</a></li>
           <li class="{% if nav == 'django-admin' %}active{% endif %}"><a href="{% url 'admin:index' %}">Django Admin</a></li>
         </ul>

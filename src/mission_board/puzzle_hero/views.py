@@ -15,7 +15,8 @@ from django.views.generic import ListView, FormView, DetailView
 
 from cs_auth.models import Team
 
-from .forms import FlagSubmissionForm, GlobalAnnouncementForm
+from .forms import FlagSubmissionForm, AdminFlagSubmissionForm, \
+    AdminGlobalSubmissionForm
 from .models import Mission, MissionStatus, Post, PostStatus, Track, \
     TrackStatus, Submission, Flag, GlobalAnnouncement, TeamAnnouncement, \
     TrackAnnouncement, MissionAnnouncement, PostAnnouncement, Event, \
@@ -290,7 +291,7 @@ class MissionPage(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return context
 
 
-class Scoreboard(LoginRequiredMixin, UserPassesTestMixin, ListView):
+class Scoreboard(ListView):
     model = Team
     context_object_name = 'teams'
     template_name = 'puzzle_hero/scoreboard.html'
@@ -309,26 +310,21 @@ class Scoreboard(LoginRequiredMixin, UserPassesTestMixin, ListView):
         context["scoreboard"] = base64.b64encode(
             json.dumps(graph_data).encode("ascii")
         )
+        print(json.dumps(graph_data, indent=4))
 
         return context
 
     @staticmethod
     def build_graph_data():
 
-        min_date = GlobalStatus.objects.all().first().start_time
-        max_date = timezone.now()
-        min_date = int(time.mktime(min_date.timetuple()))
-        max_date = int(time.mktime(max_date.timetuple()))
+        max_date = timezone.now().timestamp()
+        min_date = GlobalStatus.objects.all().first().start_time.timestamp()
 
         team_dict = {}
         teams = Team.objects.all().order_by("-score")
 
         min_score = 0
         max_score = math.ceil(teams[0].score / 100) * 100
-
-        # score_submissions = Submission.objects.filter(
-        #     flag__trigger__kind=Trigger.TEAMSCORE_TYPE
-        # ).select_related()
 
         for team in teams:
             team_dict[team.name] = {
@@ -449,7 +445,7 @@ def submit_flag(request):
                                                              reverse_lazy('tracklist')))
 
             else:
-                process_flag_submission(flag, request)
+                process_flag_submission(flag, request=request)
                 messages.add_message(
                     request,
                     messages.SUCCESS,
@@ -481,15 +477,21 @@ class GlobalAnnouncementList(LoginRequiredMixin, ListView):
 
 @login_required
 @user_passes_test(user_is_csadmin)
-def csadmin_panel(request):
-    return render(request, template_name="puzzle_hero/admin_panel.html")
+def admin_panel(request):
 
+    context = {}
 
-@login_required
-@user_passes_test(user_is_csadmin)
-class CSAdminGlobalAnnouncementView(FormView):
-    form_class = GlobalAnnouncementForm
-    template_name = "cs_auth/login.html"
+    gs = GlobalStatus.objects.first()
+    context["global_status"] = gs
+
+    flag_form = AdminFlagSubmissionForm()
+    context['flag_form'] = flag_form
+
+    global_flag_form = AdminGlobalSubmissionForm()
+    context['global_flag_form'] = global_flag_form
+
+    return render(request, template_name="puzzle_hero/admin_panel.html",
+                  context=context)
 
 
 @login_required
@@ -550,3 +552,61 @@ def admin_dashboard(request):
 
     return render(request, "puzzle_hero/admin_dashboard.html", context)
 
+
+@login_required
+@user_passes_test(user_is_csadmin)
+def admin_submit_flag(request):
+
+    if request.method == "POST":
+        form = AdminFlagSubmissionForm(request.POST)
+        if form.is_valid():
+            flag_token = form.cleaned_data["token"]
+            team = form.cleaned_data["team"]
+            flag = Flag.objects.filter(token=flag_token).first()
+            subs = Submission.objects.filter(flag=flag, team=team)
+
+            if subs:
+                messages.add_message(
+                    request,
+                    messages.WARNING,
+                    "This flag has already been submitted by this team."
+                )
+
+            else:
+                process_flag_submission(flag, team=team)
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    'Submitted flag %s for %s!' % (flag_token, team)
+                )
+
+        else:
+            wrong_flag = form.data["token"]
+            messages.add_message(request, messages.ERROR,
+                                 'Invalid flag %s !' % wrong_flag)
+
+    return HttpResponseRedirect(reverse_lazy("admin_panel"))
+
+
+@login_required
+@user_passes_test(user_is_csadmin)
+def admin_global_submit_flag(request):
+
+    if request.method == "POST":
+        form = FlagSubmissionForm(request.POST)
+        if form.is_valid():
+            flag_token = form.cleaned_data["token"]
+            flag = Flag.objects.filter(token=flag_token).first()
+
+            teams = Team.objects.all()
+            for team in teams:
+                subs = Submission.objects.filter(flag=flag, team=team)
+                if not subs:
+                    process_flag_submission(flag, team=team)
+
+        else:
+            wrong_flag = form.data["token"]
+            messages.add_message(request, messages.ERROR,
+                                 'Invalid flag %s !' % wrong_flag)
+
+    return HttpResponseRedirect(reverse_lazy("admin_panel"))

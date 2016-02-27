@@ -40,7 +40,7 @@
           <th width="50%">
             <a href="{% url "profile" player.user.id %}">{{ player.display_name }}</a>
           </th>
-          <td>rank {{ player.score }}</td>
+          <td>rank {{ player.rank_level }}</td>
           <td>score {{ player.score }}</td>
         </tr>
       {% endfor %}

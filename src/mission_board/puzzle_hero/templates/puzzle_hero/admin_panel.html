@@ -1,20 +1,97 @@
 {% extends "admin.html" %}
 
+{% load crispy_forms_tags %}
+{% load admin_urls %}
+
 {% block content %}
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Mission Board Status</h3>
+
+    <!-- Global Status -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Mission Board Status</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="form-row">
+            <!-- Status buttons -->
+            <div class="btn-group btn-group-lg" role="group" aria-label="...">
+                <button type="button" class="btn btn-success disabled{% if global_status.status == 'started' %} active{% endif %}">Ongoing</button>
+                <button type="button" class="btn btn-warning disabled{% if global_status.paused == True %} active{% endif %}">Paused</button>
+                <button type="button" class="btn btn-danger disabled{% if global_status.status == 'stopped' %} active{% endif %}">Stopped</button>
+            </div>
+                <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_globalstatus_change' global_status.pk %}">Edit Global Status</a>
+            </div>
+        </div>
     </div>
-    <div class="panel-body">
 
-
-
-      <!-- Status buttons -->
-      <div class="btn-group btn-group-lg" role="group" aria-label="...">
-        <button type="button" class="btn btn-success active">Normal</button>
-        <button type="button" class="btn btn-warning">Pause</button>
-        <button type="button" class="btn btn-danger">Stop</button>
-      </div>
+    <!-- User and Team Management -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">User and team management</h3>
+        </div>
+        <div class="panel-body">
+            <a class="btn btn-lg btn-link" href="{% url 'admin:cs_auth_team_changelist' %}">Edit Team</a>
+            <a class="btn btn-lg btn-link" href="{% url 'admin:cs_auth_player_changelist' %}">Edit Player</a>
+            <a class="btn btn-lg btn-link" href="{% url 'admin:auth_user_changelist' %}">Edit User</a>
+        </div>
     </div>
-  </div>
+
+    <!-- Announcement -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Announcements</h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_globalannouncement_add' %}">Add Global Announcement</a>
+                <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_teamannouncement_add' %}">Add Team Announcement</a>
+                <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_trackannouncement_add' %}">Add Track Announcement</a>
+                <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_missionannouncement_add' %}">Add Mission Announcement</a>
+                <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_postannouncement_add' %}">Add Post Announcement</a>
+            </p>
+            <p>
+                <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_globalannouncement_changelist' %}">Edit Global Announcement</a>
+                <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_teamannouncement_changelist' %}">Edit Team Announcement</a>
+                <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_trackannouncement_changelist' %}">Edit Track Announcement</a>
+                <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_missionannouncement_changelist' %}">Edit Mission Announcement</a>
+                <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_postannouncement_changelist' %}">Edit Post Announcement</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Flag Submissions -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Flag Submission</h3>
+        </div>
+        <div class="panel-body">
+            {% crispy flag_form %}
+        </div>
+    </div>
+
+    <!-- Global Flag Submissions -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Global Flag Submission</h3>
+        </div>
+        <div class="panel-body">
+            {% crispy global_flag_form %}
+        </div>
+    </div>
+
+    <!-- Other links -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Other links</h3>
+        </div>
+        <div class="panel-body">
+            <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_track_changelist' %}">Edit Track</a>
+            <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_trackstatus_changelist' %}">Edit Track Status for a team</a><br/><br/>
+            <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_mission_changelist' %}">Edit Mission</a>
+            <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_missionstatus_changelist' %}">Edit Mission Status for a team</a><br/><br/>
+            <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_post_changelist' %}">Edit Post</a>
+            <a class="btn btn-lg btn-link" href="{% url 'admin:puzzle_hero_poststatus_changelist' %}">Edit Post Status for a team</a><br/><br/>
+
+        </div>
+    </div>
 {% endblock %}

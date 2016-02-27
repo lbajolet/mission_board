@@ -4,37 +4,52 @@ from .models import Submission, Trigger, TrackStatus, MissionStatus, PostStatus,
         Event, PlayerEvent, ScoreEvent
 
 
-def process_flag_submission(flag, request=None, player=None, datetime=None):
+def process_flag_submission(flag, request=None, player=None, team=None,
+                            datetime=None):
+
+    sub = None
     if request:
-        _player = request.user.player
-    if player:
-        _player = player
-    sub = _create_submission(flag, _player, datetime)
-    _process_triggers(flag, sub, player=_player)
+        player = request.user.player
+        sub = _create_submission(flag, player=player, datetime=datetime)
+    elif player:
+        sub = _create_submission(flag, player=player, datetime=datetime)
+    elif team:
+        sub = _create_submission(flag, team=team, datetime=datetime)
+    _process_triggers(flag, sub, player=player)
 
 
-def _create_submission(flag, player, datetime=None):
+def _create_submission(flag, player=None, team=None, datetime=None):
     sub = Submission()
     sub.flag = flag
-    sub.submitter = player
-    sub.team = player.team
+    if player:
+        sub.submitter = player
+        sub.team = player.team
+    else:
+        sub.team = team
 
     if datetime:
         sub.time = datetime
     sub.save()
 
-    ev = PlayerEvent(
-        is_player_event=True,
-        type="flag_submission",
-        message="Flag submitted!",
-        player=player
-    )
+    if player:
+        ev = PlayerEvent(
+            is_player_event=True,
+            type="flag_submission",
+            message="Flag submitted!",
+            player=player
+        )
+    else:
+        ev = Event(
+            type="flag_submission",
+            message="Flag submitted by %s!" % team.name,
+        )
     ev.save()
 
     return sub
 
 
 def _process_triggers(flag, sub, player=None, request=None):
+
     for trigger in flag.trigger_set.all():
 
         if trigger.kind == Trigger.TRACKSTATUS_TYPE:
@@ -59,14 +74,8 @@ def _process_trackstatus_trigger(trigger, sub, request=None):
     track_status = TrackStatus.objects.filter(
         track=trigger.track,
         team=sub.team
-    )
+    ).first()
 
-    if not track_status:
-        track_status = TrackStatus()
-        track_status.team = sub.team
-        track_status.track = trigger.track
-    else:
-        track_status = track_status[0]
     if track_status.status != "closed":
         track_status.status = trigger.status
         track_status.save()
@@ -79,17 +88,29 @@ def _process_missionstatus_trigger(trigger, sub, request=None):
     mission_status = MissionStatus.objects.filter(
         mission=trigger.mission,
         team=sub.team
-    )
+    ).first()
 
-    if not mission_status:
-        mission_status = MissionStatus()
-        mission_status.team = sub.team
-        mission_status.track = trigger.mission
-    else:
-        mission_status = mission_status[0]
     if mission_status.status != "closed":
         mission_status.status = trigger.status
         mission_status.save()
+
+        team = sub.team
+        team.score += trigger.mission.reward
+        team.save()
+
+        se = ScoreEvent(
+            time=sub.time,
+            type="score_event",
+            message="Finished mission %s!" % trigger.mission.title,
+            score_delta=trigger.mission.reward,
+            score_total=team.score,
+            team=team
+        )
+
+        if sub.submitter:
+            se.is_player_event = True
+            se.player = sub.submitter
+        se.save()
 
     _process_mission_dependencies(mission_status.mission, sub, request)
 
@@ -99,14 +120,8 @@ def _process_poststatus_trigger(trigger, sub):
     post_status = PostStatus.objects.filter(
         post=trigger.post,
         team=sub.team
-    )
+    ).first()
 
-    if not post_status:
-        post_status = PostStatus()
-        post_status.team = sub.team
-        post_status.track = trigger.post
-    else:
-        post_status = post_status[0]
     if post_status.status != "closed":
         post_status.status = trigger.status
         post_status.save()
@@ -146,7 +161,6 @@ def _process_teamscore_trigger(trigger, sub, player=None, request=None):
         team=team
     )
 
-    # TODO this doesnt work
     if player:
         se.is_player_event = True
         se.player = player
@@ -166,8 +180,11 @@ def _process_track_dependencies(track, sub, request=None):
         if len(solved_deps) == len(dependencies):
             track_status = TrackStatus.objects.filter(team=team,
                                                       track=affected_track)
-            track_status.status = "open"
-            track_status.save()
+
+            if track_status.status != "closed":
+                track_status.status = "open"
+                track_status.save()
+
             if request:
                 messages.add_message(
                     request,
@@ -199,8 +216,9 @@ def _process_mission_dependencies(mission, sub, request=None):
                 team=team,
                 mission=affected_mission
             ).first()
-            mission_status.status = "open"
-            mission_status.save()
+            if mission_status.status != "closed":
+                mission_status.status = "open"
+                mission_status.save()
 
             if request:
                 messages.add_message(
