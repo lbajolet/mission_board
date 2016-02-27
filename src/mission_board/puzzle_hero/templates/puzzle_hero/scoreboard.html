@@ -4,29 +4,31 @@
 
 
 {% block content %}
-	<div class="panel panel-default">
-		<div class="panel-body">
-		    <svg id="scoregraph" height="600" data-json="{{ scoreboard }}"></svg>
-		</div>
-	</div>
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Scoreboard</h3>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <svg id="scoregraph" height="600" data-json="{{ scoreboard }}"></svg>
+        </div>
     </div>
-    <table class="table table-hover">
-      {% for team in teams %}
-        <tr>
-          <td><i class="glyphicon glyphicon-unchecked center" style="color: {{ team.color }};"></i></td>
-          <th>
-            <a href="{% url "team_stats" team.id %}">
-              {{ team.name }}
-            </a>
-          </th>
-          <td>{{ team.university }}</td>
-          <td>{{ team.score }}</td>
-        </tr>
-      {% endfor %}
-    </table>
-  </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Scoreboard</h3>
+        </div>
+        <table class="table table-hover">
+            {% for team in teams %}
+                {% if team.hidden == False %}
+                    <tr>
+                        <td><i class="glyphicon glyphicon-unchecked center" style="color: {{ team.color }};"></i></td>
+                        <th>
+                            <a href="{% url "team_stats" team.id %}">
+                                {{ team.name }}
+                            </a>
+                        </th>
+                        <td>{{ team.university }}</td>
+                        <td>{{ team.score }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}

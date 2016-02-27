@@ -54,7 +54,8 @@ class Command(BaseCommand):
         team.name = "CSGO_Admin"
         team.university = "UQUAM"
         team.token = "ADMINTOKEN"
-        team.score = 42
+        team.score = 0
+        team.hidden = True
         team.save()
 
         univ_mail = "uqam.qc.ca"

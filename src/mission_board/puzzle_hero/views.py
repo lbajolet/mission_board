@@ -328,6 +328,9 @@ class Scoreboard(ListView):
         max_score = math.ceil(teams[0].score / 100) * 100
 
         for team in teams:
+            if team.hidden:
+                continue
+
             team_dict[team.name] = {
                 "team": team.name,
                 "color": team.color,
@@ -341,6 +344,9 @@ class Scoreboard(ListView):
         score_events = ScoreEvent.objects.all()
 
         for se in score_events:
+            if se.team.hidden:
+                continue
+
             timestamp = se.time
             timestamp = int(timestamp.timestamp())
             new_score = {
