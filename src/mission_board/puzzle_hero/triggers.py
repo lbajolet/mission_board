@@ -10,7 +10,7 @@ def process_flag_submission(flag, request=None, player=None, datetime=None):
     if player:
         _player = player
     sub = _create_submission(flag, _player, datetime)
-    _process_triggers(flag, sub)
+    _process_triggers(flag, sub, player=_player)
 
 
 def _create_submission(flag, player, datetime=None):
@@ -34,7 +34,7 @@ def _create_submission(flag, player, datetime=None):
     return sub
 
 
-def _process_triggers(flag, sub, request=None):
+def _process_triggers(flag, sub, player=None, request=None):
     for trigger in flag.trigger_set.all():
 
         if trigger.kind == Trigger.TRACKSTATUS_TYPE:
@@ -51,7 +51,7 @@ def _process_triggers(flag, sub, request=None):
 
         elif trigger.kind == Trigger.TEAMSCORE_TYPE:
             trigger = trigger.teamscoretrigger
-            _process_teamscore_trigger(trigger, sub, request=request)
+            _process_teamscore_trigger(trigger, sub, player, request=request)
 
 
 def _process_trackstatus_trigger(trigger, sub, request=None):
@@ -112,24 +112,25 @@ def _process_poststatus_trigger(trigger, sub):
         post_status.save()
 
 
-def _process_teamscore_trigger(trigger, sub, request=None):
+def _process_teamscore_trigger(trigger, sub, player=None, request=None):
 
     team = sub.team
     team.score += trigger.score
     team.save()
 
-    if request:
-        request.user.score += trigger.score
-        request.user.save()
+    if player:
+        player.score += trigger.score
+        player.save()
 
+    if request:
         messages.add_message(
             request,
             messages.SUCCESS,
             'You have just earned %s points!' % trigger.score
         )
 
-    if request:
-        message = "%s of %s has scored %s points" % (request.user.display_name,
+    if player:
+        message = "%s of %s has scored %s points" % (player.display_name,
                                                      sub.team.name,
                                                      trigger.score)
     else:
@@ -146,9 +147,9 @@ def _process_teamscore_trigger(trigger, sub, request=None):
     )
 
     # TODO this doesnt work
-    if request:
+    if player:
         se.is_player_event = True
-        se.player = request.user
+        se.player = player
 
     se.save()
 

@@ -33,7 +33,7 @@ class FlagSubmissionForm(forms.Form):
         max_length=255,
         label="Flag",
         widget=forms.TextInput(
-            attrs={'placeholder': 'FLAG_123456789'}
+            attrs={'placeholder': 'UQAM{0123456789}'}
         )
     )
 

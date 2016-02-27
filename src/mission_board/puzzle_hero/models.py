@@ -141,13 +141,6 @@ class TeamScoreTrigger(models.Model):
     trigger = models.OneToOneField(Trigger)
     score = models.IntegerField()
 
-# Other possible triggers
-# - Airdrop == score bonus? or what?
-# - Announcement
-# - Lock (say we want only one team to be able to solve a challenge...
-#         lock it back for other teams)
-# - ... More ideas?
-
 
 class Announcement(models.Model):
     time = models.DateTimeField(auto_now_add=True)
