@@ -49,9 +49,9 @@ class Post(models.Model):
         return "%s: %s : %s" % (self.mission.track, self.mission, self.id)
 
 
-# TODO Enum status choices
 class TrackStatus(models.Model):
-    status = models.CharField(max_length=64)
+    status = models.CharField(max_length=64,
+                              help_text="Can be locked, open, closed")
     track = models.ForeignKey(Track, related_name='status')
     team = models.ForeignKey(Team)
 
@@ -63,7 +63,8 @@ class TrackStatus(models.Model):
 
 
 class MissionStatus(models.Model):
-    status = models.CharField(max_length=64)
+    status = models.CharField(max_length=64,
+                              help_text="Can be locked, open, closed")
     mission = models.ForeignKey(Mission)
     team = models.ForeignKey(Team)
 
@@ -76,7 +77,8 @@ class MissionStatus(models.Model):
 
 
 class PostStatus(models.Model):
-    status = models.CharField(max_length=64)
+    status = models.CharField(max_length=64,
+                              help_text="Can be locked, open, closed")
     post = models.ForeignKey(Post)
     team = models.ForeignKey(Team)
 
@@ -92,7 +94,7 @@ class PostStatus(models.Model):
 
 # TODO add a bad submission model
 class Submission(models.Model):
-    submitter = models.ForeignKey(Player, blank=True)
+    submitter = models.ForeignKey(Player, blank=True, null=True)
     team = models.ForeignKey(Team)
     flag = models.ForeignKey(Flag)
     time = models.DateTimeField(default=timezone.now)
@@ -141,13 +143,6 @@ class PostStatusTrigger(models.Model):
 class TeamScoreTrigger(models.Model):
     trigger = models.OneToOneField(Trigger)
     score = models.IntegerField()
-
-# Other possible triggers
-# - Airdrop == score bonus? or what?
-# - Announcement
-# - Lock (say we want only one team to be able to solve a challenge...
-#         lock it back for other teams)
-# - ... More ideas?
 
 
 class Announcement(models.Model):
@@ -243,7 +238,7 @@ class ScoreEvent(Event):
 
 
 class GlobalStatus(models.Model):
-    status = models.CharField(max_length=64)
+    status = models.CharField(max_length=64, help_text="Can be not_started, started or closed")
     paused = models.BooleanField(default=False)
     start_time = models.DateTimeField()
     scoreboard_hidden = models.BooleanField(default=False)
