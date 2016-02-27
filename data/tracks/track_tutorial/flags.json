@@ -141,6 +141,10 @@
 				"kind": "track_status",
 				"track": "track_beast",
 				"status": "open"
+			},{
+				"kind": "track_status",
+				"track": "track_git",
+				"status": "open"
 			}
 		]
 	}

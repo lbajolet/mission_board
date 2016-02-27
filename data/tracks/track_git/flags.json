@@ -1,0 +1,124 @@
+[
+	{
+		"flag": "UQAM{I agree and want to start the git track}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_git_mission_01_post_01",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_git_mission_01_post_02",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{uoWBuhm873LbMH}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_git_mission_01_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_git_mission_01",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{TsVN8bPBLVEoF8}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_git_mission_02_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_git_mission_02",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{SsxD5bPLRVaIz1}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_git_mission_03_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_git_mission_03",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{fzA7EPz4X8SNLH}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_git_mission_04_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_git_mission_04",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{NcOXuPEEy7YmjZ}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_git_mission_05_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_git_mission_05",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{ZHlAlCuX7DLaCl}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_git_mission_06_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_git_mission_06",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{9a01e81984202d0a5833}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_git_mission_07_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_git_mission_07",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{Kklwoy53O36477}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_git_mission_08_post_01",
+				"status": "closed"
+			}, {
+				"kind": "mission_status",
+				"mission": "track_git_mission_08",
+				"status": "closed"
+			}, {
+				"kind": "track_status",
+				"track": "track_git",
+				"status": "closed"
+			}
+		]
+	}
+]

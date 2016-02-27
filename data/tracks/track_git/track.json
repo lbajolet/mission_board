@@ -1,0 +1,142 @@
+{
+	"id": "track_git",
+	"title": "Minister Morriar",
+	"initial_status": "locked",
+	"missions": [
+		{
+			"id": "track_git_mission_01",
+			"title": "Minister Morriar",
+			"reward": 1,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_git_mission_01_post_01",
+					"initial_status": "open",
+					"sender": "Maury Harh",
+					"en": "mission_01/post_01.md",
+					"fr": "mission_01/post_01.md"
+				},{
+					"id": "track_git_mission_01_post_02",
+					"initial_status": "locked",
+					"sender": "Maury Harh",
+					"en": "mission_01/post_02.md",
+					"fr": "mission_01/post_02.md"
+				}
+			]
+		},{
+			"id": "track_git_mission_02",
+			"title": "Project 0",
+			"reward": 2,
+			"initial_status": "locked",
+			"dependencies": ["track_git_mission_01"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_git_mission_02_post_01",
+					"initial_status": "open",
+					"sender": "Maury Harh",
+					"en": "mission_02/post_01.md",
+					"fr": "mission_02/post_01.md"
+				}
+			]
+		},{
+			"id": "track_git_mission_03",
+			"title": "My dear diary",
+			"reward": 3,
+			"initial_status": "locked",
+			"dependencies": ["track_git_mission_02"],
+			"kind": "lore",
+			"posts": [
+				{
+					"id": "track_git_mission_03_post_01",
+					"initial_status": "open",
+					"sender": "Maury Harh",
+					"en": "mission_03/post_01.md",
+					"fr": "mission_03/post_01.md"
+				}
+			]
+		},{
+			"id": "track_git_mission_04",
+			"title": "He's not alone",
+			"reward": 4,
+			"initial_status": "locked",
+			"dependencies": ["track_git_mission_01", "track_git_mission_03"],
+			"kind": "recon",
+			"posts": [
+				{
+					"id": "track_git_mission_04_post_01",
+					"initial_status": "open",
+					"sender": "Maury Harh",
+					"en": "mission_04/post_01.md",
+					"fr": "mission_04/post_01.md"
+				}
+			]
+		},{
+			"id": "track_git_mission_05",
+			"title": "project0-v0.0-beta",
+			"reward": 4,
+			"initial_status": "locked",
+			"dependencies": ["track_git_mission_02"],
+			"kind": "recon",
+			"posts": [
+				{
+					"id": "track_git_mission_05_post_01",
+					"initial_status": "open",
+					"sender": "Maury Harh",
+					"en": "mission_05/post_01.md",
+					"fr": "mission_05/post_01.md"
+				}
+			]
+		},{
+			"id": "track_git_mission_06",
+			"title": "Bad Commit",
+			"reward": 5,
+			"initial_status": "locked",
+			"dependencies": ["track_git_mission_04", "track_git_mission_05"],
+			"kind": "recon",
+			"posts": [
+				{
+					"id": "track_git_mission_06_post_01",
+					"initial_status": "open",
+					"sender": "Maury Harh",
+					"en": "mission_06/post_01.md",
+					"fr": "mission_06/post_01.md"
+				}
+			]
+		},{
+			"id": "track_git_mission_07",
+			"title": "Happy Birthday",
+			"reward": 5,
+			"initial_status": "locked",
+			"dependencies": ["track_git_mission_05"],
+			"kind": "lore",
+			"posts": [
+				{
+					"id": "track_git_mission_07_post_01",
+					"initial_status": "open",
+					"sender": "Maury Harh",
+					"en": "mission_07/post_01.md",
+					"fr": "mission_07/post_01.md"
+				}
+			]
+		},{
+			"id": "track_git_mission_08",
+			"title": "Git init",
+			"reward": 5,
+			"initial_status": "locked",
+			"dependencies": ["track_git_mission_06", "track_git_mission_07"],
+			"kind": "recon",
+			"posts": [
+				{
+					"id": "track_git_mission_08_post_01",
+					"initial_status": "open",
+					"sender": "Maury Harh",
+					"en": "mission_08/post_01.md",
+					"fr": "mission_08/post_01.md"
+				}
+			]
+		}
+	]
+}
