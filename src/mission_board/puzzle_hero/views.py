@@ -312,7 +312,6 @@ class Scoreboard(ListView):
         context["scoreboard"] = base64.b64encode(
             json.dumps(graph_data).encode("ascii")
         )
-        print(json.dumps(graph_data, indent=4))
 
         return context
 
