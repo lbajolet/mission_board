@@ -1,4 +1,6 @@
 from django.contrib import messages
+from django.core.urlresolvers import reverse_lazy
+
 
 from .models import Submission, Trigger, TrackStatus, MissionStatus, PostStatus, \
         Event, PlayerEvent, ScoreEvent
@@ -11,11 +13,13 @@ def process_flag_submission(flag, request=None, player=None, team=None,
     if request:
         player = request.user.player
         sub = _create_submission(flag, player=player, datetime=datetime)
+        _process_triggers(flag, sub, request=request, player=player)
     elif player:
         sub = _create_submission(flag, player=player, datetime=datetime)
+        _process_triggers(flag, sub, player=player)
     elif team:
         sub = _create_submission(flag, team=team, datetime=datetime)
-    _process_triggers(flag, sub, player=player)
+        _process_triggers(flag, sub, player=player)
 
 
 def _create_submission(flag, player=None, team=None, datetime=None):
@@ -77,6 +81,21 @@ def _process_trackstatus_trigger(trigger, sub, request=None):
     ).first()
 
     if track_status.status != "closed":
+
+        if track_status.status == "locked" and trigger.status == "open":
+            if request:
+                link = """<a href="%s">%s</a>""" % (
+                    reverse_lazy("track_detail", kwargs={
+                        "pk": track_status.track.id
+                    }), track_status.track.title
+                )
+
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    'A new track has opened: %s!' % link
+                )
+
         track_status.status = trigger.status
         track_status.save()
 
@@ -91,6 +110,7 @@ def _process_missionstatus_trigger(trigger, sub, request=None):
     ).first()
 
     if mission_status.status != "closed":
+
         mission_status.status = trigger.status
         mission_status.save()
 
@@ -185,21 +205,27 @@ def _process_track_dependencies(track, sub, request=None):
                 track_status.status = "open"
                 track_status.save()
 
-            if request:
-                messages.add_message(
-                    request,
-                    messages.SUCCESS,
-                    'A new track has opened: %s!' % track_status.track.title
-                )
+                if request:
+                    link = """<a href="%s">%s</a>""" % (
+                        reverse_lazy("track_detail", kwargs={
+                            "pk": track_status.track.id
+                        }), track_status.track.title
+                    )
 
-            player = request.user.player
-            ev = PlayerEvent(
-                is_player_event=True,
-                type="track_unlock",
-                message="%s unlocked" % track_status.track.title,
-                player=player
-            )
-            ev.save()
+                    messages.add_message(
+                        request,
+                        messages.SUCCESS,
+                        'A new track has opened: %s!' % link
+                    )
+
+                player = request.user.player
+                ev = PlayerEvent(
+                    is_player_event=True,
+                    type="track_unlock",
+                    message="%s unlocked" % track_status.track.title,
+                    player=player
+                )
+                ev.save()
 
 
 def _process_mission_dependencies(mission, sub, request=None):
@@ -220,18 +246,25 @@ def _process_mission_dependencies(mission, sub, request=None):
                 mission_status.status = "open"
                 mission_status.save()
 
-            if request:
-                messages.add_message(
-                    request,
-                    messages.SUCCESS,
-                    'New mission available: %s!' % mission_status.mission.title
-                )
+                if request:
+                    link = """<a href="%s">%s</a>""" % (
+                        reverse_lazy("mission_page", kwargs={
+                            "mission": mission_status.mission.id
+                        }),
+                        mission_status.mission.title
+                    )
 
-                player = request.user.player
-                ev = PlayerEvent(
-                    is_player_event=True,
-                    type="mission_unlock",
-                    message="%s unlocked" % mission_status.mission.title,
-                    player=player
-                )
-                ev.save()
+                    messages.add_message(
+                        request,
+                        messages.SUCCESS,
+                        'New mission available: %s!' % link
+                    )
+
+                    player = request.user.player
+                    ev = PlayerEvent(
+                        is_player_event=True,
+                        type="mission_unlock",
+                        message="%s unlocked" % mission_status.mission.title,
+                        player=player
+                    )
+                    ev.save()
