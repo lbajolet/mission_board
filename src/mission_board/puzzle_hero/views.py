@@ -47,7 +47,7 @@ def global_status_ok(function=None):
                 return render(request, "puzzle_hero/global_status.html",
                               context={"message": message})
 
-            if gs.status == "finished":
+            if gs.status == "closed":
                 message = "Missions have been completed!"
                 return render(request, "puzzle_hero/global_status.html",
                               context={"message": message})
@@ -318,8 +318,14 @@ class Scoreboard(ListView):
     @staticmethod
     def build_graph_data():
 
-        max_date = timezone.now().timestamp()
-        min_date = GlobalStatus.objects.all().first().start_time.timestamp()
+        gs = GlobalStatus.objects.all().first()
+        min_date = gs.start_time.timestamp()
+
+        if gs.end_time:
+            max_date = gs.end_time.timestamp()
+        else:
+            max_date = timezone.now().timestamp()
+
 
         team_dict = {}
         teams = Team.objects.all().order_by("-score")

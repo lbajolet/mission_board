@@ -238,7 +238,9 @@ class ScoreEvent(Event):
 
 
 class GlobalStatus(models.Model):
-    status = models.CharField(max_length=64, help_text="Can be not_started, started or closed")
+    status = models.CharField(max_length=64,
+                              help_text="Can be not_started, started or closed")
     paused = models.BooleanField(default=False)
     start_time = models.DateTimeField()
+    end_time = models.DateTimeField(blank=True, null=True)
     scoreboard_hidden = models.BooleanField(default=False)
