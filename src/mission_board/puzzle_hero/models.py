@@ -237,6 +237,10 @@ class ScoreEvent(Event):
     team = models.ForeignKey(Team)
 
 
+class BadFlagEvent(PlayerEvent):
+    token = models.CharField(max_length=255)
+
+
 class GlobalStatus(models.Model):
     status = models.CharField(max_length=64,
                               help_text="Can be not_started, started or closed")

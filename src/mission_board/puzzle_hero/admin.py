@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Track, Mission, Post, TrackStatus, MissionStatus, \
     PostStatus, Submission, GlobalAnnouncement, TeamAnnouncement, \
     TrackAnnouncement, MissionAnnouncement, PostAnnouncement, Event, \
-    PlayerEvent, GlobalStatus, Flag, TeamScoreTrigger
+    PlayerEvent, GlobalStatus, Flag, TeamScoreTrigger, BadFlagEvent
 
 
 class TrackAdmin(admin.ModelAdmin):
@@ -163,6 +163,23 @@ class FlagAdmin(admin.ModelAdmin):
             return 0
     get_score.short_description = "Score"
 
+
+class BadFlagEventAdmin(admin.ModelAdmin):
+    ordering = ("-time", "player__team__name", "player",)
+    list_display = ("time", "get_team", "get_university", "player", "token")
+    search_fields = ("player", "player__team__name", "player__team__university",
+                     "token")
+
+    def get_team(self, obj):
+        return obj.player.team
+    get_team.short_description = "Team"
+    get_team.admin_order_field = "player__team__name"
+
+    def get_university(self, obj):
+        return obj.player.team.university
+    get_university.short_description = "University"
+    get_university.admin_order_field = "player__team__university"
+
 admin.site.register(Track, TrackAdmin)
 admin.site.register(Mission, MissionAdmin)
 admin.site.register(Post, PostAdmin)
@@ -179,3 +196,4 @@ admin.site.register(Event, EventAdmin)
 admin.site.register(PlayerEvent, PlayerEventAdmin)
 admin.site.register(GlobalStatus, GlobalStatusAdmin)
 admin.site.register(Flag, FlagAdmin)
+admin.site.register(BadFlagEvent, BadFlagEventAdmin)

@@ -24,6 +24,7 @@ class Player(models.Model):
     team = models.ForeignKey(Team)
     curriculum_vitae = models.FileField(blank=True, max_length=20000)
     score = models.IntegerField(default=0)
+    bad_flag_count = models.IntegerField(default=0)
 
     def __str__(self):
         return "%s, %s %s, %s" % (self.display_name,

@@ -6,6 +6,7 @@ import time
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.views import logout
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
@@ -20,7 +21,8 @@ from .forms import FlagSubmissionForm, AdminFlagSubmissionForm, \
 from .models import Mission, MissionStatus, Post, PostStatus, Track, \
     TrackStatus, Submission, Flag, GlobalAnnouncement, TeamAnnouncement, \
     TrackAnnouncement, MissionAnnouncement, PostAnnouncement, Event, \
-    PlayerEvent, Trigger, TeamScoreTrigger, GlobalStatus, ScoreEvent
+    PlayerEvent, Trigger, TeamScoreTrigger, GlobalStatus, ScoreEvent, \
+    BadFlagEvent
 from .triggers import process_flag_submission
 
 import json
@@ -470,7 +472,30 @@ def submit_flag(request):
                     return HttpResponseRedirect(reverse_lazy('tracklist'))
 
         else:
+
             wrong_flag = form.data["token"]
+
+            player = request.user.player
+            player.bad_flag_count += 1
+
+            bfe = BadFlagEvent(
+                is_player_event=True,
+                type="bad_flag",
+                message="%s submitted a bad flag: %s" % (player, wrong_flag),
+                token=wrong_flag,
+                player=player
+            )
+
+            bfe.save()
+
+            if player.bad_flag_count > 50:
+                player.bad_flag_count = 0
+                player.user.is_active = False
+                player.user.save()
+                logout(request)
+
+            player.save()
+
             messages.add_message(request, messages.ERROR,
                                  'Invalid flag %s !' % wrong_flag)
         return HttpResponseRedirect(request.META['HTTP_REFERER'])
