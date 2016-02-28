@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% load treetags %}
+
+
+{% block content %}
+
+    {% include "puzzle_hero/mobile_flag_submission.html" %}
+
+  {% for track_status in track_statuses %}
+    {% if track_status.track.disabled == False and track_status.status != "locked" %}
+	  {% include "puzzle_hero/track_panel.html" with track=track_status.track json_tree=tree_data|keyvalue:track_status.track.id %}
+    {% endif %}
+  {% endfor %}
+
+  {% for ann in team_announcements %}
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ ann.time }}</h3>
+      </div>
+      <div class="panel-body">{{ ann.message }}</div>
+    </div>
+  {% endfor %}
+
+{% endblock %}

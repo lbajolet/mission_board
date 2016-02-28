@@ -72,3 +72,6 @@ db.sqlite3
 
 # Collected Static Resouces
 src/mission_board/static/resources
+
+# mac ox
+.DS_Store
