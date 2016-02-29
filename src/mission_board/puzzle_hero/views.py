@@ -461,6 +461,9 @@ def submit_flag(request):
 
             else:
                 process_flag_submission(flag, request=request)
+                player = request.user.player
+                player.bad_flag_count = 0
+                player.save()
                 messages.add_message(
                     request,
                     messages.SUCCESS,
