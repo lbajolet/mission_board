@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.core.context_processors.static',
                 'django.contrib.messages.context_processors.messages',
                 # 'django.core.context_processors.request',
             ],
@@ -114,8 +115,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # CSS Settings for forms and messages
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
@@ -124,3 +123,8 @@ MESSAGE_TAGS = {
 }
 
 LOGIN_URL = 'login'
+
+if os.environ.get("MB_PROD", None):
+    from .prod import *
+else:
+    from .dev import *

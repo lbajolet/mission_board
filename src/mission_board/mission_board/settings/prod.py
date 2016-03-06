@@ -10,16 +10,28 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '../../db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': os.environ.get('DB_HOSTNAME', 'mb_db'),
+        'PORT': 5432,
     }
 }
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "/var/www/mission_board/static")
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "/var/www/mission_board/static")
+# ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '/ms_media')
+STATIC_URL = '/static/'
+
+STATIC_ROOT = "/var/www/mb/static/"
+
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, '/mb_media')
