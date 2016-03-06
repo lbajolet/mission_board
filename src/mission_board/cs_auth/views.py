@@ -28,6 +28,11 @@ class LoginView(SuccessMessageMixin, FormView):
         return super(LoginView, self).form_valid(form)
 
 
+class MobileLoginView(LoginView):
+    template_name = "cs_auth/mobile_form_view.html"
+    success_url = "/mobile"
+
+
 class LogoutView(RedirectView):
     url = settings.LOGIN_URL
     permanent = True
@@ -36,6 +41,10 @@ class LogoutView(RedirectView):
     def dispatch(self, request, *args, **kwargs):
         logout(self.request)
         return super(LogoutView, self).dispatch(request, *args, **kwargs)
+
+
+class MobileLogoutView(LogoutView):
+    url = "/auth/mobile_login"
 
 
 class RegisterView(SuccessMessageMixin, FormView):
