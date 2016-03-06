@@ -19,7 +19,7 @@ DATABASES = {
 }
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, "/var/www/mission_board/static")
