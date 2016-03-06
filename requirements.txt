@@ -2,7 +2,6 @@ Django==1.9.1
 Markdown==2.6.5
 decorator==4.0.6
 django-crispy-forms-ng==2.0.0
-django-grappelli==2.7.3
 django-markdown-deux==1.0.5
 ipdb==0.8.1
 ipython==4.0.1
@@ -14,3 +13,4 @@ pickleshare==0.5
 ptyprocess==0.5
 simplegeneric==0.8.1
 traitlets==4.0.0
+psycopg2
