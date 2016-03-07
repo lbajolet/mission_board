@@ -1,7 +1,8 @@
 from python:3.4
 
 RUN apt-get -q update
-RUN apt-get -qy install -q vim apache2 libapache2-mod-wsgi-py3
+RUN apt-get -qy install -q vim apache2 libapache2-mod-wsgi-py3 supervisor
+ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN mkdir -p /opt/mb
 ADD . /opt/mb
@@ -26,4 +27,4 @@ CMD \
 	service apache2 stop && \
 	cd /opt/mb/src/mission_board/ && \
 	python manage.py collectstatic --noinput && \
-	/usr/sbin/apache2ctl -DFOREGROUND
+	/usr/bin/supervisord
