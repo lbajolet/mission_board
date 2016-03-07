@@ -16,7 +16,7 @@ then
 fi
 
 cd src/mission_board
-python manage.py resettestdata
+python manage.py initdata
 
 chmod -R 777 /mb_media
 chown -R www-data: /mb_media
