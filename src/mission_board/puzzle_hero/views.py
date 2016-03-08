@@ -340,7 +340,8 @@ class Scoreboard(ListView):
                 continue
 
             team_dict[team.name] = {
-                "team": team.name,
+                "id": team.id,
+				"name": team.name,
                 "color": team.color,
                 "scores": [{
                     "team": team.name,
@@ -358,7 +359,8 @@ class Scoreboard(ListView):
             timestamp = se.time
             timestamp = int(timestamp.timestamp())
             new_score = {
-                "team": se.team.name,
+                "id": se.team.id,
+				"name": se.team.name,
                 "timestamp": timestamp,
                 "score": se.score_total
             }

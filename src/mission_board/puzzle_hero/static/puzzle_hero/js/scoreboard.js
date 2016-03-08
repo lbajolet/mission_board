@@ -37,7 +37,7 @@ function drawGraph(selector, data) {
 	.attr('class', 'd3-tip')
 	.offset([120, 40])
 	.html(function(d) {
-		return "<strong>" + d.team + "</strong><br>" +
+		return "<strong>" + d.name + "</strong><br>" +
 				"<i>" + format(new Date(d.timestamp * 1000)) + "</i><br>" +
 				d.score + " pts";
 	});
@@ -50,10 +50,12 @@ function drawGraph(selector, data) {
 			.attr('stroke', team.color);
 
 		var last = team.scores[team.scores.length - 1]
+
 		svg.append("a")
 			.attr("class", "team-lbl")
 			.attr("transform", "translate(" + x(last.timestamp) + "," + y(last.score) + ")")
 			.attr("xlink:href", "/team/" + team.id)
+			.style('fill', team.color)
 			.append("text")
 				.attr("dx", "15px")
 				.attr("text-anchor", "start")
