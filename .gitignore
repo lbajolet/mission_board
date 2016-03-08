@@ -69,3 +69,6 @@ db.sqlite3
 
 # Submitted media files
 /media/*
+
+# Collected Static Resouces
+src/mission_board/static/resources
