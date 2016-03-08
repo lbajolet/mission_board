@@ -18,7 +18,9 @@
       <h1>
         {{mission.title}}
         <small>{{ mission.reward }} pts</small>
+        <span class="pull-right"><small>Track: <a href="{% url 'track_detail' mission.track.id %}">{{ mission.track.title }}</a></small></span>
       </h1>
+
       {% if mission.status != "locked" %}
         <div class="progress">
 		  {% if mission.status == "closed" %}
