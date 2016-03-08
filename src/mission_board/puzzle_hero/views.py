@@ -168,6 +168,7 @@ class TracksList(LoginRequiredMixin, ListView):
         return data
 
 class MobileTrackList(TracksList):
+    login_url = "/auth/mobile_login"
 
     template_name = 'puzzle_hero/mobile_tracks_list.html'
 
