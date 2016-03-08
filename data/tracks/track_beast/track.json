@@ -73,7 +73,7 @@
 		},
 		{
 			"id": "track_beast_mission_05",
-			"title": "unknown_wiki",
+			"title": "Unknown Directive",
 			"reward": 150,
 			"initial_status": "locked",
 			"dependencies": ["track_beast_mission_03"],

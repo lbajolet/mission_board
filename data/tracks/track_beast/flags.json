@@ -80,7 +80,7 @@
 		]
 	},
 	{
-		"flag": "UQAM{https://en.wikipedia.org/wiki/Prime_number}",
+		"flag": "UQAM{prime number}",
 		"triggers": [
 			{
 				"kind": "mission_status",

@@ -1,14 +1,18 @@
-## Unknown wiki
+## Unknown Directive
 
-One of our informers learned that we would need a particular piece of information in order to disable some of the dome's
-security mechanisms. Unfortunately, we lost all of his report. All we know is that he pointed us towards an article on
-a famous wiki of the old era. The only extra information we have is this bit of Perl.
+One of our informers learned that we would need a particular piece of information in order to disable some of the dome's security mechanisms thus give us some directives to bypass the system.
+
+Unfortunately, we lost all of his report. All we remember is this little bit of Perl.
 
 
 ```
 perl -ne 'print if(("x"x$_)!~/^(..+)\1+$/&&1<$_);'
 ```
 
-**Objectives:** Find the url of the wiki page he was talking about.
+And this strange text.
 
-**Notes:** The flag is in the standard format.
+```
+UQAM\{[a-z]{5} [a-z]{6}\}
+```
+
+**Objectives:** Find what he was talking about.
