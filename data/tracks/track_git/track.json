@@ -6,7 +6,7 @@
 		{
 			"id": "track_git_mission_01",
 			"title": "Minister Morriar",
-			"reward": 1,
+			"reward": 20,
 			"initial_status": "open",
 			"dependencies": [],
 			"kind": "dev",
@@ -28,7 +28,7 @@
 		},{
 			"id": "track_git_mission_02",
 			"title": "Project 0",
-			"reward": 2,
+			"reward": 30,
 			"initial_status": "locked",
 			"dependencies": ["track_git_mission_01"],
 			"kind": "dev",
@@ -44,7 +44,7 @@
 		},{
 			"id": "track_git_mission_03",
 			"title": "My dear diary",
-			"reward": 3,
+			"reward": 50,
 			"initial_status": "locked",
 			"dependencies": ["track_git_mission_02"],
 			"kind": "lore",
@@ -60,7 +60,7 @@
 		},{
 			"id": "track_git_mission_04",
 			"title": "He's not alone",
-			"reward": 4,
+			"reward": 40,
 			"initial_status": "locked",
 			"dependencies": ["track_git_mission_01", "track_git_mission_03"],
 			"kind": "recon",
@@ -76,7 +76,7 @@
 		},{
 			"id": "track_git_mission_05",
 			"title": "project0-v0.0-beta",
-			"reward": 4,
+			"reward": 60,
 			"initial_status": "locked",
 			"dependencies": ["track_git_mission_02"],
 			"kind": "recon",
@@ -92,7 +92,7 @@
 		},{
 			"id": "track_git_mission_06",
 			"title": "Bad Commit",
-			"reward": 5,
+			"reward": 90,
 			"initial_status": "locked",
 			"dependencies": ["track_git_mission_04", "track_git_mission_05"],
 			"kind": "recon",
@@ -108,7 +108,7 @@
 		},{
 			"id": "track_git_mission_07",
 			"title": "Happy Birthday",
-			"reward": 5,
+			"reward": 60,
 			"initial_status": "locked",
 			"dependencies": ["track_git_mission_05"],
 			"kind": "lore",
@@ -124,7 +124,7 @@
 		},{
 			"id": "track_git_mission_08",
 			"title": "Git init",
-			"reward": 5,
+			"reward": 100,
 			"initial_status": "locked",
 			"dependencies": ["track_git_mission_06", "track_git_mission_07"],
 			"kind": "recon",

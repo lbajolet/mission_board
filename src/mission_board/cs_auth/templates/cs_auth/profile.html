@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_noheader.html" %}
 
 {% load crispy_forms_tags %}
 
@@ -51,7 +51,7 @@
 
    <div class="panel panel-default">
      <div class="panel-heading">
-		<h3 class="panel-title">Achievements</h3>
+		<h3 class="panel-title">Events</h3>
      </div>
        <table class="table table-hover">
          {% for event in events %}
@@ -70,15 +70,6 @@
              </td>
            </tr>
          {% endfor %}
-       </table>
-   </div>
-
-
-   <div class="panel panel-default">
-     <div class="panel-heading">
-		<h3 class="panel-title">Events</h3>
-     </div>
-       <table class="table table-hover">
        </table>
    </div>
 
