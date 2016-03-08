@@ -60,3 +60,12 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Data backups
+data/backup.tar
+
+# DB File
+db.sqlite3
+
+# Submitted media files
+/media/*
