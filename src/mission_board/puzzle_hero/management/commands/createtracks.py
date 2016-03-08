@@ -46,7 +46,7 @@ class Command(BaseCommand):
         to_hash = ("%s%s%s" % (count, path, "kek")).encode("ascii")
         hashed = hashlib.sha256(to_hash).hexdigest()
 
-        new = os.path.join(hashed, path)
+        new = os.path.join('resources', hashed, path)
 
         print("Relocated resource file:")
         print("  - From:", path)
@@ -60,7 +60,7 @@ class Command(BaseCommand):
             print("File does not exist:", src)
             sys.exit(0)
 
-        dst = os.path.join(settings.STATIC_ROOT, dst)
+        dst = os.path.join(settings.BASE_DIR, 'static', dst)
         if not os.path.isdir(os.path.dirname(dst)):
             os.makedirs(os.path.dirname(dst))
 
@@ -76,6 +76,8 @@ class Command(BaseCommand):
         MissionStatusTrigger.objects.all().delete()
         PostStatusTrigger.objects.all().delete()
         TeamScoreTrigger.objects.all().delete()
+
+        shutil.rmtree(os.path.join(settings.BASE_DIR, 'static', 'resources'))
 
         # load track list
         with open('../../data/tracks/tracks.json') as json_data:
