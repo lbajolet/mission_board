@@ -106,7 +106,7 @@ class TracksList(LoginRequiredMixin, ListView):
     def get_queryset(self):
         team = self.request.user.player.team
 
-        track_statuses = TrackStatus.objects.filter(team=team)
+        track_statuses = TrackStatus.objects.filter(team=team).order_by('-track__id')
         for track_status in track_statuses:
             track_status.track.missions = Mission.objects.filter(track=track_status.track)
 
@@ -341,7 +341,7 @@ class Scoreboard(ListView):
 
             team_dict[team.name] = {
                 "id": team.id,
-				"name": team.name,
+                "name": team.name,
                 "color": team.color,
                 "scores": [{
                     "team": team.name,
