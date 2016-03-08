@@ -77,7 +77,10 @@ class Command(BaseCommand):
         PostStatusTrigger.objects.all().delete()
         TeamScoreTrigger.objects.all().delete()
 
-        shutil.rmtree(os.path.join(settings.BASE_DIR, 'static', 'resources'))
+        res_dir = os.path.join(settings.BASE_DIR, 'static', 'resources')
+        if os.path.isdir(res_dir):
+            shutil.rmtree(res_dir)
+            shutil.mkdirs(res_dir)
 
         # load track list
         with open('../../data/tracks/tracks.json') as json_data:
