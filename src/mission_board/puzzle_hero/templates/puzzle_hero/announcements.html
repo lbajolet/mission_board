@@ -16,6 +16,12 @@
 			</div>
 			<div class="panel-body">{{ ann.message }}</div>
 		</div>
+	{% empty %}
+		<div class="panel panel-default">
+			<div class="panel-body">
+				No announcements yet...
+			</div>
+		</div>
 	{% endfor %}
 
 {% endblock %}
