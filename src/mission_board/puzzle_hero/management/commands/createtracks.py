@@ -60,7 +60,7 @@ class Command(BaseCommand):
             print("File does not exist:", src)
             sys.exit(0)
 
-        dst = os.path.join(settings.STATICFILES_DIRS[0], dst)
+        dst = os.path.join(settings.STATIC_ROOT, dst)
         if not os.path.isdir(os.path.dirname(dst)):
             os.makedirs(os.path.dirname(dst))
 
@@ -80,6 +80,8 @@ class Command(BaseCommand):
         # load track list
         with open('../../data/tracks/tracks.json') as json_data:
             json_tracks = json.load(json_data)
+
+        mission_deps = {}
 
         # create and save db instances
         for track_file in json_tracks:
@@ -103,9 +105,12 @@ class Command(BaseCommand):
                     mission.reward = json_mission["reward"]
                     mission.kind = json_mission["kind"]
                     mission.initial_status = json_mission["initial_status"]
-                    for dep in json_mission["dependencies"]:
-                        mission.dependencies.add(Mission.objects.get(id=dep))
                     mission.save()
+
+                    m_deps = [dep for dep in json_mission["dependencies"]]
+                    mission_deps[mission.id] = m_deps
+                    # for dep in json_mission["dependencies"]:
+                    #     mission.dependencies.add(Mission.objects.get(id=dep))
 
                     for json_post in json_mission["posts"]:
                         post = Post()
@@ -138,6 +143,12 @@ class Command(BaseCommand):
                                                                   post_text)
 
                         post.save()
+
+        # Mission dependencies
+        for miss in Mission.objects.all():
+            for dep in mission_deps[miss.id]:
+                miss.dependencies.add(Mission.objects.get(id=dep))
+            miss.save()
 
         # create and save db instances
         for track_file in json_tracks:

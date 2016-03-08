@@ -1,0 +1,24 @@
+mb_dbdata:
+    image: postgres:9.4
+    volumes:
+        - /var/lib/postgresql/data/
+        - /mb_media
+mb_db:
+    image: postgres:9.4
+    environment:
+        - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes_from:
+        - mb_dbdata
+mb:
+    build: .
+    environment:
+        - DB_HOSTNAME=mb_db
+        - MB_PROD=true
+    ports:
+        - "8000:80"
+    volumes:
+        - .:/opt/mb
+    volumes_from:
+        - mb_dbdata
+    links:
+        - mb_db
