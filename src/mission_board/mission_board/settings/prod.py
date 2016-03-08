@@ -39,4 +39,4 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 )
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '/mb_media')
+MEDIA_ROOT = '/mb_media/'

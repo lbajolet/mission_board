@@ -67,8 +67,9 @@ class EditProfileView(SuccessMessageMixin, FormView):
             user.first_name = form.cleaned_data.get("first_name")
         if form.cleaned_data.get("last_name", None):
             user.last_name = form.cleaned_data.get("last_name")
-        if form.cleaned_data.get("curriculum_vitae", None):
-            path = self._handle_pdf(form.cleaned_data.get("curriculum_vitae"))
+        if form.files.get("curriculum_vitae", None):
+            path = self._handle_pdf(form.files.get("curriculum_vitae"))
+
             user.player.curriculum_vitae = path
         user.player.save()
         user.save()

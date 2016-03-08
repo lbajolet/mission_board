@@ -75,7 +75,14 @@ class RegisterForm(UserCreationForm):
         team_token = self.cleaned_data['team_token']
         user = User.objects.get_by_natural_key(username)
         team = Team.objects.filter(token=team_token)[0]
-        player = Player.objects.create(user=user, team=team)
+        player = Player.objects.create(
+            user=user,
+            team=team,
+            first_name=user.first_name,
+            last_name=user.last_name,
+            display_name=user.username,
+        )
+
         if commit:
             player.save()
 
