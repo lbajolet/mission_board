@@ -118,6 +118,10 @@ def _process_missionstatus_trigger(trigger, sub, request=None):
         team.score += trigger.mission.reward
         team.save()
 
+        if request:
+            request.user.player.score += trigger.mission.reward
+            request.user.player.save()
+
         se = ScoreEvent(
             time=sub.time,
             type="score_event",
@@ -152,6 +156,9 @@ def _process_teamscore_trigger(trigger, sub, player=None, request=None):
     team = sub.team
     team.score += trigger.score
     team.save()
+
+    if request:
+        player = request.user.player
 
     if player:
         player.score += trigger.score
