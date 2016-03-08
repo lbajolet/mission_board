@@ -109,6 +109,15 @@ def _process_missionstatus_trigger(trigger, sub, request=None):
         team=sub.team
     ).first()
 
+    if trigger.status == 'closed':
+        mission = mission_status.mission
+        track = mission.track
+        track_status = TrackStatus.objects.filter(track=track,
+                                                  team=sub.team).first()
+        if track_status.status == 'locked':
+            track_status.status = 'open'
+            track_status.save()
+
     if mission_status.status != "closed":
 
         mission_status.status = trigger.status
@@ -117,6 +126,10 @@ def _process_missionstatus_trigger(trigger, sub, request=None):
         team = sub.team
         team.score += trigger.mission.reward
         team.save()
+
+        if request:
+            request.user.player.score += trigger.mission.reward
+            request.user.player.save()
 
         se = ScoreEvent(
             time=sub.time,
@@ -152,6 +165,9 @@ def _process_teamscore_trigger(trigger, sub, player=None, request=None):
     team = sub.team
     team.score += trigger.score
     team.save()
+
+    if request:
+        player = request.user.player
 
     if player:
         player.score += trigger.score

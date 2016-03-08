@@ -56,6 +56,7 @@
        <table class="table table-hover">
          {% for event in events %}
            <tr>
+           {% if event.type != 'bad_flag' %}
              <td>{{ event.time }}</td>
              <td>
                {% if event.type == 'flag_submission' %}
@@ -68,6 +69,7 @@
                  {{ event.type }}
                {% endif %}
              </td>
+           {% endif %}
            </tr>
          {% endfor %}
        </table>
