@@ -5,5 +5,6 @@
 	"track_blind_test/",
     "track_beast",
 	"track_git",
-	"track_exploration"
+	"track_exploration",
+	"track_interpret"
 ]
