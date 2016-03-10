@@ -80,7 +80,7 @@ class Command(BaseCommand):
         res_dir = os.path.join(settings.BASE_DIR, 'static', 'resources')
         if os.path.isdir(res_dir):
             shutil.rmtree(res_dir)
-            shutil.mkdirs(res_dir)
+            os.makedirs(res_dir)
 
         # load track list
         with open('../../data/tracks/tracks.json') as json_data:
