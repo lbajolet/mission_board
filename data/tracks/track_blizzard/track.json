@@ -20,7 +20,7 @@
 				},
 				{
 					"id": "track_blizzard_mission_01_post_02",
-					"initial_status": "closed",
+					"initial_status": "locked",
 					"sender": "Undisclosed",
 					"en": "mission_01/post_02.md",
 					"fr": "mission_01/post_02.md"
@@ -31,7 +31,7 @@
 			"id": "track_blizzard_mission_02",
 			"title": "Characters",
 			"reward": 50,
-			"initial_status": "closed",
+			"initial_status": "locked",
 			"dependencies": [
 				"track_blizzard_mission_01"
 			],
