@@ -1,10 +1,9 @@
 from django.conf.urls import url
-from django.contrib.auth.decorators import login_required
 
 from .views import submit_flag, team_stats, Scoreboard, \
     TracksList, MissionPage, admin_panel, TrackDetail, GlobalAnnouncementList, \
     admin_dashboard, global_status_ok, global_status_scoreboard, \
-    admin_submit_flag, admin_global_submit_flag
+    admin_submit_flag, admin_global_submit_flag, MobileTrackList
 
 urlpatterns = [
     url(r'^cs_admin/$', admin_panel, name="admin_panel"),
@@ -18,5 +17,6 @@ urlpatterns = [
     url(r'^mission/(?P<mission>\w+)$', global_status_ok(MissionPage.as_view()), name="mission_page"),
     url(r'^scoreboard/$', global_status_scoreboard(Scoreboard.as_view()), name="scoreboard"),
     url(r'^announcements/$', GlobalAnnouncementList.as_view(), name="announcements"),
-    url(r'^$', global_status_ok(TracksList.as_view()), name="tracklist"),
+    url(r'^mobile$', global_status_ok(MobileTrackList.as_view()), name="mobile_tracklist"),
+    url(r'^$', global_status_ok(TracksList.as_view()), name="tracklist")
 ]

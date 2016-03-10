@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.views import logout
 from django.core.urlresolvers import reverse_lazy
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.utils.decorators import method_decorator
@@ -104,6 +104,7 @@ class TracksList(LoginRequiredMixin, ListView):
     template_name = 'puzzle_hero/tracks_list.html'
 
     def get_queryset(self):
+        print(self.request.COOKIES)
         team = self.request.user.player.team
 
         track_statuses = TrackStatus.objects.filter(team=team).order_by('-track__id')
@@ -165,6 +166,11 @@ class TracksList(LoginRequiredMixin, ListView):
                 data[ts.track.id] = None
 
         return data
+
+class MobileTrackList(TracksList):
+    login_url = "/auth/mobile_login"
+
+    template_name = 'puzzle_hero/mobile_tracks_list.html'
 
 
 class TrackDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
@@ -253,7 +259,7 @@ class MissionPage(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     def get_queryset(self):
         mission = Mission.objects.filter(id=self.kwargs.get('mission'))[0]
-        mission.posts = Post.objects.filter(mission=mission)
+        mission.posts = Post.objects.filter(mission=mission).order_by('id')
 
         missions_status = MissionStatus.objects.filter(
             team=self.request.user.player.team,
@@ -437,6 +443,7 @@ def team_stats(request, team_id):
 @login_required
 @user_passes_test(user_is_player)
 def submit_flag(request):
+    print(request.COOKIES)
     if request.method == 'POST' or request.method == 'GET':
         player = request.user.player
         if request.method == 'POST':
@@ -453,15 +460,20 @@ def submit_flag(request):
 
             # Flag has already been submitted by this team
             if subs:
+                message = "This flag has already been submitted."
                 messages.add_message(
                     request,
                     messages.WARNING,
-                    "This flag has already been submitted."
+                    message
                 )
-                return HttpResponseRedirect(request.META.get('HTTP_REFERER',
-                                                             reverse_lazy('tracklist')))
+                if request.method == 'GET':
+                    return JsonResponse({'result': 'warning', 'message': message})
+                else:
+                    return HttpResponseRedirect(request.META.get('HTTP_REFERER',
+                                                                 reverse_lazy('tracklist')))
 
             else:
+                message = 'Submitted flag %s!' % form.cleaned_data["token"]
                 process_flag_submission(flag, request=request)
                 player = request.user.player
                 player.bad_flag_count = 0
@@ -469,12 +481,15 @@ def submit_flag(request):
                 messages.add_message(
                     request,
                     messages.SUCCESS,
-                    'Submitted flag %s!' % form.cleaned_data["token"]
+                    message
                 )
-                if request.META.get('HTTP_REFERER', None):
-                    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+                if request.method == 'GET':
+                    return JsonResponse({'result': 'success', 'message': message})
                 else:
-                    return HttpResponseRedirect(reverse_lazy('tracklist'))
+                    if request.META.get('HTTP_REFERER', None):
+                        return HttpResponseRedirect(request.META['HTTP_REFERER'])
+                    else:
+                        return HttpResponseRedirect(reverse_lazy('tracklist'))
 
         else:
 
@@ -501,9 +516,13 @@ def submit_flag(request):
 
             player.save()
 
+            message = 'Invalid flag %s !' % wrong_flag
             messages.add_message(request, messages.ERROR,
-                                 'Invalid flag %s !' % wrong_flag)
-        return HttpResponseRedirect(request.META['HTTP_REFERER'])
+                                 message)
+            if request.method == 'GET':
+                return JsonResponse({'result': 'error', 'message': message})
+            else:
+                return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
 class GlobalAnnouncementList(LoginRequiredMixin, ListView):

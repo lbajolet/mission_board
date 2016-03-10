@@ -20,6 +20,9 @@ class LoginForm(AuthenticationForm):
         self.helper.label_class = 'col-lg-2'
         self.helper.field_class = 'col-lg-8'
         self.helper.add_input(Submit('submit', 'Login'))
+        self.fields['username'].widget.attrs.update({
+            'autocapitalize': 'none'
+        })
 
     class Meta:
         model = User
@@ -68,6 +71,9 @@ class RegisterForm(UserCreationForm):
         self.helper.label_class = 'col-lg-2'
         self.helper.field_class = 'col-lg-8'
         self.helper.add_input(Submit('submit', 'Register'))
+        self.fields['username'].widget.attrs.update({
+            'autocapitalize': 'none'
+        })
 
     def save(self, commit=True):
         super(RegisterForm, self).save(commit=commit)

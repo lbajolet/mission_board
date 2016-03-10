@@ -1,0 +1,106 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Mission Board</title>
+
+  <link rel="icon" type="image/icon" href="{% static 'puzzle_hero/images/rebels.ico' %}">
+
+  <link rel="stylesheet" href="{% static 'puzzle_hero/vendors/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'puzzle_hero/vendors/tipsy/jquery.tipsy.css' %}">
+  <link rel="stylesheet" href="{% static 'puzzle_hero/style.css' %}">
+
+  <script src="{% static 'puzzle_hero/vendors/d3/d3.min.js' %}"></script>
+  <script src="{% static 'puzzle_hero/vendors/d3/dagre-d3.js' %}"></script>
+  <script src="{% static 'puzzle_hero/vendors/d3/d3.tip.js' %}"></script>
+
+</head>
+
+<body>
+{% block navbar %}
+  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><img width="50px" src="{% static 'puzzle_hero/images/rebels.png' %}"></a>
+        <a class="navbar-brand" href="/">Mission Board</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+              <li class="{% if nav == 'scoreboard' %}active{% endif %}"><a href="{% url 'scoreboard' %}">Scoreboard</a></li>
+
+              {% if user.is_authenticated %}
+              <li class="{% if nav == 'announcements' %}active{% endif %}"><a href="{% url 'announcements' %}">Announcements</a></li>
+              <li class="{% if nav == 'team' %}active{% endif %}"><a href="{% url 'team_stats' team_id=request.user.player.team.id %}">Team</a></li>
+              {% endif %}
+          </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My account <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              {% if user.is_superuser %}
+                <li><a href="{% url 'admin_panel' %}">Admin Panel</a></li>
+              {% endif %}
+              {% if user.is_authenticated %}
+                <li><a href="{% url 'profile' request.user.id %}">Profile</a></li>
+                <li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>
+                <li><a href="{% url 'mobile_logout' %}">Logout</a></li>
+              {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+              {% endif %}
+            </ul>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+{% endblock %}
+
+<div class="container">
+  {% block messages %}
+    {% if messages %}
+      {% for message in messages %}
+        <div{% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissible" role="alert"{% endif %} >
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          {{ message|safe }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endblock %}
+
+  {% block content %}
+    <div class="starter-template">
+      <h1>Content Block</h1>
+      <p class="lead">Override this block in your template</p>
+    </div>
+  {% endblock %}
+</div>
+
+{% block footer_scripts %}
+  <script src="{% static 'puzzle_hero/vendors/jquery/jquery-2.2.0.min.js' %}"></script>
+  <script src="{% static 'puzzle_hero/vendors/tipsy/jquery.tipsy.js' %}"></script>
+  <script src="{% static 'puzzle_hero/vendors/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'puzzle_hero/js/mission-tree.js' %}"></script>
+  <script src="{% static 'puzzle_hero/js/scoreboard.js' %}"></script>
+  <script>
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+  </script>
+{% endblock %}
+
+</body>
+</html>

@@ -348,6 +348,9 @@ to {
 	width: 160px;
 }
 
+.flag-submit {
+    width: 100%;
+}
 /* status */
 
 .panels-status h3, .panels-status .progress {
