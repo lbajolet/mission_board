@@ -8,6 +8,11 @@
 				"status": "closed"
 			},
 			{
+				"kind": "post_status",
+				"post": "hidden_post_01",
+				"status": "closed"
+			},
+			{
 				"kind": "mission_status",
 				"mission": "hidden_02",
 				"status": "open"
@@ -15,6 +20,78 @@
 			{
 				"kind": "team_score",
 				"reward": 50
+			}
+		]
+	}, {
+		"flag": "UQAM{1mD1ff3ren7yo}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 50
+			},
+			{
+				"kind": "post_status",
+				"post": "hidden_pepos_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "hidden_pepos_01",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{VerySignificantLeastSignificantBit}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 125
+			},
+			{
+				"kind": "post_status",
+				"post": "hidden_pepos_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "hidden_pepos_02",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{THEYSAYMOVISTURINGCOMPLETE}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 200
+			},
+			{
+				"kind": "post_status",
+				"post": "hidden_pepos_post_04",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "hidden_pepos_04",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{F3aR_Th3_BU7cH3r}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 200
+			},
+			{
+				"kind": "post_status",
+				"post": "hidden_pepos_post_03",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "hidden_pepos_03",
+				"status": "closed"
 			}
 		]
 	}, {
@@ -26,8 +103,13 @@
 				"status": "closed"
 			},
 			{
+				"kind": "post_status",
+				"post": "hidden_post_02",
+				"status": "closed"
+			},
+			{
 				"kind": "team_score",
-				"reward": 100
+				"reward": 150
 			}
 		]
 	}, {
@@ -36,6 +118,34 @@
 			{
 				"kind": "mission_status",
 				"mission": "hidden_03",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "impure",
+				"status": "open"
+			},
+			{
+				"kind": "post_status",
+				"post": "hidden_post_03",
+				"status": "closed"
+			},
+			{
+				"kind": "team_score",
+				"reward": 200
+			}
+		]
+	}, {
+		"flag": "UQAM{Wh3r3_Th3_H3ck_d1d_y0u_l34rn_Pr0Gr4MM1nG}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "impure",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "impure_post",
 				"status": "closed"
 			},
 			{
