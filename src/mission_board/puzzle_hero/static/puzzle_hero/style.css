@@ -97,6 +97,11 @@ tr.locked i { color: #888; }
 	border-color: rgba(180, 50, 50, 0.1);
 }
 
+.panel-danger .panel-heading {
+	background-color: rgba(180, 50, 50, 0.1);
+	border-color: rgba(180, 50, 50, 0.1);
+}
+
 .panel-warning {
 	background-color: rgba(255, 180, 0, 0.1);
 	border-color: rgba(255, 180, 0, 0.1);
@@ -135,6 +140,13 @@ tr.locked i { color: #888; }
 	background-color: transparent;
 	border-color: transparent;
 }
+
+pre, code {
+	color: #fff;
+	background-color: rgba(0,0,0,0.3);
+    border-color: rgba(0, 0, 0, 0.7);
+}
+
 
 /* messages */
 
@@ -369,11 +381,10 @@ to {
 .hl.slc { color:#838183; font-style:italic; }
 .hl.com { color:#838183; font-style:italic; }
 .hl.ppc { color:#008200; }
-.hl.opt { color:#000000; }
+.hl.opt { color:#ffffff; }
 .hl.ipl { color:#0057ae; }
 .hl.lin { color:#555555; }
-.hl.kwa { color:#000000; font-weight:bold; }
+.hl.kwa { color:#ffffff; font-weight:bold; }
 .hl.kwb { color:#0057ae; }
-.hl.kwc { color:#000000; font-weight:bold; }
+.hl.kwc { color:#ffffff; font-weight:bold; }
 .hl.kwd { color:#010181; }
-
