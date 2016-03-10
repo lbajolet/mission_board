@@ -259,7 +259,7 @@ class MissionPage(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     def get_queryset(self):
         mission = Mission.objects.filter(id=self.kwargs.get('mission'))[0]
-        mission.posts = Post.objects.filter(mission=mission)
+        mission.posts = Post.objects.filter(mission=mission).order_by('id')
 
         missions_status = MissionStatus.objects.filter(
             team=self.request.user.player.team,
