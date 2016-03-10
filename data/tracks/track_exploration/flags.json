@@ -1,0 +1,357 @@
+[
+	{
+		"flag": "UQAM{4r3_u_m3t4l}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_01_post_02",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{3m3rg3ncy}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_02_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_02_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{1n_h3ll_n0_0n3_h34r5_y0u_scr34m}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_03",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_03_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_03_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{1_l1k3_curv35}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_04",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_04_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_04_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{myst3ry_r00m}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_05",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_05_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_05_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{plugg3d}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_06",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_06_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_06_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{r1d1ng_h4rd}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_07",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_07_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_07_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{numb3rz}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_08",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_08_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_08_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{p4st_gl0ry}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_09",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_09_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_09_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{uq4m_0n_str1k3}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_10",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_10_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_10_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{uq4m_str1k35_b4ck}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_11",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_11_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_11_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{sp4r3_b1llb04rd5}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_12",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_12_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_12_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{h311b3nt}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_13",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_13_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_13_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{f00d135}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_14",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_14_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_14_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{m4k3_1t_gr0w}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_15",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_15_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_15_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{m4rbl3ou5}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_16",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_16_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_16_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{h34ting_h0bbit5}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_17",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_17_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_17_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{n3xt_g3n}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_scavenger_mission_18",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_18_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_scavenger_mission_18_post_01",
+				"status": "closed"
+			}
+		]
+	}
+]
