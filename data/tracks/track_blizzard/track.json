@@ -1,0 +1,50 @@
+{
+	"id": "track_blizzard",
+	"title": "Blizzard",
+	"initial_status": "open",
+	"missions": [
+		{
+			"id": "track_blizzard_mission_01",
+			"title": "Famous Quotes",
+			"reward": 50,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "track_blizzard_mission_01_post_01",
+					"initial_status": "open",
+					"sender": "Zeratul",
+					"en": "mission_01/post_01.md",
+					"fr": "mission_01/post_01.md"
+				},
+				{
+					"id": "track_blizzard_mission_01_post_02",
+					"initial_status": "closed",
+					"sender": "Undisclosed",
+					"en": "mission_01/post_02.md",
+					"fr": "mission_01/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "track_blizzard_mission_02",
+			"title": "Characters",
+			"reward": 50,
+			"initial_status": "closed",
+			"dependencies": [
+				"track_blizzard_mission_01"
+			],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "track_blizzard_mission_02_post_01",
+					"initial_status": "open",
+					"sender": "Diablo",
+					"en": "mission_02/post_01.md",
+					"fr": "mission_02/post_01.md"
+				}
+			]
+		}
+	]
+}

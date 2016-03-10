@@ -1,0 +1,47 @@
+[
+	{
+		"flag": "UQAM{Aiur}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_blizzard_mission_01_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_blizzard_mission_01_post_02",
+				"status": "open"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{Deckard Cain}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_blizzard_mission_01_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "track_blizzard_mission_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{The Lost Vikings}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_blizzard_mission_02_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "track_blizzard_mission_02",
+				"status": "closed"
+			}
+		]
+	}
+]
