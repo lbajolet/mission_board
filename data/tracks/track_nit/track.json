@@ -1,0 +1,224 @@
+{
+	"id": "track_nit",
+	"title": "The Beauty",
+	"initial_status": "open",
+	"missions": [
+		{
+			"id": "track_nit_mission_01",
+			"title": "Hello, World!",
+			"reward": 10,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_01_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_01/post_01.md",
+					"fr": "mission_01/post_01.md"
+				}
+			]
+		}, {
+			"id": "track_nit_mission_02",
+			"title": "Values and Types",
+			"reward": 20,
+			"initial_status": "locked",
+			"dependencies": ["track_nit_mission_01"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_02_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_02/post_01.md",
+					"fr": "mission_02/post_01.md"
+				}
+			]
+		}, {
+			"id": "track_nit_mission_03",
+			"title": "Control structures and conditions",
+			"reward": 30,
+			"initial_status": "locked",
+			"dependencies": ["track_nit_mission_02"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_03_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_03/post_01.md",
+					"fr": "mission_03/post_01.md"
+				},{
+					"id": "track_nit_mission_03_post_02",
+					"initial_status": "locked",
+					"sender": "PrivatJ",
+					"en": "mission_03/post_02.md",
+					"fr": "mission_03/post_02.md"
+				}
+			]
+		}, {
+			"id": "track_nit_mission_04",
+			"title": "Functions",
+			"reward": 40,
+			"initial_status": "locked",
+			"dependencies": ["track_nit_mission_03"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_04_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_04/post_01.md",
+					"fr": "mission_04/post_01.md"
+				}
+			]
+		}, {
+			"id": "track_nit_mission_05",
+			"title": "Collections and for loops",
+			"reward": 50,
+			"initial_status": "locked",
+			"dependencies": ["track_nit_mission_04"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_05_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_05/post_01.md",
+					"fr": "mission_05/post_01.md"
+				}
+			]
+		}, {
+			"id": "track_nit_mission_06",
+			"title": "Nullable and Adaptive Typing",
+			"reward": 60,
+			"initial_status": "locked",
+			"dependencies": ["track_nit_mission_05"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_06_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_06/post_01.md",
+					"fr": "mission_06/post_01.md"
+				}
+			]
+		}, {
+			"id": "track_nit_mission_07",
+			"title": "Classes and OOP",
+			"reward": 70,
+			"initial_status": "locked",
+			"dependencies": ["track_nit_mission_06"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_07_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_07/post_01.md",
+					"fr": "mission_07/post_01.md"
+				}
+			]
+		}, {
+			"id": "track_nit_mission_08",
+			"title": "Modules",
+			"reward": 80,
+			"initial_status": "locked",
+			"dependencies": ["track_nit_mission_07"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_08_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_08/post_01.md",
+					"fr": "mission_08/post_01.md"
+				},{
+					"id": "track_nit_mission_08_post_02",
+					"initial_status": "locked",
+					"sender": "PrivatJ",
+					"en": "mission_08/post_02.md",
+					"fr": "mission_08/post_02.md"
+				}
+			]
+		}, {
+			"id": "track_nit_mission_09",
+			"title": "Visitor Design Pattern",
+			"reward": 90,
+			"initial_status": "locked",
+			"dependencies": ["track_nit_mission_08"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_09_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_09/post_01.md",
+					"fr": "mission_09/post_01.md"
+				}
+			]
+		}, {
+			"id": "track_nit_mission_10",
+			"title": "Elvish Vectorial Images and nitcc",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": ["track_nit_mission_09"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_10_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_10/post_01.md",
+					"fr": "mission_10/post_01.md"
+				},{
+					"id": "track_nit_mission_10_post_02",
+					"initial_status": "locked",
+					"sender": "PrivatJ",
+					"en": "mission_10/post_02.md",
+					"fr": "mission_10/post_02.md"
+				}
+			]
+		}, {
+			"id": "track_nit_mission_11",
+			"title": "Foreign Function Interface",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": ["track_nit_mission_08"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_11_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_11/post_01.md",
+					"fr": "mission_11/post_01.md"
+				},{
+					"id": "track_nit_mission_11_post_02",
+					"initial_status": "locked",
+					"sender": "PrivatJ",
+					"en": "mission_11/post_02.md",
+					"fr": "mission_11/post_02.md"
+				}
+			]
+		}, {
+			"id": "track_nit_mission_12",
+			"title": "Final Mission",
+			"reward": 150,
+			"initial_status": "locked",
+			"dependencies": ["track_nit_mission_10", "track_nit_mission_11"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_12_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_12/post_01.md",
+					"fr": "mission_12/post_01.md"
+				}
+			]
+		}
+	]
+}
