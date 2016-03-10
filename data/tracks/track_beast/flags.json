@@ -93,5 +93,25 @@
 				"status": "closed"
 			}
 		]
+	},
+	{
+		"flag": "UQAM{pi3t_is_nice_innit}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_beast_mission_06",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_beast_mission_06_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "track_status",
+				"track": "track_beast",
+				"status": "closed"
+			}
+		]
 	}
 ]

@@ -50,6 +50,11 @@
 			{
 				"kind": "team_score",
 				"reward": 100
+			},
+			{
+				"kind": "track_status",
+				"track": "track_blind_test",
+				"status": "closed"
 			}
 		]
 	}

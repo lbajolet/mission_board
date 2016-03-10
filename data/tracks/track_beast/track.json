@@ -87,6 +87,23 @@
 					"fr": "mission_05/post_01.md"
 				}
 			]
+		},
+		{
+			"id": "track_beast_mission_06",
+			"title": "Artsy Bitsy",
+			"reward": 150,
+			"initial_status": "locked",
+			"dependencies": ["track_beast_mission_05", "track_beast_mission_04"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_beast_mission_06_post_01",
+					"initial_status": "open",
+					"sender": "Undisclosed",
+					"en": "mission_06/post_01.md",
+					"fr": "mission_06/post_01.md"
+				}
+			]
 		}
 	]
 }
