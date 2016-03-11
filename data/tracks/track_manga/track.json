@@ -1,0 +1,145 @@
+{
+	"id": "track_manga",
+	"title": "Manga",
+	"initial_status": "locked",
+	"missions": [
+		{
+			"id": "track_manga_mission_01",
+			"title": "The Sea",
+			"reward": 150,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "track_manga_mission_01_post_01",
+					"initial_status": "open",
+					"sender": "Amiral X",
+					"en": "mission_01/post_01.md",
+					"fr": "mission_01/post_01.md"
+				},{
+					"id": "track_manga_mission_01_post_02",
+					"initial_status": "locked",
+					"sender": "Amiral X",
+					"en": "mission_01/post_02.md",
+					"fr": "mission_01/post_02.md"
+				},{
+					"id": "track_manga_mission_01_post_03",
+					"initial_status": "locked",
+					"sender": "Amiral X",
+					"en": "mission_01/post_03.md",
+					"fr": "mission_01/post_03.md"
+				},{
+					"id": "track_manga_mission_01_post_04",
+					"initial_status": "locked",
+					"sender": "Amiral X",
+					"en": "mission_01/post_04.md",
+					"fr": "mission_01/post_04.md"
+				}
+			]
+		},{
+			"id": "track_manga_mission_02",
+			"title": "The Ninja",
+			"reward": 50,
+			"initial_status": "locked",
+			"dependencies": ["track_manga_mission_01"],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "track_manga_mission_02_post_01",
+					"initial_status": "open",
+					"sender": "Amiral X",
+					"en": "mission_02/post_01.md",
+					"fr": "mission_02/post_01.md"
+				},{
+					"id": "track_manga_mission_02_post_02",
+					"initial_status": "locked",
+					"sender": "Amiral X",
+					"en": "mission_02/post_02.md",
+					"fr": "mission_02/post_02.md"
+				},{
+					"id": "track_manga_mission_02_post_03",
+					"initial_status": "locked",
+					"sender": "Amiral X",
+					"en": "mission_02/post_03.md",
+					"fr": "mission_02/post_03.md"
+				},{
+					"id": "track_manga_mission_02_post_04",
+					"initial_status": "locked",
+					"sender": "Amiral X",
+					"en": "mission_02/post_04.md",
+					"fr": "mission_02/post_04.md"
+				}
+			]
+		},{
+			"id": "track_manga_mission_03",
+			"title": "The Knights",
+			"reward": 50,
+			"initial_status": "locked",
+			"dependencies": ["track_manga_mission_02"],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "track_manga_mission_03_post_01",
+					"initial_status": "open",
+					"sender": "Amiral X",
+					"en": "mission_03/post_01.md",
+					"fr": "mission_03/post_01.md"
+				},{
+					"id": "track_manga_mission_03_post_02",
+					"initial_status": "locked",
+					"sender": "Amiral X",
+					"en": "mission_03/post_02.md",
+					"fr": "mission_03/post_02.md"
+				},{
+					"id": "track_manga_mission_03_post_03",
+					"initial_status": "locked",
+					"sender": "Amiral X",
+					"en": "mission_03/post_03.md",
+					"fr": "mission_03/post_03.md"
+				},{
+					"id": "track_manga_mission_03_post_04",
+					"initial_status": "locked",
+					"sender": "Amiral X",
+					"en": "mission_03/post_04.md",
+					"fr": "mission_03/post_04.md"
+				}
+			]
+		},{
+			"id": "track_manga_mission_04",
+			"title": "The Wizard World",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": ["track_manga_mission_03"],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "track_manga_mission_04_post_01",
+					"initial_status": "open",
+					"sender": "Amiral X",
+					"en": "mission_04/post_01.md",
+					"fr": "mission_04/post_01.md"
+				},{
+					"id": "track_manga_mission_04_post_02",
+					"initial_status": "locked",
+					"sender": "Amiral X",
+					"en": "mission_04/post_02.md",
+					"fr": "mission_04/post_02.md"
+				},{
+					"id": "track_manga_mission_04_post_03",
+					"initial_status": "locked",
+					"sender": "Amiral X",
+					"en": "mission_04/post_03.md",
+					"fr": "mission_04/post_03.md"
+				},{
+					"id": "track_manga_mission_04_post_04",
+					"initial_status": "locked",
+					"sender": "Amiral X",
+					"en": "mission_04/post_04.md",
+					"fr": "mission_04/post_04.md"
+				}
+			]
+		}
+
+	]
+}
