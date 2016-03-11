@@ -131,14 +131,15 @@ def _process_missionstatus_trigger(trigger, sub, request=None):
             request.user.player.score += trigger.mission.reward
             request.user.player.save()
 
-        se = ScoreEvent(
-            time=sub.time,
-            type="score_event",
-            message="Finished mission %s!" % trigger.mission.title,
-            score_delta=trigger.mission.reward,
-            score_total=team.score,
-            team=team
-        )
+        if trigger.mission.reward != 0:
+            se = ScoreEvent(
+                time=sub.time,
+                type="score_event",
+                message="Finished mission %s!" % trigger.mission.title,
+                score_delta=trigger.mission.reward,
+                score_total=team.score,
+                team=team
+            )
 
         if sub.submitter:
             se.is_player_event = True

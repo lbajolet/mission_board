@@ -17,7 +17,9 @@
     <div class="panel-heading">
       <h1>
         {{mission.title}}
+				{% if mission.reward != 0 %}
         <small>{{ mission.reward }} pts</small>
+				{% endif %}
         <span class="pull-right"><small>Track: <a href="{% url 'track_detail' mission.track.id %}">{{ mission.track.title }}</a></small></span>
       </h1>
 

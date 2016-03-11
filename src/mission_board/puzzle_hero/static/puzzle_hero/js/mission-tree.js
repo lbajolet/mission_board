@@ -51,7 +51,7 @@ console.log(mission);
 				return "<div class='mission-tip mission-" + mission.status + "'>" +
 							"<h3>" + mission.title + "</h3>" +
 							"<p>Kind: <b>" + mission.kind + "</b></p>" +
-							"<p>Reward: <b class='tip-reward'>" + mission.reward + "</b></p>" +
+							"<p>Bonus: <b class='tip-reward'>" + mission.reward + "</b></p>" +
 							"<p>Status: <b class='tip-status'>" + mission.status + "</b></p>" +
 						"</div>"
 				// console.log(missions)
