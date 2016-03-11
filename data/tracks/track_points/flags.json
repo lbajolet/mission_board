@@ -503,5 +503,21 @@
 				"reward": 10
 			}
 		]
+	}, {
+		"flag": "UQAM{h0w_n1c3_0f_y0u_t0_l00k_h3r3!}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "UQAM{wh4t_4_funny_l4ngu4g3!}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
 	}
 ]
