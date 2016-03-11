@@ -32,6 +32,10 @@
 				"kind": "post_status",
 				"post": "track_nit_mission_03_post_01",
 				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_nit_mission_03_post_02",
+				"status": "open"
 			}
 		]
 	}, {
@@ -106,6 +110,10 @@
 				"kind": "post_status",
 				"post": "track_nit_mission_08_post_01",
 				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_nit_mission_08_post_02",
+				"status": "open"
 			}
 		]
 	}, {
@@ -141,6 +149,10 @@
 				"kind": "post_status",
 				"post": "track_nit_mission_10_post_01",
 				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_nit_mission_10_post_02",
+				"status": "open"
 			}
 		]
 	}, {
@@ -163,6 +175,10 @@
 				"kind": "post_status",
 				"post": "track_nit_mission_11_post_01",
 				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_nit_mission_11_post_02",
+				"status": "open"
 			}
 		]
 	}, {
