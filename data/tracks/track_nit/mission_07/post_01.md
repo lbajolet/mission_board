@@ -31,7 +31,7 @@ Their behavior differs slightly from most other languages and is strongly linked
 * no need to define constructors: attributes without a default value need one when the object is allocated
 * an optional parameter-less special method (declared with the keyword `init`) is called to finish the construction
 
-<pre class="hl"><span class="hl kwa">class</span> <span class="hl kwb">Inventory</span> <span class="hl slc"># à la Pr�vert</span>
+<pre class="hl"><span class="hl kwa">class</span> <span class="hl kwb">Inventory</span> <span class="hl slc"># à la Prévert</span>
 	<span class="hl kwa">var</span> an_int<span class="hl opt">:</span> <span class="hl kwb">Int</span>
 	<span class="hl kwa">var</span> a_string<span class="hl opt">:</span> <span class="hl kwb">String</span>
 	<span class="hl kwa">var</span> another_int <span class="hl opt">=</span> <span class="hl num">2</span>
@@ -41,7 +41,7 @@ Their behavior differs slightly from most other languages and is strongly linked
 <span class="hl kwa">var</span> i <span class="hl opt">=</span> <span class="hl kwa">new</span> <span class="hl kwb">Inventory</span><span class="hl opt">(</span><span class="hl num">1</span><span class="hl opt">,</span> <span class="hl str">&quot;stone&quot;</span><span class="hl opt">)</span>
 <span class="hl slc"># initialize `an_int` and `a_string` and call `init`.</span>
 <span class="hl kwb">So</span> print <span class="hl str">&quot;1 stone, 2 houses...&quot;</span>
-</pre>p
+</pre>
 
 Subclasses inherit the attributes and the constructor behavior and `init` are automatically linked (in fact there is an implicit `super`).
 
