@@ -46,7 +46,7 @@ They will be shown in a later mission, for the moment, we will use them to itera
 
 ## Mission
 
-* Difficulty: easy
+* Difficulty: medium
 
 White a loop that computes the first Fibonacci numbers bellow a given limit.
 

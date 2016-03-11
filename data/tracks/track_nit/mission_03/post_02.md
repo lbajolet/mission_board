@@ -36,7 +36,7 @@ print <span class="hl str">&quot;There was</span> <span class="hl esc">{nb}</spa
 
 ## Mission
 
-* Difficulty: easy
+* Difficulty: medium
 
 Finish the program that test the primality of some numbers.
 
