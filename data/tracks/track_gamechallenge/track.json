@@ -1,0 +1,115 @@
+{
+	"id": "track_gamechal",
+	"title": "Game Challenges",
+	"initial_status": "open",
+	"missions": [
+		{
+			"id": "track_gamechal_mission_01",
+			"title": "Challenge 1",
+			"reward": 100,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_01_post_01",
+					"initial_status": "open",
+					"sender": "Socrates",
+					"en": "mission_01/post_01.md",
+					"fr": "mission_01/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_02",
+			"title": "Challenge 2",
+			"reward": 150,
+			"initial_status": "locked",
+			"dependencies": [
+				"track_gamechal_mission_01"
+			],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_02_post_01",
+					"initial_status": "open",
+					"sender": "Aristotle",
+					"en": "mission_02/post_01.md",
+					"fr": "mission_02/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_03",
+			"title": "Challenge 3",
+			"reward": 150,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_03_post_01",
+					"initial_status": "open",
+					"sender": "Zeno",
+					"en": "mission_03/post_01.md",
+					"fr": "mission_03/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_04",
+			"title": "Challenge 4",
+			"reward": 150,
+			"initial_status": "locked",
+			"dependencies": [
+				"track_gamechal_mission_03"
+			],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_04_post_01",
+					"initial_status": "open",
+					"sender": "Pythagoras",
+					"en": "mission_04/post_01.md",
+					"fr": "mission_04/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_05",
+			"title": "Challenge 5",
+			"reward": 100,
+			"initial_status": "open",
+			"dependencies": [], 
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_05_post_01",
+					"initial_status": "open",
+					"sender": "Thales",
+					"en": "mission_05/post_01.md",
+					"fr": "mission_05/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_06",
+			"title": "Challenge 6",
+			"reward": 150,
+			"initial_status": "locked",
+			"dependencies": [
+				"track_gamechal_mission_05"
+			],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_06_post_01",
+					"initial_status": "open",
+					"sender": "Pyrrho",
+					"en": "mission_06/post_01.md",
+					"fr": "mission_06/post_01.md"
+				}
+			]
+		}
+	]
+}

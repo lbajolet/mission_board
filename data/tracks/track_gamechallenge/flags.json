@@ -1,0 +1,92 @@
+[
+	{
+		"flag": "UQAM{436521143256215364562143324615651432}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_gamechal_mission_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_01_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{678935214865473192426897531192754386349516827237168945713629458581342679954281763}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_gamechal_mission_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_02_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{312546654231123654546123465312231465}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_gamechal_mission_03",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_03_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{462531245163126354351642634215513426}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_gamechal_mission_04",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_04_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{462531245163126354351642634215513426}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_gamechal_mission_05",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_05_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{4725613163475235421767163425231756462513475476231}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_gamechal_mission_06",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_06_post_01",
+				"status": "closed"
+			}
+		]
+	}
+]
