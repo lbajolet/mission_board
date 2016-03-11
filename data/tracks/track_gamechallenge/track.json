@@ -1,0 +1,197 @@
+{
+	"id": "track_gamechal",
+	"title": "Game Challenges",
+	"initial_status": "open",
+	"missions": [
+		{
+			"id": "track_gamechal_mission_01",
+			"title": "Challenge 1",
+			"reward": 100,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_01_post_01",
+					"initial_status": "open",
+					"sender": "Socrates",
+					"en": "mission_01/post_01.md",
+					"fr": "mission_01/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_02",
+			"title": "Challenge 2",
+			"reward": 150,
+			"initial_status": "locked",
+			"dependencies": [
+				"track_gamechal_mission_01"
+			],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_02_post_01",
+					"initial_status": "open",
+					"sender": "Aristotle",
+					"en": "mission_02/post_01.md",
+					"fr": "mission_02/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_03",
+			"title": "Challenge 3",
+			"reward": 150,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_03_post_01",
+					"initial_status": "open",
+					"sender": "Zeno",
+					"en": "mission_03/post_01.md",
+					"fr": "mission_03/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_04",
+			"title": "Challenge 4",
+			"reward": 150,
+			"initial_status": "locked",
+			"dependencies": [
+				"track_gamechal_mission_03"
+			],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_04_post_01",
+					"initial_status": "open",
+					"sender": "Pythagoras",
+					"en": "mission_04/post_01.md",
+					"fr": "mission_04/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_05",
+			"title": "Challenge 5",
+			"reward": 100,
+			"initial_status": "open",
+			"dependencies": [], 
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_05_post_01",
+					"initial_status": "open",
+					"sender": "Thales",
+					"en": "mission_05/post_01.md",
+					"fr": "mission_05/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_06",
+			"title": "Challenge 6",
+			"reward": 150,
+			"initial_status": "locked",
+			"dependencies": [
+				"track_gamechal_mission_05"
+			],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_06_post_01",
+					"initial_status": "open",
+					"sender": "Pyrrho",
+					"en": "mission_06/post_01.md",
+					"fr": "mission_06/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_07",
+			"title": "Brain Cells",
+			"reward": 30,
+			"initial_status": "locked",
+			"dependencies": [ "track_gamechal_mission_06" ],
+			"kind": "games",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_07_post_01",
+					"initial_status": "open",
+					"sender": "Public",
+					"en": "mission_07/post_01.md",
+					"fr": "mission_07/post_01.md"
+				},
+				{
+					"id": "track_gamechal_mission_07_post_02",
+					"initial_status": "open",
+					"sender": "Public",
+					"en": "mission_07/post_02.md",
+					"fr": "mission_07/post_02.md"
+				},
+				{
+					"id": "track_gamechal_mission_07_post_03",
+					"initial_status": "open",
+					"sender": "Public",
+					"en": "mission_07/post_03.md",
+					"fr": "mission_07/post_03.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_08",
+			"title": "Monsterz",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": [ "track_gamechal_mission_06" ],
+			"kind": "games",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_08_post_01",
+					"initial_status": "open",
+					"sender": "Prof. Bug",
+					"en": "mission_08/post_01.md",
+					"fr": "mission_08/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_09",
+			"title": "Nonogram Madness",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": [ "track_gamechal_mission_03" ],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_09_post_01",
+					"initial_status": "open",
+					"sender": "Adam",
+					"en": "mission_09/post_01.md",
+					"fr": "mission_09/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_10",
+			"title": "Songs from the Past",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": [ "track_gamechal_mission_05" ],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_10_post_01",
+					"initial_status": "open",
+					"sender": "Adam",
+					"en": "mission_10/post_01.md",
+					"fr": "mission_10/post_01.md"
+				}
+			]
+		}
+	]
+}

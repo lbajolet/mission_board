@@ -235,6 +235,222 @@
 					"fr": "mission_09/post_02.md"
 				}
 			]
+		},
+		{
+			"id": "track_scavenger_mission_10",
+			"title": "Diary - 10",
+			"reward": 10,
+			"initial_status": "open",
+			"dependencies": ["track_scavenger_mission_09"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "track_scavenger_mission_10_post_01",
+					"initial_status": "open",
+					"sender": "MIA",
+					"en": "mission_10/post_01.md",
+					"fr": "mission_10/post_01.md"
+				},
+				{
+					"id": "track_scavenger_mission_10_post_02",
+					"initial_status": "locked",
+					"sender": "Glen",
+					"en": "mission_10/post_02.md",
+					"fr": "mission_10/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "track_scavenger_mission_11",
+			"title": "Diary - 11",
+			"reward": 10,
+			"initial_status": "open",
+			"dependencies": ["track_scavenger_mission_06"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "track_scavenger_mission_11_post_01",
+					"initial_status": "open",
+					"sender": "MIA",
+					"en": "mission_11/post_01.md",
+					"fr": "mission_11/post_01.md"
+				},
+				{
+					"id": "track_scavenger_mission_11_post_02",
+					"initial_status": "locked",
+					"sender": "Glen",
+					"en": "mission_11/post_02.md",
+					"fr": "mission_11/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "track_scavenger_mission_12",
+			"title": "Diary - 12",
+			"reward": 10,
+			"initial_status": "open",
+			"dependencies": ["track_scavenger_mission_11"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "track_scavenger_mission_12_post_01",
+					"initial_status": "open",
+					"sender": "MIA",
+					"en": "mission_12/post_01.md",
+					"fr": "mission_12/post_01.md"
+				},
+				{
+					"id": "track_scavenger_mission_12_post_02",
+					"initial_status": "locked",
+					"sender": "Glen",
+					"en": "mission_12/post_02.md",
+					"fr": "mission_12/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "track_scavenger_mission_13",
+			"title": "Diary - 13",
+			"reward": 10,
+			"initial_status": "open",
+			"dependencies": ["track_scavenger_mission_12"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "track_scavenger_mission_13_post_01",
+					"initial_status": "open",
+					"sender": "MIA",
+					"en": "mission_13/post_01.md",
+					"fr": "mission_13/post_01.md"
+				},
+				{
+					"id": "track_scavenger_mission_13_post_02",
+					"initial_status": "locked",
+					"sender": "Glen",
+					"en": "mission_13/post_02.md",
+					"fr": "mission_13/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "track_scavenger_mission_14",
+			"title": "Diary - 14",
+			"reward": 10,
+			"initial_status": "open",
+			"dependencies": ["track_scavenger_mission_13"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "track_scavenger_mission_14_post_01",
+					"initial_status": "open",
+					"sender": "MIA",
+					"en": "mission_14/post_01.md",
+					"fr": "mission_14/post_01.md"
+				},
+				{
+					"id": "track_scavenger_mission_14_post_02",
+					"initial_status": "locked",
+					"sender": "Glen",
+					"en": "mission_14/post_02.md",
+					"fr": "mission_14/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "track_scavenger_mission_15",
+			"title": "Diary - 15",
+			"reward": 10,
+			"initial_status": "open",
+			"dependencies": ["track_scavenger_mission_14"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "track_scavenger_mission_15_post_01",
+					"initial_status": "open",
+					"sender": "MIA",
+					"en": "mission_15/post_01.md",
+					"fr": "mission_15/post_01.md"
+				},
+				{
+					"id": "track_scavenger_mission_15_post_02",
+					"initial_status": "locked",
+					"sender": "Glen",
+					"en": "mission_15/post_02.md",
+					"fr": "mission_15/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "track_scavenger_mission_16",
+			"title": "Diary - 16",
+			"reward": 10,
+			"initial_status": "open",
+			"dependencies": ["track_scavenger_mission_15"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "track_scavenger_mission_16_post_01",
+					"initial_status": "open",
+					"sender": "MIA",
+					"en": "mission_16/post_01.md",
+					"fr": "mission_16/post_01.md"
+				},
+				{
+					"id": "track_scavenger_mission_16_post_02",
+					"initial_status": "locked",
+					"sender": "Glen",
+					"en": "mission_16/post_02.md",
+					"fr": "mission_16/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "track_scavenger_mission_17",
+			"title": "Diary - 17",
+			"reward": 10,
+			"initial_status": "open",
+			"dependencies": ["track_scavenger_mission_16"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "track_scavenger_mission_17_post_01",
+					"initial_status": "open",
+					"sender": "MIA",
+					"en": "mission_17/post_01.md",
+					"fr": "mission_17/post_01.md"
+				},
+				{
+					"id": "track_scavenger_mission_17_post_02",
+					"initial_status": "locked",
+					"sender": "Glen",
+					"en": "mission_17/post_02.md",
+					"fr": "mission_17/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "track_scavenger_mission_18",
+			"title": "Diary - 18",
+			"reward": 10,
+			"initial_status": "open",
+			"dependencies": ["track_scavenger_mission_17", "track_scavenger_mission_11"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "track_scavenger_mission_18_post_01",
+					"initial_status": "open",
+					"sender": "MIA",
+					"en": "mission_18/post_01.md",
+					"fr": "mission_18/post_01.md"
+				},
+				{
+					"id": "track_scavenger_mission_18_post_02",
+					"initial_status": "locked",
+					"sender": "Glen",
+					"en": "mission_18/post_02.md",
+					"fr": "mission_18/post_02.md"
+				}
+			]
 		}
 	]
 }
