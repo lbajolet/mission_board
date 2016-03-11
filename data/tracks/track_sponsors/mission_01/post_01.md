@@ -4,9 +4,7 @@ Dear Rebels,
 
 We have been given a riddle for solving by one of our caretakers, can you solve it ?
 
-~~~
-A bartender asks three logicians if they’d all like a beer. Provided they do, and they answer one at a time without speaking to each other, what do they answer?
-~~~
+> A bartender asks three logicians if they’d all like a beer. Provided they do, and they answer one at a time without speaking to each other, what do they answer?
 
 ### Objectives
 
