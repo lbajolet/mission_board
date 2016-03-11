@@ -144,6 +144,16 @@
 				"status": "closed"
 			},
 			{
+				"kind": "mission_status",
+				"mission": "crypto_epilog",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "crypto_epilog_post",
+				"status": "closed"
+			},
+			{
 				"kind": "post_status",
 				"post": "impure_post",
 				"status": "closed"

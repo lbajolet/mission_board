@@ -131,6 +131,22 @@
 					"fr": "impure/post.md"
 				}
 			]
+		}, {
+			"id": "crypto_epilog",
+			"title": "Lies",
+			"reward": 0,
+			"initial_status": "locked",
+			"dependencies": ["hidden_03"],
+			"kind": "lore",
+			"posts": [
+				{
+					"id": "crypto_epilog_post",
+					"initial_status": "open",
+					"sender": "Hammond",
+					"en": "epilog/post.md",
+					"fr": "epilog/post.md"
+				}
+			]
 		}
 	]
 }
