@@ -1,0 +1,201 @@
+{
+	"id": "track_morriar_mines",
+	"title": "Mines of the Morriar",
+	"initial_status": "locked",
+	"missions": [
+		{
+			"id": "mines_intro",
+			"title": "Mines - Introduction",
+			"reward": 1,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "lore",
+			"posts": [
+				{
+					"id": "mines_intro_post",
+					"initial_status": "open",
+					"sender": "REDACTED",
+					"en": "mines_intro/intro.md",
+					"fr": "mines_intro/intro.md"
+				}
+			]
+		}, {
+			"id": "mines_01",
+			"title": "Mines - 01",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["mines_intro"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "mines_01_post_01",
+					"initial_status": "open",
+					"sender": "Colonel Mustard",
+					"en": "mines_01/post_01.md",
+					"fr": "mines_01/post_01.md"
+				},
+				{
+					"id": "mines_01_post_02",
+					"initial_status": "locked",
+					"sender": "Colonel Mustard",
+					"en": "mines_01/post_02.md",
+					"fr": "mines_01/post_02.md"
+				}
+			]
+		}, {
+			"id": "mines_02",
+			"title": "Mines - 02",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["mines_intro"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "mines_02_post_01",
+					"initial_status": "open",
+					"sender": "Puppy Ears",
+					"en": "mines_02/post_01.md",
+					"fr": "mines_02/post_01.md"
+				}, 
+				{
+					"id": "mines_02_post_02",
+					"initial_status": "locked",
+					"sender": "Puppy Ears",
+					"en": "mines_02/post_02.md",
+					"fr": "mines_02/post_02.md"
+				}
+			]
+		}, {
+			"id": "mines_03",
+			"title": "Mines - 03",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["mines_02"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "mines_03_post_01",
+					"initial_status": "open",
+					"sender": "Puppy Ears",
+					"en": "mines_03/post_01.md",
+					"fr": "mines_03/post_01.md"
+				}, 
+				{
+					"id": "mines_03_post_02",
+					"initial_status": "locked",
+					"sender": "Puppy Ears",
+					"en": "mines_03/post_02.md",
+					"fr": "mines_03/post_02.md"
+				}
+			]
+		}, {
+			"id": "mines_04",
+			"title": "Mines - 04",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["mines_03"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "mines_04_post_01",
+					"initial_status": "open",
+					"sender": "Puppy Ears",
+					"en": "mines_04/post_01.md",
+					"fr": "mines_04/post_01.md"
+				}, 
+				{
+					"id": "mines_04_post_02",
+					"initial_status": "locked",
+					"sender": "Puppy Ears",
+					"en": "mines_04/post_02.md",
+					"fr": "mines_04/post_02.md"
+				}
+			]
+		}, {
+			"id": "mines_05",
+			"title": "Mines - 05",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["mines_04"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "mines_05_post_01",
+					"initial_status": "open",
+					"sender": "Puppy Ears",
+					"en": "mines_05/post_01.md",
+					"fr": "mines_05/post_01.md"
+				}, 
+				{
+					"id": "mines_05_post_02",
+					"initial_status": "locked",
+					"sender": "Puppy Ears",
+					"en": "mines_05/post_02.md",
+					"fr": "mines_05/post_02.md"
+				}
+			]
+		}, {
+			"id": "mines_06",
+			"title": "Mines - 06",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["mines_05"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "mines_06_post_01",
+					"initial_status": "open",
+					"sender": "Puppy Ears",
+					"en": "mines_06/post_01.md",
+					"fr": "mines_06/post_01.md"
+				}, 
+				{
+					"id": "mines_06_post_02",
+					"initial_status": "locked",
+					"sender": "Puppy Ears",
+					"en": "mines_06/post_02.md",
+					"fr": "mines_06/post_02.md"
+				}
+			]
+		}, {
+			"id": "mines_07",
+			"title": "Mines - 07",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["mines_06"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "mines_07_post_01",
+					"initial_status": "open",
+					"sender": "Puppy Ears",
+					"en": "mines_07/post_01.md",
+					"fr": "mines_07/post_01.md"
+				}, 
+				{
+					"id": "mines_07_post_02",
+					"initial_status": "locked",
+					"sender": "Puppy Ears",
+					"en": "mines_07/post_02.md",
+					"fr": "mines_07/post_02.md"
+				}
+			]
+		}, {
+			"id": "mines_08",
+			"title": "Mines - 08",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["mines_07", "mines_01"],
+			"kind": "lore",
+			"posts": [
+				{
+					"id": "mines_08_post_01",
+					"initial_status": "open",
+					"sender": "Puppy Ears",
+					"en": "mines_08/epilogue.md",
+					"fr": "mines_08/epilogue.md"
+				}
+			]
+		}
+	]
+}
