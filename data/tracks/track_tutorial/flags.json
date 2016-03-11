@@ -163,10 +163,6 @@
 				"status": "open"
 			},{
 				"kind": "track_status",
-				"track": "track_regex",
-				"status": "open"
-			},{
-				"kind": "track_status",
 				"track": "track_morriar_mines",
 				"status": "open"
 			},{
