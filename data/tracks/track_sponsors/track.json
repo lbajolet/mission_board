@@ -67,6 +67,22 @@
 					"fr": "mission_04/post_01.md"
 				}
 			]
+		}, {
+			"id": "track_sponsors_mission_05",
+			"title": "Cryptograms",
+			"reward": 100,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "sponsors",
+			"posts": [
+				{
+					"id": "track_sponsors_mission_05_post_01",
+					"initial_status": "open",
+					"sender": "CSE/CST",
+					"en": "mission_05/post_01.md",
+					"fr": "mission_05/post_01.md"
+				}
+			]
 		}
 	]
 }

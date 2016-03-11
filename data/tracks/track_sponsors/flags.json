@@ -68,5 +68,42 @@
 				"status": "closed"
 			}
 		]
+	},
+	{
+		"flag": "PEOPLE ALL AROUND THE WORLD LIKE TO SOLVE PUZZLES.",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 50
+			}
+		]
+	},
+	{
+		"flag": "SOME PUZZLES CAN BE HARD TO SOLVE, BUT SOME ARE WASY.",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 50
+			}
+		]
+	},
+	{
+		"flag": "DID YOU THINK THIS PUZZLE WAS HARD OR EASY TO DO?",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 50
+			},
+			{
+				"kind": "mission_status",
+				"mission": "track_sponsors_mission_05",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_sponsors_mission_05_post_01",
+				"status": "closed"
+			}
+		]
 	}
 ]
