@@ -91,8 +91,8 @@ Hint2: the module `crypto` provide a `rot(13)` method that can be applied on str
 	<span class="hl slc"># CODE HERE</span>
 <span class="hl kwa">end</span>
 
-print <span class="hl str">&quot;Hello, World&quot;</span>
-print <span class="hl str">&quot;Goodbye, World&quot;</span>
+print <span class="hl str">&quot;Hello, World!&quot;</span>
+print <span class="hl str">&quot;Goodbye, World!&quot;</span>
 </pre>
 
 ### Expected Output
