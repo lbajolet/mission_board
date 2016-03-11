@@ -6,7 +6,7 @@ Current supported languages are C, C++, Java (used mainly for android support) a
 Common use cases of the FFI is to optimize a method or to wrap existing system or third-party libraries.
 The syntax use back-quoted curly-brackets.
 
-~~~nit
+<!--~~~nit
 fun in_nit do print "In Nit"
 fun in_c `{ printf("In C\n"); `}
 fun in_cpp in "C++" `{ cout << "In C++" << endl; `}
@@ -18,7 +18,20 @@ in_c
 in_cpp
 in_java
 in_objc
-~~~
+~~~-->
+
+<pre class="hl"><span class="hl kwa">fun</span> in_nit <span class="hl kwa">do</span> print <span class="hl str">&quot;In Nit&quot;</span>
+<span class="hl kwa">fun</span> in_c <span class="hl str">`</span><span class="hl esc">{ printf(&quot;In C\n&quot;); `}</span>
+<span class="hl str">fun in_cpp in &quot;C+&quot; `</span><span class="hl esc">{ cout &lt;&lt; &quot;In C++&quot; &lt;&lt; endl; `}</span>
+<span class="hl kwa">fun</span> in_java <span class="hl kwa">in</span> <span class="hl str">&quot;Java&quot;</span> <span class="hl str">`</span><span class="hl esc">{ System.out.println(&quot;In Java&quot;); `}</span>
+<span class="hl str">fun in_objc in &quot;ObjC&quot; `</span><span class="hl esc">{ NSLog (&#64;&quot;In Objective C\n&quot;); `}</span>
+
+in_nit
+in_c
+in_cpp
+in_java
+in_objc
+</pre>
 
 Advanced features of the Nit FFI include:
 
@@ -28,6 +41,7 @@ Advanced features of the Nit FFI include:
 
 The following example shows how can the C function `strchr` be used to search a character in a string.
 
+<!--
 ~~~nit
 # global FFI declaration are enclosed by `{ `}
 # Use them for #include and related things.
@@ -58,14 +72,48 @@ end
 
 print "Hello, World!".strchr('W') # 7
 print "Hello, World!".strchr('*') # -1
-~~~
+~~~-->
+
+<pre class="hl"><span class="hl slc"># global FFI declaration are enclosed by `{ `}</span>
+<span class="hl slc"># Use them for #include and related things.</span>
+
+<span class="hl str">`{</span>
+<span class="hl str">#include &lt;string.h</span>
+<span class="hl str">`</span><span class="hl opt">}</span>
+
+<span class="hl slc"># Any class can be refined with FFI method.</span>
+<span class="hl kwa">redef class</span> <span class="hl kwb">String</span> 
+	<span class="hl kwa">fun</span> strchr<span class="hl opt">(</span>c<span class="hl opt">:</span> <span class="hl kwb">Char</span><span class="hl opt">):</span> <span class="hl kwb">Int</span> <span class="hl kwa">import</span> to_cstring <span class="hl str">`{</span>
+<span class="hl str">		// Two parameter, `</span><span class="hl kwa">self</span><span class="hl str">` and `</span>c<span class="hl str">`.</span>
+<span class="hl str">		// `</span><span class="hl kwa">self</span><span class="hl str">` is an opaque type in the C side</span>
+<span class="hl str">		// `</span>c<span class="hl str">` is converted to the primitive `</span>char<span class="hl str">`</span>
+<span class="hl str"></span>
+<span class="hl str">		// Because `</span>strchr<span class="hl str">` need a `</span>char<span class="hl opt"></span><span class="hl str">`, we must convert the opaque `</span><span class="hl kwa">self</span><span class="hl str">`</span>
+<span class="hl str">		// to something usable.</span>
+<span class="hl str">		// the `</span><span class="hl kwa">import</span><span class="hl str">` clause makes the method `</span>to_cstring<span class="hl str">` available in C.</span>
+<span class="hl str">		char *str = String_to_cstring(self);</span>
+<span class="hl str"></span>
+<span class="hl str">		// In Nit, `</span>to_cstring<span class="hl str">` returns a `</span><span class="hl kwb">NativeString</span><span class="hl str">`.</span>
+<span class="hl str">		// In C, `</span><span class="hl kwb">NativeString</span><span class="hl str">` are automatically converted to `</span>char<span class="hl opt"></span><span class="hl str">`.</span>
+<span class="hl str">		char *res = strchr(str, c);</span>
+<span class="hl str">		if (res=NULL) return -1;</span>
+<span class="hl str">		return res - str;</span>
+<span class="hl str">	`</span><span class="hl opt">}</span>
+<span class="hl kwa">end</span>
+
+print <span class="hl str">&quot;Hello, World&quot;</span><span class="hl opt">.</span>strchr<span class="hl opt">(</span><span class="hl str">'W'</span><span class="hl opt">)</span> <span class="hl slc"># 7</span>
+print <span class="hl str">&quot;Hello, World&quot;</span><span class="hl opt">.</span>strchr<span class="hl opt">(</span><span class="hl str">'*'</span><span class="hl opt">)</span> <span class="hl slc"># -1</span>
+</pre>
 
 ## Mission
+
+* Difficulty: easy
 
 Refine the class `String` and add a method `fnmatch(pattern: String): Bool` that wrap the POSIX function `fnmatch` (Hint: `man fnmatch`)
 
 ### Template to Use
 
+<!--
 ~~~nit
 module fnmatch
 
@@ -73,11 +121,17 @@ module fnmatch
 
 print "mpire.nit".fnmatch("*.nit")
 print "mpire.nit".fnmatch("*.zip")
-~~~
+~~~-->
+
+<pre class="hl"><span class="hl kwa">module</span> fnmatch
+
+<span class="hl slc"># CODE HERE</span>
+
+print <span class="hl str">&quot;mpire.nit&quot;</span><span class="hl opt">.</span>fnmatch<span class="hl opt">(</span><span class="hl str">&quot;*.nit&quot;</span><span class="hl opt">)</span>
+print <span class="hl str">&quot;mpire.nit&quot;</span><span class="hl opt">.</span>fnmatch<span class="hl opt">(</span><span class="hl str">&quot;*.zip&quot;</span><span class="hl opt">)</span>
+</pre>
 
 ### Expected Output
 
-~~~
-true
-false
-~~~
+    true
+    false

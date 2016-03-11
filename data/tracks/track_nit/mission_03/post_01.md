@@ -64,7 +64,7 @@ Confidential information: fib(0) = 0; fib(1) = 1; fib(n) = fib(n-1) + fib(n-2)
 <span class="hl slc"># CODE HERE</span>
 </pre>
 
-### Expected output
+### Expected Output
 
 	1
 	1

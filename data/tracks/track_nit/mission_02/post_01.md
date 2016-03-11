@@ -68,6 +68,8 @@ print <span class="hl str">&quot;&quot;&quot;&quot;quote&quot; and</span> <span 
 
 Define two variables, `a_string` and `an_integer` initialized respectively to `"ten"` and `10`.
 
+### Template to Use
+
 <pre class="hl"><span class="hl kwa">module</span> value
 
 <span class="hl slc"># CHANGE BELOW</span>

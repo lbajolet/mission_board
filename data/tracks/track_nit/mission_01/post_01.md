@@ -56,6 +56,6 @@ print <span class="hl str">&quot;Something, Something&quot;</span>
 <span class="hl slc"># CHANGE ABOVE</span>
 </pre>
 
-### Expected output
+### Expected Output
 
 	Hello, World!

@@ -11,6 +11,8 @@ Here the language specification for a vectorial and elfish drawing system.
 
 ## Mission
 
+* Difficulty: medium
+
 Your first step is to compile it.
 
 * compile a recent version of nitcc.

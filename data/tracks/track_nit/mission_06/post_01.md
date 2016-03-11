@@ -84,6 +84,8 @@ what_it_is <span class="hl kwa">true</span>
 
 ## Mission
 
+* Difficulty: easy
+
 Implement a method `deep_first` that returns the first non-collection element of an object.
 
 ### Template to Use
