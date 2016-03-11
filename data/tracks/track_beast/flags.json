@@ -144,6 +144,21 @@
 				"kind": "post_status",
 				"post": "track_beast_mission_06_post_01",
 				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "ECHO",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_beast_mission_08",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_beast_mission_08_post_01",
+				"status": "closed"
 			},
 			{
 				"kind": "track_status",

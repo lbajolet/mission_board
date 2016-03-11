@@ -128,6 +128,23 @@
 					"fr": "mission_07/post_02.md"
 				}
 			]
+		},
+		{
+			"id": "track_beast_mission_08",
+			"title": "Re: Fw: Flag",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": ["track_beast_mission_07"],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_beast_mission_08_post_01",
+					"initial_status": "open",
+					"sender": "Undisclosed",
+					"en": "mission_08/post_01.md",
+					"fr": "mission_08/post_01.md"
+				}
+			]
 		}
 	]
 }
