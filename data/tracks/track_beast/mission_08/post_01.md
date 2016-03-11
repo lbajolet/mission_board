@@ -4,10 +4,13 @@ We are trying to figure out what a string given to us means, maybe you can help 
 
 This is what we've been given:
 
-F = (↑|↓)?→
-L = (↑|↓)→
-A = ←?(↑|↓)
-G = ↑↑→|→↑↑
+> F = (↑|↓)?→
+>
+> L = (↑|↓)→
+>
+> A = ←?(↑|↓)
+>
+> G = ↑↑→|→↑↑
 
 Can you send us the meaning behind all this ?
 
