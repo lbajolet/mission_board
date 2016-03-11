@@ -2,4 +2,4 @@ To help you, the Rebellion Intelligence Services have hidden supply caches in th
 
 Find them to earn points.
 
-The first Rebel Cache can be found very close to your knees.
+The first Rebel Cache can be found somewhere in your screen.
