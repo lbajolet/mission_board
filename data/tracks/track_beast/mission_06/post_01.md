@@ -8,7 +8,7 @@ We have stumbled upon what seems to be a riddle.
 
 One strange caped man with a stupid look gave us an archive, inside it was an image and some guidelines.
 
-The guidelines only said "Send the password to the server, it shall give you the flag. Here is the address: nit.jeuxcs.org:4637. We count on you."
+The guidelines only said "Send the password to the server, it shall give you the flag. Here is the address: [nit.jeuxcs.org:4637](nit.jeuxcs.org:4637). We count on you."
 
 It looks like the image is the centerpiece of the puzzle.
 
