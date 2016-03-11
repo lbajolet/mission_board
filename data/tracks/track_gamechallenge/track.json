@@ -128,14 +128,14 @@
 				},
 				{
 					"id": "track_gamechal_mission_07_post_02",
-					"initial_status": "open",
+					"initial_status": "locked",
 					"sender": "Public",
 					"en": "mission_07/post_02.md",
 					"fr": "mission_07/post_02.md"
 				},
 				{
 					"id": "track_gamechal_mission_07_post_03",
-					"initial_status": "open",
+					"initial_status": "locked",
 					"sender": "Public",
 					"en": "mission_07/post_03.md",
 					"fr": "mission_07/post_03.md"
