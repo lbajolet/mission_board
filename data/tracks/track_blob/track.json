@@ -1,0 +1,36 @@
+{
+	"id": "track_blob",
+	"title": "Chill Man",
+	"initial_status": "locked",
+	"missions": [
+		{
+			"id": "blob_01",
+			"title": "Files",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": [],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "blob_post_01",
+					"initial_status": "open",
+					"sender": "Ed Khil",
+					"en": "blob01/post_1.md",
+					"fr": "blob01/post_1.md"
+				}, {
+					"id": "blob_post_02",
+					"initial_status": "locked",
+					"sender": "Ed Khil",
+					"en": "blob01/post_2.md",
+					"fr": "blob01/post_2.md"
+				}, {
+					"id": "blob_post_03",
+					"initial_status": "locked",
+					"sender": "Ed Khil",
+					"en": "blob01/post_3.md",
+					"fr": "blob01/post_3.md"
+				}
+			]
+		}
+	]
+}

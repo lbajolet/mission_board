@@ -1,0 +1,62 @@
+[
+	{
+		"flag": "UQAM{CFS_FTW}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "blob_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "blob_post_02",
+				"status": "open"
+			},
+			{
+				"kind": "team_score",
+				"reward": 50
+			}
+		]
+	}, {
+		"flag": "Jinkela",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "blob_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "blob_post_03",
+				"status": "open"
+			},
+			{
+				"kind": "team_score",
+				"reward": 100
+			}
+		]
+	}, {
+		"flag": "Jay Wen",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "blob_post_03",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "blob_01",
+				"status": "closed"
+			},
+			{
+				"kind": "track_status",
+				"track": "track_blob",
+				"status": "closed"
+			},
+			{
+				"kind": "team_score",
+				"reward": 200
+			}
+		]
+	}
+]
