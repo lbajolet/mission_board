@@ -1,7 +1,7 @@
 {
 	"id": "track_lore",
 	"title": "The mole",
-	"initial_status": "open",
+	"initial_status": "closed",
 	"missions": [
 		{
 			"id": "the_butcher_01",
