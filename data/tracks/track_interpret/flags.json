@@ -62,6 +62,19 @@
 				"kind": "mission_status",
 				"mission": "interpret_05",
 				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{0.2e1/0.1000200003e15/0.4005//}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "interpret_post_06",
+				"status": "closed"
+			}, {
+				"kind": "mission_status",
+				"mission": "interpret_06",
+				"status": "closed"
 			}, {
 				"kind": "track_status",
 				"track": "track_interpret",

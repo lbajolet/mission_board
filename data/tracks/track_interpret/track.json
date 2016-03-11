@@ -83,6 +83,22 @@
 					"fr": "interpret_02/template.md"
 				}
 			]
+		}, {
+			"id": "interpret_06",
+			"title": "Overflow Chart",
+			"reward": 150,
+			"initial_status": "locked",
+			"dependencies": ["interpret_05"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "interpret_post_06",
+					"initial_status": "open",
+					"sender": "Peppy",
+					"en": "interpret_06/template.md",
+					"fr": "interpret_06/template.md"
+				}
+			]
 		}
 	]
 }
