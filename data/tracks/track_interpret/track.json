@@ -1,0 +1,88 @@
+{
+	"id": "track_interpret",
+	"title": "Interprets",
+	"initial_status": "locked",
+	"missions": [
+		{
+			"id": "interpret_01",
+			"title": "Transmission From The East",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": [],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "interpret_post_01",
+					"initial_status": "open",
+					"sender": "Arthour",
+					"en": "interpret_01/template.md",
+					"fr": "interpret_01/template.md"
+				}
+			]
+		}, {
+			"id": "interpret_02",
+			"title": "Terminology",
+			"reward": 50,
+			"initial_status": "locked",
+			"dependencies": ["interpret_01"],
+			"kind": "recon",
+			"posts": [
+				{
+					"id": "interpret_post_02",
+					"initial_status": "open",
+					"sender": "Michou",
+					"en": "interpret_05/template.md",
+					"fr": "interpret_05/template.md"
+				}
+			]
+		}, {
+			"id": "interpret_03",
+			"title": "Moon",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": ["interpret_01"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "interpret_post_03",
+					"initial_status": "open",
+					"sender": "Rosebud",
+					"en": "interpret_03/template.md",
+					"fr": "interpret_03/template.md"
+				}
+			]
+		}, {
+			"id": "interpret_04",
+			"title": "Aliens",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": ["interpret_02", "interpret_03"],
+			"kind": "recon",
+			"posts": [
+				{
+					"id": "interpret_post_04",
+					"initial_status": "open",
+					"sender": "Thalnath",
+					"en": "interpret_04/template.md",
+					"fr": "interpret_04/template.md"
+				}
+			]
+		}, {
+			"id": "interpret_05",
+			"title": "GOST in the Shell",
+			"reward": 150,
+			"initial_status": "locked",
+			"dependencies": ["interpret_04"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "interpret_post_05",
+					"initial_status": "open",
+					"sender": "Arthour",
+					"en": "interpret_02/template.md",
+					"fr": "interpret_02/template.md"
+				}
+			]
+		}
+	]
+}

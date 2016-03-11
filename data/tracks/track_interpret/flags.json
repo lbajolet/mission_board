@@ -1,0 +1,72 @@
+[
+	{
+		"flag": "kill_the_emperor",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "interpret_post_01",
+				"status": "closed"
+			}, {
+				"kind": "mission_status",
+				"mission": "interpret_01",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "MEUPORG",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "interpret_post_02",
+				"status": "closed"
+			}, {
+				"kind": "mission_status",
+				"mission": "interpret_02",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{10101001110000101000000101000}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "interpret_post_03",
+				"status": "closed"
+			}, {
+				"kind": "mission_status",
+				"mission": "interpret_03",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "elvish,hellish",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "interpret_post_04",
+				"status": "closed"
+			}, {
+				"kind": "mission_status",
+				"mission": "interpret_04",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{hope}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "interpret_post_05",
+				"status": "closed"
+			}, {
+				"kind": "mission_status",
+				"mission": "interpret_05",
+				"status": "closed"
+			}, {
+				"kind": "track_status",
+				"track": "track_interpret",
+				"status": "closed"
+			}
+		]
+	}
+]
