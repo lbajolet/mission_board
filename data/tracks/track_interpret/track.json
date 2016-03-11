@@ -7,7 +7,7 @@
 			"id": "interpret_01",
 			"title": "Transmission From The East",
 			"reward": 100,
-			"initial_status": "locked",
+			"initial_status": "open",
 			"dependencies": [],
 			"kind": "dev",
 			"posts": [
