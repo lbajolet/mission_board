@@ -147,6 +147,10 @@
 				"status": "open"
 			},{
 				"kind": "track_status",
+				"track": "track_scavenger_2",
+				"status": "open"
+			},{
+				"kind": "track_status",
 				"track": "track_nit",
 				"status": "open"
 			},{
