@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](Below_the_wells.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

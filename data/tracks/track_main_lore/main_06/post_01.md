@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](HAL_9000.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

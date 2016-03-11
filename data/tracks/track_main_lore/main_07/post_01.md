@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](Piping_systems.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

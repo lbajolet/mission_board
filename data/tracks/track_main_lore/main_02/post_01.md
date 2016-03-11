@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](Highs_and_lows.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](Photonic_surprise.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 
