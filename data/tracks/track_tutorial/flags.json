@@ -169,6 +169,10 @@
 				"kind": "track_status",
 				"track": "track_interpret",
 				"status": "open"
+			},{
+				"kind": "track_status",
+				"track": "track_main_lore",
+				"status": "open"
 			}
 		]
 	}

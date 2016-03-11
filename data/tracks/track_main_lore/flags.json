@@ -1,0 +1,126 @@
+[
+	{
+		"flag": "UQAM{c4t4str0ph3_i5_up0n_u5!}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "main_lore_intro",
+				"status": "closed"
+			}, {
+				"kind": "post_status",
+				"post": "main_lore_intro_post",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{4r3_U_th1rsty????}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "main_lore_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "main_lore_01_post_02",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{1_l1k3_my_w0m3n_l1k3_my_m0unt4in5_curvy}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "main_lore_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "main_lore_02_post_02",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{m3hr_l1cht}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "main_lore_03",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "main_lore_03_post_02",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{l0ck3d_try_l4t3r}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "main_lore_04",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "main_lore_04_post_02",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{1t_buuuuuuuuuurn5!}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "main_lore_05",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "main_lore_05_post_02",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{1'm_4fr41d_1_c4nt_l3t_y0u_d0_th4t}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "main_lore_06",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "main_lore_06_post_02",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{d0_di_d0_d4h_dun_d4h}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "main_lore_07",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "main_lore_07_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "track_status",
+				"track": "track_main_lore",
+				"status": "closed"
+			}
+		]
+	}
+]
