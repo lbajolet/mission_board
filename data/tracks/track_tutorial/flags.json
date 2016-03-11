@@ -177,6 +177,10 @@
 				"kind": "track_status",
 				"track": "track_comic",
 				"status": "open"
+			},{
+				"kind": "track_status",
+				"track": "track_scavenger",
+				"status": "open"
 			}
 		]
 	}
