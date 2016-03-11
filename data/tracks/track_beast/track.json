@@ -104,6 +104,30 @@
 					"fr": "mission_06/post_01.md"
 				}
 			]
+		},
+		{
+			"id": "track_beast_mission_07",
+			"title": "Default Sewers",
+			"reward": 25,
+			"initial_status": "locked",
+			"dependencies": ["track_beast_mission_04"],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_beast_mission_07_post_01",
+					"initial_status": "open",
+					"sender": "Undisclosed",
+					"en": "mission_07/post_01.md",
+					"fr": "mission_07/post_01.md"
+				},
+				{
+					"id": "track_beast_mission_07_post_02",
+					"initial_status": "locked",
+					"sender": "Undisclosed",
+					"en": "mission_07/post_02.md",
+					"fr": "mission_07/post_02.md"
+				}
+			]
 		}
 	]
 }

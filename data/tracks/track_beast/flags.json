@@ -95,6 +95,44 @@
 		]
 	},
 	{
+		"flag": "UQAM{pascal's triangle}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_beast_mission_07_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_beast_mission_07_post_02",
+				"status": "open"
+			},
+			{
+				"kind": "team_score",
+				"reward": 200
+			}
+		]
+	},
+	{
+		"flag": "UQAM{70368744177661}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_beast_mission_07_post_02",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"post": "track_beast_mission_07",
+				"status": "closed"
+			},
+			{
+				"kind": "team_score",
+				"reward": 200
+			}
+		]
+	},
+	{
 		"flag": "UQAM{pi3t_is_nice_innit}",
 		"triggers": [
 			{
