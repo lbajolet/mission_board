@@ -3,7 +3,7 @@
 	"track_lore/",
 	"track_crypto/",
 	"track_blind_test/",
-    "track_beast",
+	"track_beast",
 	"track_git",
 	"track_exploration",
 	"track_exploration_2",
@@ -14,5 +14,6 @@
 	"track_regex",
 	"track_morriar_mines",
 	"track_comic",
-	"track_main_lore"
+	"track_main_lore",
+	"track_manga"
 ]

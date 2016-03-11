@@ -1,0 +1,212 @@
+[
+	{
+		"flag": "UQAM{Raijin}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_01_post_01",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_manga_mission_01_post_02",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Ryuunosuke}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_01_post_02",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_manga_mission_01_post_03",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{The tale of nolan the liar}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_01_post_03",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_manga_mission_01_post_04",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Edward weevil}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_01_post_04",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_manga_mission_01",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{Kuromaru}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_02_post_01",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_manga_mission_02_post_02",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Kaguya Ōtsutsuki}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_02_post_02",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_manga_mission_02_post_03",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Jūgo}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_02_post_03",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_manga_mission_02_post_04",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Third shinobi world war}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_02_post_04",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_manga_mission_02",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{Merlin}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_03_post_01",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_manga_mission_03_post_02",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Gloxinia}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_03_post_02",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_manga_mission_03_post_03",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Mother catastrophe}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_03_post_03",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_manga_mission_03_post_04",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{720}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_03_post_04",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_manga_mission_03",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{Sinbad}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_04_post_01",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_manga_mission_04_post_02",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Amon}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_04_post_02",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_manga_mission_04_post_03",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Zera}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_04_post_03",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_manga_mission_04_post_04",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Abyss Break}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_manga_mission_04_post_04",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_manga_mission_04",
+				"status": "closed"
+			}
+		]
+	}
+
+]
