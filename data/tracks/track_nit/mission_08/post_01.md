@@ -48,7 +48,7 @@ Moreover, importation of modules can be done and configured at link-time (with `
 
 ## Mission
 
-* Difficulty: medium
+* Difficulty: easy
 
 Hera a program that prints the command line arguments separated by a comma.
 

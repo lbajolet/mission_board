@@ -14,6 +14,7 @@ then the value is directly accessible.
 
 The foreign type is indicated after the class name with the now traditional back-quoted curly-bracket notation.
 
+<!--
 ~~~nit
 `{
 #include <sys/types.h>
@@ -47,6 +48,40 @@ loop
 end
 dir.closedir
 ~~~
+-->
+
+<pre class="hl"><span class="hl str">`{</span>
+<span class="hl str">#include &lt;systypes.h</span>
+<span class="hl str">#include &lt;dirent.h</span>
+<span class="hl str">`</span><span class="hl opt">}</span>
+
+<span class="hl kwa">extern class</span> <span class="hl kwb">CDir</span> <span class="hl str">`</span><span class="hl esc">{ DIR* `}</span>
+<span class="hl str">        # Open a directory</span>
+<span class="hl str">        new(path: NativeString) `</span><span class="hl esc">{ return opendir(path); `}</span>
+
+        <span class="hl slc"># Close a directory</span>
+        <span class="hl kwa">fun</span> closedir <span class="hl str">`</span><span class="hl esc">{ closedir(self); `}</span>
+<span class="hl str"></span>
+<span class="hl str">        # Read the next directory entry</span>
+<span class="hl str">        fun readdir: NativeString `</span><span class="hl opt">{</span>
+                struct dirent <span class="hl opt">*</span>de<span class="hl opt">;</span>
+                de <span class="hl opt">=</span> readdir<span class="hl opt">(</span><span class="hl kwa">self</span><span class="hl opt">);</span>
+                <span class="hl kwa">if</span> <span class="hl opt">(!</span>de<span class="hl opt">)</span> <span class="hl kwa">return</span> <span class="hl kwb">NULL</span><span class="hl opt">;</span>
+                <span class="hl kwa">return</span> de-&gt;d_name<span class="hl opt">;</span>
+        <span class="hl str">`}</span>
+<span class="hl str">end</span>
+<span class="hl str"></span>
+<span class="hl str"># Simple client</span>
+<span class="hl str"># Disclaimer: Usually it is often a better idea to add another API level to avoid</span>
+<span class="hl str"># the direct manipulation of foreign values.</span>
+<span class="hl str">var dir = new CDir(&quot;.&quot;.to_cstring)</span>
+<span class="hl str">loop</span>
+<span class="hl str">	var ent = dir.readdir</span>
+<span class="hl str">	if ent.address_is_null then break</span>
+<span class="hl str">	print ent.to_s</span>
+<span class="hl str">end</span>
+<span class="hl str">dir.closedir</span>
+</pre>
 
 Some included foreign code may require specific flag to compile them.
 These flags can be declared in the module declaration.
@@ -54,13 +89,20 @@ These flags can be declared in the module declaration.
 Most of the time for C and C++ foreign code, the tool `pkg-config` can be used to correctly get these flags.
 `nitc` simplify the process for you.
 
-~~~nit
+<!--
 module curl is pkgconfig
 
 # Rest of the code...
-~~~
+-->
+
+<pre class="hl"><span class="hl kwa">module</span> curl <span class="hl kwa">is</span> pkgconfig
+
+<span class="hl slc"># Rest of the code...</span>
+</pre>
 
 ## Mission
+
+* Difficulty: hard
 
 Write a simple wrapper around [libcaca](http://caca.zoy.org/doxygen/libcaca/caca_8h.html) that include the following data types and functions:
 
@@ -76,7 +118,7 @@ Also add a `CadaDisplay::quit` that waits for any input event then destroy the d
 
 Here an example of a working client.
 
-~~~nit
+<!--~~~nit
 module caca_client
 
 import caca
@@ -86,17 +128,33 @@ var c = d.canvas
 c.put("Hello, World!", 5, 1)
 d.refresh
 d.quit
-~~~
+~~~-->
+
+<pre class="hl"><span class="hl kwa">module</span> caca_client
+
+<span class="hl kwa">import</span> caca
+
+<span class="hl kwa">var</span> d <span class="hl opt">=</span> <span class="hl kwa">new</span> <span class="hl kwb">CacaDisplay</span>
+<span class="hl kwa">var</span> c <span class="hl opt">=</span> d<span class="hl opt">.</span>canvas
+c<span class="hl opt">.</span>put<span class="hl opt">(</span><span class="hl str">&quot;Hello, World&quot;</span><span class="hl opt">,</span> <span class="hl num">5</span><span class="hl opt">,</span> <span class="hl num">1</span><span class="hl opt">)</span>
+d<span class="hl opt">.</span>refresh
+d<span class="hl opt">.</span>quit
+</pre>
 
 Look at the [caca tutorial](http://caca.zoy.org/doxygen/libcaca/libcaca-tutorial.html) and the [caca header file](http://caca.zoy.org/doxygen/libcaca/caca_8h.html) for more information.
 
 ### Template to Use
 
-~~~nit
+<!--~~~nit
 module caca is pkgconfig
 
 # CODE HERE
-~~~
+~~~-->
+
+<pre class="hl"><span class="hl kwa">module</span> caca <span class="hl kwa">is</span> pkgconfig
+
+<span class="hl slc"># CODE HERE</span>
+</pre>
 
 ### Expected Result
 

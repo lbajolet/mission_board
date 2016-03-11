@@ -40,6 +40,8 @@ print <span class="hl str">&quot;There was</span> <span class="hl esc">{nb}</spa
 
 Finish the program that test the primality of some numbers.
 
+### Template to Use
+
 <pre class="hl"><span class="hl kwa">module</span> prime
 
 <span class="hl kwa">var</span> limit <span class="hl opt">=</span> <span class="hl num">20</span>

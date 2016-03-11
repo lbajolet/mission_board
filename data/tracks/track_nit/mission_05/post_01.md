@@ -40,10 +40,11 @@ The `for` control structure just do that.
 
 ## Mission
 
-* Difficulty: tutorial
-
+* Difficulty: easy
 
 Write a function that prints the numbers of a collection that are odd and lower than 42.
+
+### Template to Use
 
 <pre class="hl"><span class="hl kwa">module</span> filter
 
