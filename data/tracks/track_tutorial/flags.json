@@ -155,6 +155,14 @@
 				"status": "open"
 			},{
 				"kind": "track_status",
+				"track": "track_blizzard",
+				"status": "open"
+			},{
+				"kind": "track_status",
+				"track": "track_regex",
+				"status": "open"
+			},{
+				"kind": "track_status",
 				"track": "track_git",
 				"status": "open"
 			},{
