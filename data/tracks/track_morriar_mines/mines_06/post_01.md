@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](Search_for_the_green_barrel.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

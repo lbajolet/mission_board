@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](Dead_ends.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](Get_drunk_or_die_trying.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](Heavy_metals.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 
