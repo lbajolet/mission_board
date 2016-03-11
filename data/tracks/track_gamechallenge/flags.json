@@ -88,5 +88,101 @@
 				"status": "closed"
 			}
 		]
+	},
+	{
+		"flag": "UQAM{GAMNIT.IS.FUN}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_07_post_01",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_07_post_02",
+				"status": "open"
+			},{
+				"kind": "team_score",
+				"reward": 30
+			}
+		]
+	},
+	{
+		"flag": "UQAM{LUV.POLYMORPHISM}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_07_post_02",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_07_post_03",
+				"status": "open"
+			},{
+				"kind": "team_score",
+				"reward": 70
+			}
+		]
+	},
+	{
+		"flag": "UQAM{GOT.MODULES?}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_gamechal_mission_07",
+				"status": "closed"
+			}, {
+				"kind": "post_status",
+				"post": "track_gamechal_mission_07_post_03",
+				"status": "closed"
+			},{
+				"kind": "team_score",
+				"reward": 100
+			}
+		]
+	},
+	{
+		"flag": "UQAM{TABARNAK}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_gamechal_mission_08",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_08_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{metroid}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_gamechal_mission_09",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_09_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{song_of_time}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_gamechal_mission_10",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_gamechal_mission_10_post_01",
+				"status": "closed"
+			}
+		]
 	}
 ]

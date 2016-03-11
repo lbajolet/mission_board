@@ -110,6 +110,88 @@
 					"fr": "mission_06/post_01.md"
 				}
 			]
+		},
+		{
+			"id": "track_gamechal_mission_07",
+			"title": "Brain Cells",
+			"reward": 30,
+			"initial_status": "locked",
+			"dependencies": [ "track_gamechal_mission_06" ],
+			"kind": "games",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_07_post_01",
+					"initial_status": "open",
+					"sender": "Public",
+					"en": "mission_07/post_01.md",
+					"fr": "mission_07/post_01.md"
+				},
+				{
+					"id": "track_gamechal_mission_07_post_02",
+					"initial_status": "open",
+					"sender": "Public",
+					"en": "mission_07/post_02.md",
+					"fr": "mission_07/post_02.md"
+				},
+				{
+					"id": "track_gamechal_mission_07_post_03",
+					"initial_status": "open",
+					"sender": "Public",
+					"en": "mission_07/post_03.md",
+					"fr": "mission_07/post_03.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_08",
+			"title": "Monsterz",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": [ "track_gamechal_mission_06" ],
+			"kind": "games",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_08_post_01",
+					"initial_status": "open",
+					"sender": "Prof. Bug",
+					"en": "mission_08/post_01.md",
+					"fr": "mission_08/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_09",
+			"title": "Nonogram Madness",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": [ "track_gamechal_mission_03" ],
+			"kind": "logic",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_09_post_01",
+					"initial_status": "open",
+					"sender": "Adam",
+					"en": "mission_09/post_01.md",
+					"fr": "mission_09/post_01.md"
+				}
+			]
+		},
+		{
+			"id": "track_gamechal_mission_10",
+			"title": "Songs from the Past",
+			"reward": 100,
+			"initial_status": "locked",
+			"dependencies": [ "track_gamechal_mission_05" ],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_gamechal_mission_10_post_01",
+					"initial_status": "open",
+					"sender": "Adam",
+					"en": "mission_10/post_01.md",
+					"fr": "mission_10/post_01.md"
+				}
+			]
 		}
 	]
 }
