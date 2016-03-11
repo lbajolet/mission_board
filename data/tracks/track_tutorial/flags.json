@@ -191,6 +191,10 @@
 				"status": "open"
 			},{
 				"kind": "track_status",
+				"track": "track_sponsors",
+				"status": "open"
+			},{
+				"kind": "track_status",
 				"track": "track_gamechal",
 				"status": "open"
 			}

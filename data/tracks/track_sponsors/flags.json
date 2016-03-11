@@ -1,0 +1,72 @@
+[
+	{
+		"flag": "UQAM{Maybe,Maybe,Yes}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_sponsors_mission_01",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "track_sponsors_mission_02",
+				"status": "open"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_sponsors_mission_01_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{keyboard}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_sponsors_mission_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_sponsors_mission_02_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "track_sponsors_mission_03",
+				"status": "open"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{C+D,D;A+B,C;C+D,no;}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_sponsors_mission_03",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_sponsors_mission_03_post_01",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "QvatH8UHp4nEZC",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "track_sponsors_mission_04",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "track_sponsors_mission_04_post_01",
+				"status": "closed"
+			}
+		]
+	}
+]

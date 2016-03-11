@@ -1,0 +1,72 @@
+{
+	"id": "track_sponsors",
+	"title": "Sponsors",
+	"initial_status": "locked",
+	"missions": [
+		{
+			"id": "track_sponsors_mission_01",
+			"title": "Beers & locigians",
+			"reward": 50,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "sponsors",
+			"posts": [
+				{
+					"id": "track_sponsors_mission_01_post_01",
+					"initial_status": "open",
+					"sender": "Marketing.AI",
+					"en": "mission_01/post_01.md",
+					"fr": "mission_01/post_01.md"
+				}
+			]
+		}, {
+			"id": "track_sponsors_mission_02",
+			"title": "Keys to the future",
+			"reward": 50,
+			"initial_status": "locked",
+			"dependencies": ["track_sponsors_mission_01"],
+			"kind": "sponsors",
+			"posts": [
+				{
+					"id": "track_sponsors_mission_02_post_01",
+					"initial_status": "open",
+					"sender": "Marketing.AI",
+					"en": "mission_02/post_01.md",
+					"fr": "mission_02/post_01.md"
+				}
+			]
+		}, {
+			"id": "track_sponsors_mission_03",
+			"title": "BENDROWNED",
+			"reward": 50,
+			"initial_status": "locked",
+			"dependencies": ["track_sponsors_mission_02"],
+			"kind": "sponsors",
+			"posts": [
+				{
+					"id": "track_sponsors_mission_03_post_01",
+					"initial_status": "open",
+					"sender": "Marketing.AI",
+					"en": "mission_03/post_01.md",
+					"fr": "mission_03/post_01.md"
+				}
+			]
+		}, {
+			"id": "track_sponsors_mission_04",
+			"title": "VMs",
+			"reward": 200,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "sponsors",
+			"posts": [
+				{
+					"id": "track_sponsors_mission_04_post_01",
+					"initial_status": "open",
+					"sender": "Shopify",
+					"en": "mission_04/post_01.md",
+					"fr": "mission_04/post_01.md"
+				}
+			]
+		}
+	]
+}
