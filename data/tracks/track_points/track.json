@@ -1,0 +1,24 @@
+{
+	"id": "track_points",
+	"title": "Misc",
+	"initial_status": "open",
+	"missions": [
+		{
+			"id": "track_points_mission",
+			"title": "Points",
+			"reward": 0,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "recon",
+			"posts": [
+				{
+					"id": "track_point_post_01",
+					"initial_status": "open",
+					"sender": "CSGO",
+					"en": "mission_01/post_01.md",
+					"fr": "mission_01/post_01.md"
+				}
+			]
+		}
+	]
+}

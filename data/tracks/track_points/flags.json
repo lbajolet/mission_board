@@ -1,0 +1,507 @@
+[
+	{
+		"flag": "UQAM{EnvoyezDesPRs!}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{L'important_c'est_les_valeurs...}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{from_itertools_import_combination}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{BlueberryPi}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{HTTP403}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{f03f70ad5db3}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{7f5ad28db276}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{895900a12d54}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{cacb1797f4ce}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{aba275b545cf}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{03ae28c40a26}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{312d2e37b0ca}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{420ec0139649}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{2687f4e65d83}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{f130b6cc15e2}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{9f16a236a311}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{6f480a17b3ee}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{#java}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{53e939eb200d}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{7d53a81f7b48}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{n0n3_sh4ll_p455}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{pr0v3nc4l_l3_g4ul0i5}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{20%PenaltyPerDay!}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{d3v1l_s_w0rk}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{h1gh3r_now_4m4}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{d0_wh4t_u_w4nt_cau53_a_r3b3l_i5_fr33}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{IWasThereInTheCold}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{a740dbb1fa4a}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{586c2f8d9827}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{65476bab4e21}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{90edd0028b5a}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{dae58cdafbcc}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{d3c552a47a25}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{8e5f4f4e6528}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{7cf95202c534}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{CopyrightsSuck!}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{THEEMPIRELIES}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{DomeSweetDome}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "UQAM{print \"Mpire\"}",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "3476efa9f15c1769c8dfc81c711ab1c75551f25c",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "681ef404759a50bb742b1cbc26118d4390ed7137",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "210d3423388c96bf28123e6bd083fe7de75f410e",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "17c47241b39b2758f69c3f2ed45d8a7caddca0a5",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "ad4433b30b249b4f30661d2fd5a11364e730219b",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "a30b716d1afae5ef69ffd19ea1221fd7e474f933",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "6f916359e915062a98a818b466febc82d052f9a6",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "69e46f3b2e4829b198d8b99dd2e3ce927326afe1",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "e22554f89c9d1e484ed46e08a1f45f326fadc2bf",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "04ec5bfdacd068a88adcfd241321fc29a8c55f9f",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "a7714ba415340f2f23338d5e8ed3b3a708f93e3a",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "f0f9ba70eed740abd39f5555d2a917df69cfd657",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "0d68e88964f471d0225d33c9910b1ce9b158b556",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "f1965fbbee7818bb7a44041ac19010c5db8649a2",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "b4c7af24326f3cf08b8f1ac48243fb538f50fc33",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "1dff9989905dbb280fb2c93d6cea2b462f44a102",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "7b683c1a310264a843d56c553f4568904dc61c29",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "904a1c78e45be4dbe8cbb6f431ad7108633804e3",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "8f8088104049f0e9469a9ab50f36b4cb399e8e31",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "bd35cd0d601cb7641dd8c9f7db94df43a91af7dd",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "4539975fec7a3ab1a57b86bf8f1dbed207bd65fe",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "b53db054423188853ddb5b9f1e1163cbd3f047fa",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	},{
+		"flag": "23b1729713f5369402e00896959c53c0d152a87f",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}
+]
