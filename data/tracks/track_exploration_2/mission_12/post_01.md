@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](spare_billboards.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

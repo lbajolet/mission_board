@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](uqam_on_strike.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

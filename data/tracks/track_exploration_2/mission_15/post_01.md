@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](Make_it_grow.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

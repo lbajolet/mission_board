@@ -1,7 +1,0 @@
-????? + 1 α513 (6)
-
-"We don”t have all day, if he does not get himself out, then you're going to help him, Neven" McGregor said, smiling even more than before. Neven could not bring himself to put me at gunpoint, so he grabbed me by the arm and started pushing me towards the exit. So we went on, I was sure that my love was still there. Everything happened so quickly and so slowly, as if time had slowed down around us. I saw a real river of tears flowing from the tip of his chin. As he held me, I felt that all his body trembled, I could hear his heart pounding in his chest. I was almost more sorry for him than for me. The more we approached the door, the more his condition worsened. In my last moments inside the dome, I had the chance to witness the return of the love of my life. Since that time, I know he is not completely lost.
-
-Once at the door, he dropped me. He squeezed me so hard during all the trip, I had pins and needles in my right arm. He started to walk away as the doors began closing. He did not turn back, he was only going backward, looking me straight in the eyes. Soon, I could only see his silhouette in the middle of the doors that were almost completely closed. I could distinguish his lips move, he said: "I'm sorry, I love you."
-
-Now that I'm out of the dome, the one thing that still makes me want to live is Neven. I'll find a way to get back in the dome, and get him back. Dear diary, I do not lose hope.

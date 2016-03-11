@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](I_like_curves.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

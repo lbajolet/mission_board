@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](Heating_hobbits.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

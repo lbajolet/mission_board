@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](mystery_room.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

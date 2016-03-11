@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](numberz.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 

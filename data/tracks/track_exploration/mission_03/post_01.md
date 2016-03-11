@@ -1,6 +1,6 @@
 # Mission Order
 
-[Photo](Hidden_block.jpg) attachement.
+[Photo](hint.jpg) attachement.
 
 **Mission Type:** Scavenging
 
