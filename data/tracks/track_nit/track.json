@@ -58,6 +58,22 @@
 				}
 			]
 		}, {
+			"id": "track_nit_mission_04b",
+			"title": "Doc Experiments",
+			"reward": 40,
+			"initial_status": "locked",
+			"dependencies": ["track_nit_mission_03"],
+			"kind": "dev",
+			"posts": [
+				{
+					"id": "track_nit_mission_04b_post_01",
+					"initial_status": "open",
+					"sender": "PrivatJ",
+					"en": "mission_04b/post_01.md",
+					"fr": "mission_04b/post_01.md"
+				}
+			]
+		}, {
 			"id": "track_nit_mission_04",
 			"title": "Functions",
 			"reward": 40,
