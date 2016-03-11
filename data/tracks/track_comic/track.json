@@ -1,7 +1,7 @@
 {
 	"id": "track_comic",
 	"title": "comic universe",
-	"initial_status": "open",
+	"initial_status": "locked",
 	"missions": [
 		{
 			"id": "universe_is_on_fire_01",

@@ -173,6 +173,10 @@
 				"kind": "track_status",
 				"track": "track_interpret",
 				"status": "open"
+			},{
+				"kind": "track_status",
+				"track": "track_comic",
+				"status": "open"
 			}
 		]
 	}
