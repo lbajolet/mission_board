@@ -1,0 +1,170 @@
+[
+	{
+		"flag": "UQAM{M1n3s_0f_th3_M0rr14r}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "mines_intro",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_intro_post",
+				"status": "closed"
+			}
+		]
+	},
+	{
+		"flag": "UQAM{Fr35h_41r}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "mines_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_01_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_01_post_02",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{n0t_4_pr0n}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "mines_02",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_02_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_02_post_02",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{g3t_drunk_0r_d13_try1ng}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "mines_03",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_03_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_03_post_02",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{N0T_TH3_B33S}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "mines_04",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_04_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_04_post_02",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{4t_th3_g4t3s}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "mines_05",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_05_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_05_post_02",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{n0_g0rill4_ins1de...}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "mines_06",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_06_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_06_post_02",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{st41rw4y_2_h34v3n}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "mines_07",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_07_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_07_post_02",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{Sp3lunky}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "mines_08",
+				"status": "closed"
+			},
+			{
+				"kind": "post_status",
+				"post": "mines_08_post_01",
+				"status": "closed"
+			},
+			{
+				"kind": "track_status",
+				"track": "track_morriar_mines",
+				"status": "closed"
+			}
+		]
+	}
+]
