@@ -1,0 +1,84 @@
+[
+	{
+		"flag": "UQAM{The Riddler}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "universe_is_on_fire_01",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "universe_is_on_fire_02",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Alfred}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "universe_is_on_fire_02",
+				"status": "closed"
+			},
+			{
+				"kind": "mission_status",
+				"mission": "universe_is_on_fire_06",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Deadpool}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "universe_is_on_fire_03",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{Sauron}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "universe_is_on_fire_04",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "universe_is_on_fire_05",
+				"status": "open"
+			}
+		]
+	},{
+		"flag": "UQAM{Guitar}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "universe_is_on_fire_05",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{Green Lama}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "universe_is_on_fire_06",
+				"status": "closed"
+			}
+		]
+	},{
+		"flag": "UQAM{Starscream}",
+		"triggers": [
+			{
+				"kind": "mission_status",
+				"mission": "universe_is_on_fire_07",
+				"status": "closed"
+			},{
+				"kind": "post_status",
+				"post": "save_the_dog_07",
+				"status": "closed"
+			}
+		]
+	}
+]
