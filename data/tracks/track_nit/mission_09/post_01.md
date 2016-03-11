@@ -17,6 +17,7 @@ Concern-oriented programming and class refinement in Nit helps to solve most of 
 
 So, let the following classes used to represent a boolean expression.
 
+<!--
 ~~~nit
 # Simple Boolean expressions
 module bool_expr
@@ -61,9 +62,55 @@ class BoolFalse
 	super BoolExpr
 end
 ~~~
+-->
+
+<pre class="hl"><span class="hl slc"># Simple Boolean expressions</span>
+<span class="hl kwa">module</span> bool_expr
+
+<span class="hl slc"># A boolean expression</span>
+<span class="hl kwa">abstract class</span> <span class="hl kwb">BoolExpr</span>
+<span class="hl kwa">end</span>
+
+<span class="hl slc"># A boolean binary operation</span>
+<span class="hl kwa">abstract class</span> <span class="hl kwb">BoolBinOp</span>
+	<span class="hl kwa">super</span> <span class="hl kwb">BoolExpr</span>
+	<span class="hl slc"># The left operand</span>
+	<span class="hl kwa">var</span> left<span class="hl opt">:</span> <span class="hl kwb">BoolExpr</span>
+	<span class="hl slc"># The right operand</span>
+	<span class="hl kwa">var</span> right<span class="hl opt">:</span> <span class="hl kwb">BoolExpr</span>
+<span class="hl kwa">end</span>
+
+<span class="hl slc"># A boolean conjunction</span>
+<span class="hl kwa">class</span> <span class="hl kwb">BoolAnd</span>
+	<span class="hl kwa">super</span> <span class="hl kwb">BoolBinOp</span>
+<span class="hl kwa">end</span>
+
+<span class="hl slc"># A boolean disjunction</span>
+<span class="hl kwa">class</span> <span class="hl kwb">BoolOr</span>
+	<span class="hl kwa">super</span> <span class="hl kwb">BoolBinOp</span>
+<span class="hl kwa">end</span>
+
+<span class="hl slc"># A boolean negation</span>
+<span class="hl kwa">class</span> <span class="hl kwb">BoolNot</span>
+	<span class="hl kwa">super</span> <span class="hl kwb">BoolExpr</span>
+	<span class="hl slc"># the negated boolean</span>
+	<span class="hl kwa">var</span> expr<span class="hl opt">:</span> <span class="hl kwb">BoolExpr</span>
+<span class="hl kwa">end</span>
+
+<span class="hl slc"># A true boolean value</span>
+<span class="hl kwa">class</span> <span class="hl kwb">BoolTrue</span>
+	<span class="hl kwa">super</span> <span class="hl kwb">BoolExpr</span>
+<span class="hl kwa">end</span>
+
+<span class="hl slc"># A false boolean value</span>
+<span class="hl kwa">class</span> <span class="hl kwb">BoolFalse</span>
+	<span class="hl kwa">super</span> <span class="hl kwb">BoolExpr</span>
+<span class="hl kwa">end</span>
+</pre>
 
 Let's add a visitor, by refinement of the existing classes in a new and independent module.
 
+<!--
 ~~~nit
 # Visit the simple Boolean expressions
 module bool_visitor
@@ -97,12 +144,47 @@ redef class BoolNot
 		v.visit(expr)
 	end
 end
-~~~
+~~~-->
+
+<pre class="hl"><span class="hl slc"># Visit the simple Boolean expressions</span>
+<span class="hl kwa">module</span> bool_visitor
+
+<span class="hl kwa">import</span> bool_expr
+
+<span class="hl slc"># An abstract visitor.</span>
+<span class="hl slc">#</span>
+<span class="hl slc"># Please implement `visit` for specific behavior and computation.</span>
+<span class="hl kwa">abstract class</span> <span class="hl kwb">BoolVisitor</span>
+	<span class="hl slc"># Visit an</span>
+	<span class="hl kwa">fun</span> visit<span class="hl opt">(</span>expr<span class="hl opt">:</span> <span class="hl kwb">BoolExpr</span><span class="hl opt">)</span> <span class="hl kwa">is abstract</span>
+<span class="hl kwa">end</span>
+
+<span class="hl kwa">redef class</span> <span class="hl kwb">BoolExpr</span>
+	<span class="hl slc"># Call `visit` in order on each sub-expressions (if any)</span>
+	<span class="hl kwa">fun</span> visit_children<span class="hl opt">(</span>v<span class="hl opt">:</span> <span class="hl kwb">BoolVisitor</span><span class="hl opt">)</span> <span class="hl kwa">do end</span>
+<span class="hl kwa">end</span>
+
+<span class="hl kwa">redef class</span> <span class="hl kwb">BoolBinOp</span>
+	<span class="hl kwa">redef fun</span> visit_children<span class="hl opt">(</span>v<span class="hl opt">)</span>
+	<span class="hl kwa">do</span>
+		v<span class="hl opt">.</span>visit<span class="hl opt">(</span>left<span class="hl opt">)</span>
+		v<span class="hl opt">.</span>visit<span class="hl opt">(</span>right<span class="hl opt">)</span>
+	<span class="hl kwa">end</span>
+<span class="hl kwa">end</span>
+
+<span class="hl kwa">redef class</span> <span class="hl kwb">BoolNot</span>
+	<span class="hl kwa">redef fun</span> visit_children<span class="hl opt">(</span>v<span class="hl opt">)</span>
+	<span class="hl kwa">do</span>
+		v<span class="hl opt">.</span>visit<span class="hl opt">(</span>expr<span class="hl opt">)</span>
+	<span class="hl kwa">end</span>
+<span class="hl kwa">end</span>
+</pre>
 
 You can see that the visitor can be created after the data-classes without altering the original module.
 
 Let's now implement some visitor that count the number of binary operations in an expression.
 
+<!--
 ~~~
 module bool_counter
 
@@ -144,15 +226,59 @@ var e2 = new BoolAnd(new BoolNot(e1), new BoolTrue)
 var v = new BoolCounter
 print v.count(e1) # 2
 print v.count(e2) # 3
-~~~
+~~~-->
 
+<pre class="hl"><span class="hl kwa">module</span> bool_counter
+
+<span class="hl kwa">import</span> bool_visitor
+
+<span class="hl kwa">class</span> <span class="hl kwb">BoolCounter</span>
+	<span class="hl kwa">super</span> <span class="hl kwb">BoolVisitor</span>
+
+	<span class="hl kwa">fun</span> count<span class="hl opt">(</span>expr<span class="hl opt">:</span> <span class="hl kwb">BoolExpr</span><span class="hl opt">):</span> <span class="hl kwb">Int</span>
+	<span class="hl kwa">do</span>
+		cpt <span class="hl opt">=</span> <span class="hl num">0</span>
+		visit<span class="hl opt">(</span>expr<span class="hl opt">)</span>
+		<span class="hl kwa">return</span> cpt
+	<span class="hl kwa">end</span>
+
+	<span class="hl kwa">redef fun</span> visit<span class="hl opt">(</span>expr<span class="hl opt">)</span> <span class="hl kwa">do</span>
+		<span class="hl slc"># Call the specific count code</span>
+		expr<span class="hl opt">.</span>accept_count<span class="hl opt">(</span><span class="hl kwa">self</span><span class="hl opt">)</span>
+		<span class="hl slc"># Recursively process the sub-expressions if any</span>
+		expr<span class="hl opt">.</span>visit_children<span class="hl opt">(</span><span class="hl kwa">self</span><span class="hl opt">)</span>
+	<span class="hl kwa">end</span>
+
+	<span class="hl slc"># Counter of binary operations</span>
+	<span class="hl kwa">var</span> cpt <span class="hl opt">=</span> <span class="hl num">0</span>
+<span class="hl kwa">end</span>
+
+<span class="hl kwa">redef class</span> <span class="hl kwb">BoolExpr</span>
+	<span class="hl slc"># The specific `counting` behavior.</span>
+	<span class="hl kwa">private fun</span> accept_count<span class="hl opt">(</span>v<span class="hl opt">:</span> <span class="hl kwb">BoolCounter</span><span class="hl opt">)</span> <span class="hl kwa">do end</span>
+<span class="hl kwa">end</span>
+
+<span class="hl kwa">redef class</span> <span class="hl kwb">BoolBinOp</span>
+	<span class="hl kwa">redef fun</span> accept_count<span class="hl opt">(</span>v<span class="hl opt">)</span> <span class="hl kwa">do</span> v<span class="hl opt">.</span>cpt <span class="hl opt">+=</span> <span class="hl num">1</span>
+<span class="hl kwa">end</span>
+
+<span class="hl kwa">var</span> e1 <span class="hl opt">=</span> <span class="hl kwa">new</span> <span class="hl kwb">BoolOr</span><span class="hl opt">(</span><span class="hl kwa">new</span> <span class="hl kwb">BoolAnd</span><span class="hl opt">(</span><span class="hl kwa">new</span> <span class="hl kwb">BoolTrue</span><span class="hl opt">,</span> <span class="hl kwa">new</span> <span class="hl kwb">BoolFalse</span><span class="hl opt">),</span> <span class="hl kwa">new</span> <span class="hl kwb">BoolNot</span><span class="hl opt">(</span><span class="hl kwa">new</span> <span class="hl kwb">BoolTrue</span><span class="hl opt">))</span>
+<span class="hl kwa">var</span> e2 <span class="hl opt">=</span> <span class="hl kwa">new</span> <span class="hl kwb">BoolAnd</span><span class="hl opt">(</span><span class="hl kwa">new</span> <span class="hl kwb">BoolNot</span><span class="hl opt">(</span>e1<span class="hl opt">),</span> <span class="hl kwa">new</span> <span class="hl kwb">BoolTrue</span><span class="hl opt">)</span>
+
+<span class="hl kwa">var</span> v <span class="hl opt">=</span> <span class="hl kwa">new</span> <span class="hl kwb">BoolCounter</span>
+print v<span class="hl opt">.</span>count<span class="hl opt">(</span>e1<span class="hl opt">)</span> <span class="hl slc"># 2</span>
+print v<span class="hl opt">.</span>count<span class="hl opt">(</span>e2<span class="hl opt">)</span> <span class="hl slc"># 3</span>
+</pre>
 
 ## Mission
+
+* Difficulty: medium
 
 Implement an evaluator that can visit and transform one of our Boolean expression to a standard Bool value `true` or `false`.
 
 ### Template to Use
 
+<!--
 ~~~nit
 module bool_eval
 
@@ -165,11 +291,22 @@ var e2 = new BoolAnd(new BoolNot(e1), new BoolTrue)
 
 print e1.eval
 print e2.eval
-~~~
+~~~-->
+
+<pre class="hl"><span class="hl kwa">module</span> bool_eval
+
+<span class="hl kwa">import</span> bool_visitor
+
+<span class="hl slc"># CODE HERE</span>
+
+<span class="hl kwa">var</span> e1 <span class="hl opt">=</span> <span class="hl kwa">new</span> <span class="hl kwb">BoolOr</span><span class="hl opt">(</span><span class="hl kwa">new</span> <span class="hl kwb">BoolAnd</span><span class="hl opt">(</span><span class="hl kwa">new</span> <span class="hl kwb">BoolTrue</span><span class="hl opt">,</span> <span class="hl kwa">new</span> <span class="hl kwb">BoolFalse</span><span class="hl opt">),</span> <span class="hl kwa">new</span> <span class="hl kwb">BoolNot</span><span class="hl opt">(</span><span class="hl kwa">new</span> <span class="hl kwb">BoolTrue</span><span class="hl opt">))</span>
+<span class="hl kwa">var</span> e2 <span class="hl opt">=</span> <span class="hl kwa">new</span> <span class="hl kwb">BoolAnd</span><span class="hl opt">(</span><span class="hl kwa">new</span> <span class="hl kwb">BoolNot</span><span class="hl opt">(</span>e1<span class="hl opt">),</span> <span class="hl kwa">new</span> <span class="hl kwb">BoolTrue</span><span class="hl opt">)</span>
+
+print e1<span class="hl opt">.</span>eval
+print e2<span class="hl opt">.</span>eval
+</pre>
 
 ### Expected Output
 
-~~~
-false
-true
-~~~
+    false
+    true

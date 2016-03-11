@@ -68,6 +68,8 @@ print <span class="hl str">&quot;&quot;&quot;&quot;quote&quot; and</span> <span 
 
 Define two variables, `a_string` and `an_integer` initialized respectively to `"ten"` and `10`.
 
+### Template to Use
+
 <pre class="hl"><span class="hl kwa">module</span> value
 
 <span class="hl slc"># CHANGE BELOW</span>
@@ -75,8 +77,8 @@ Define two variables, `a_string` and `an_integer` initialized respectively to `"
 <span class="hl kwa">var</span> an_integer <span class="hl opt">= ?</span>
 <span class="hl slc"># CHANGE ABOVE</span>
 
-print <span class="hl str">&quot;a_string</span> <span class="hl esc">{a_string + &quot;!&quot;}</span><span class="hl str">&quot;</span>
-print <span class="hl str">&quot;an_integer</span> <span class="hl esc">{an_integer.factorial}</span><span class="hl str">&quot;</span>
+print <span class="hl str">&quot;a_string!</span> <span class="hl esc">{a_string + &quot;!&quot;}</span><span class="hl str">&quot;</span>
+print <span class="hl str">&quot;an_integer!</span> <span class="hl esc">{an_integer.factorial}</span><span class="hl str">&quot;</span>
 </pre>
 
 ### Expected Output

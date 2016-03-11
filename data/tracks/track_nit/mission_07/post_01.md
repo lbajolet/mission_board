@@ -57,6 +57,8 @@ Subclasses inherit the attributes and the constructor behavior and `init` are au
 
 ## Mission
 
+* Difficulty: easy
+
 Write a class `Hello` with an attribute `what: String`, and a method `say: String` that prints `"Hello, {what}!"`.
 Write a class `Goodby` with an attribute `hello: Hello`, and a method `say` that reply goodby.
 

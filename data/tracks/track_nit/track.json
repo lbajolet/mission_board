@@ -123,7 +123,7 @@
 			]
 		}, {
 			"id": "track_nit_mission_08",
-			"title": "Modules",
+			"title": "Modules and Refinement",
 			"reward": 80,
 			"initial_status": "locked",
 			"dependencies": ["track_nit_mission_07"],
@@ -183,7 +183,7 @@
 			]
 		}, {
 			"id": "track_nit_mission_11",
-			"title": "Foreign Function Interface",
+			"title": "Foreign Function Interface and ASCII rendering",
 			"reward": 100,
 			"initial_status": "locked",
 			"dependencies": ["track_nit_mission_08"],
