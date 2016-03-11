@@ -23,7 +23,7 @@
 		{
 			"id": "track_gamechal_mission_02",
 			"title": "Challenge 2",
-			"reward": 150,
+			"reward": 100,
 			"initial_status": "locked",
 			"dependencies": [
 				"track_gamechal_mission_01"
@@ -42,7 +42,7 @@
 		{
 			"id": "track_gamechal_mission_03",
 			"title": "Challenge 3",
-			"reward": 150,
+			"reward": 100,
 			"initial_status": "open",
 			"dependencies": [],
 			"kind": "logic",
@@ -116,7 +116,7 @@
 			"title": "Brain Cells",
 			"reward": 30,
 			"initial_status": "locked",
-			"dependencies": [ "track_gamechal_mission_06" ],
+			"dependencies": [ "track_gamechal_mission_05" ],
 			"kind": "games",
 			"posts": [
 				{
@@ -147,7 +147,7 @@
 			"title": "Monsterz",
 			"reward": 100,
 			"initial_status": "locked",
-			"dependencies": [ "track_gamechal_mission_06" ],
+			"dependencies": [ "track_gamechal_mission_05" ],
 			"kind": "games",
 			"posts": [
 				{
@@ -162,7 +162,7 @@
 		{
 			"id": "track_gamechal_mission_09",
 			"title": "Nonogram Madness",
-			"reward": 100,
+			"reward": 150,
 			"initial_status": "locked",
 			"dependencies": [ "track_gamechal_mission_03" ],
 			"kind": "logic",
