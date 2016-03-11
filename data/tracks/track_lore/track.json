@@ -1,12 +1,12 @@
 {
 	"id": "track_lore",
 	"title": "The mole",
-	"initial_status": "closed",
+	"initial_status": "locked",
 	"missions": [
 		{
 			"id": "the_butcher_01",
 			"title": "The Butcher 1",
-			"reward": 100,
+			"reward": 0,
 			"initial_status": "open",
 			"dependencies": [],
 			"kind": "trivia",

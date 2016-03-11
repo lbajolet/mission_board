@@ -1,0 +1,200 @@
+[
+	{
+		"flag": "UQAM{f927aa770a88928140ac2819554ca4f6}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_01_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_01",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{c8fbde8c8ff167fd9e6a7fe43e659492}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_02_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_02",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{b2c2e33258c565ca965fe9f5ec99bb28}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_03_post_01",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{5622bd84972816630be22972c1cae816}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_03_post_02",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_03",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{9c433744ff19dc8c9731b7b6debf0540}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_04_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_04",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{ca8aee5c245fcd0bf4c09d1bccbd393c}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_05_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_05",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{50b0f1bca82db61eb67d1f68e2aa8579}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_06_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_06",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{49270d53de8ea6f43e2f16f3b2880d79}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_07_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_07",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{ad35d227970b652070e44e7a697708bc}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_08_post_01",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{ccb27646c7311d2e80fcec56f8a157b2}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_08_post_02",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_08",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{449c5aa148e7b0852fa07d7e6218013b}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_09_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_09",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{38039c412028daccec4763d44f6f24c7}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_10_post_01",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{49d5441631eed1bb3ca3ad88cca72382}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_10_post_02",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_10",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{9ef28d7f54acd2681af604e4a8efa1ce}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_11_post_01",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{0741e707c130d5488d57543dfb8f9ca0}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_11_post_02",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_11",
+				"status": "closed"
+			}
+		]
+	}, {
+		"flag": "UQAM{195d8103c2ad02f04809a596623d165a}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_12_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_12",
+				"status": "closed"
+			},{
+				"kind": "track_status",
+				"track": "track_nit",
+				"status": "closed"
+			}
+		]
+	}
+
+]

@@ -147,6 +147,14 @@
 				"status": "open"
 			},{
 				"kind": "track_status",
+				"track": "track_nit",
+				"status": "open"
+			},{
+				"kind": "track_status",
+				"track": "track_lore",
+				"status": "open"
+			},{
+				"kind": "track_status",
 				"track": "track_git",
 				"status": "open"
 			},{
