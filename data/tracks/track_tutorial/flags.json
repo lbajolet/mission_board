@@ -189,6 +189,10 @@
 				"kind": "track_status",
 				"track": "track_manga",
 				"status": "open"
+			},{
+				"kind": "track_status",
+				"track": "track_sponsors",
+				"status": "open"
 			}
 		]
 	}
