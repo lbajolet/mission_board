@@ -13,26 +13,22 @@ The file appears to be split in two sections, separated by a '-' token:
 
 If we took the example of such a file for a simple figure, it would look like this:
 
-~~~
-0 0 1 1 0
-1 2 1 1 5
--
-0 1
-0 2
-1 1
-1 1
-0 5
-~~~
+    0 0 1 1 0
+    1 2 1 1 5
+    -
+    0 1
+    0 2
+    1 1
+    1 1
+    0 5
 
 And would yield the following image:
 
-~~~
-    *
-   **
-  * *
- *  *
-*****
-~~~
+        *
+       **
+      * *
+     *  *
+    *****
 
 [This](nonogram.txt) is the input file we were given.
 

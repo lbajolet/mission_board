@@ -53,7 +53,7 @@ print present_all<span class="hl opt">(</span><span class="hl str">&quot;Eve&quo
 
 ## Mission
 
-* Difficulty: easy
+* Difficulty: medium
 
 Write a function `hanoi` that plays the Towers of Hanoi.
 
