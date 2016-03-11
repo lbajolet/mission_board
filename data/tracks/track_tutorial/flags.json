@@ -181,6 +181,10 @@
 				"kind": "track_status",
 				"track": "track_scavenger",
 				"status": "open"
+			},{
+				"kind": "track_status",
+				"track": "track_main_lore",
+				"status": "open"
 			}
 		]
 	}

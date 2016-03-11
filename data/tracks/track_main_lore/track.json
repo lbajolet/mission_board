@@ -1,0 +1,192 @@
+{
+	"id": "track_main_lore",
+	"title": "The Catastrophe",
+	"initial_status": "locked",
+	"missions": [
+		{
+			"id": "main_lore_intro",
+			"title": "Introduction",
+			"reward": 0,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "lore",
+			"posts": [
+				{
+					"id": "main_lore_intro_post",
+					"initial_status": "open",
+					"sender": "Glen",
+					"en": "main_intro/intro.md",
+					"fr": "main_intro/intro.md"
+				}
+			]
+		},
+		{
+			"id": "main_lore_01",
+			"title": "The Cafeinus Project",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["main_lore_intro"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "main_lore_01_post_01",
+					"initial_status": "open",
+					"sender": "??",
+					"en": "main_01/post_01.md",
+					"fr": "main_01/post_01.md"
+				},
+				{
+					"id": "main_lore_01_post_02",
+					"initial_status": "locked",
+					"sender": "Hammond",
+					"en": "main_01/post_02.md",
+					"fr": "main_01/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "main_lore_02",
+			"title": "Bad News",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["main_lore_01"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "main_lore_02_post_01",
+					"initial_status": "open",
+					"sender": "??",
+					"en": "main_02/post_01.md",
+					"fr": "main_02/post_01.md"
+				},
+				{
+					"id": "main_lore_02_post_02",
+					"initial_status": "locked",
+					"sender": "Hammond",
+					"en": "main_02/post_02.md",
+					"fr": "main_02/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "main_lore_03",
+			"title": "The Fall",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["main_lore_02"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "main_lore_03_post_01",
+					"initial_status": "open",
+					"sender": "??",
+					"en": "main_03/post_01.md",
+					"fr": "main_03/post_01.md"
+				},
+				{
+					"id": "main_lore_03_post_02",
+					"initial_status": "locked",
+					"sender": "Hammond",
+					"en": "main_03/post_02.md",
+					"fr": "main_03/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "main_lore_04",
+			"title": "Despair",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["main_lore_03"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "main_lore_04_post_01",
+					"initial_status": "open",
+					"sender": "??",
+					"en": "main_04/post_01.md",
+					"fr": "main_04/post_01.md"
+				},
+				{
+					"id": "main_lore_04_post_02",
+					"initial_status": "locked",
+					"sender": "Hammond",
+					"en": "main_04/post_02.md",
+					"fr": "main_04/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "main_lore_05",
+			"title": "Hope",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["main_lore_04"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "main_lore_05_post_01",
+					"initial_status": "open",
+					"sender": "??",
+					"en": "main_05/post_01.md",
+					"fr": "main_05/post_01.md"
+				},
+				{
+					"id": "main_lore_05_post_02",
+					"initial_status": "locked",
+					"sender": "Hammond",
+					"en": "main_05/post_02.md",
+					"fr": "main_05/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "main_lore_06",
+			"title": "Change",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["main_lore_05"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "main_lore_06_post_01",
+					"initial_status": "open",
+					"sender": "??",
+					"en": "main_06/post_01.md",
+					"fr": "main_06/post_01.md"
+				},
+				{
+					"id": "main_lore_06_post_02",
+					"initial_status": "locked",
+					"sender": "Hammond",
+					"en": "main_06/post_02.md",
+					"fr": "main_06/post_02.md"
+				}
+			]
+		},
+		{
+			"id": "main_lore_07",
+			"title": "War",
+			"reward": 10,
+			"initial_status": "locked",
+			"dependencies": ["main_lore_06"],
+			"kind": "qrcode",
+			"posts": [
+				{
+					"id": "main_lore_07_post_01",
+					"initial_status": "open",
+					"sender": "??",
+					"en": "main_07/post_01.md",
+					"fr": "main_07/post_01.md"
+				},
+				{
+					"id": "main_lore_07_post_02",
+					"initial_status": "locked",
+					"sender": "Hammond",
+					"en": "main_07/post_02.md",
+					"fr": "main_07/post_02.md"
+				}
+			]
+		}
+	]
+}
