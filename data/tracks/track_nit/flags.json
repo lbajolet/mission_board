@@ -65,6 +65,19 @@
 			}
 		]
 	}, {
+		"flag": "UQAM{DocumentationIsCool!}",
+		"triggers": [
+			{
+				"kind": "post_status",
+				"post": "track_nit_mission_04b_post_01",
+				"status": "closed"
+			},{
+				"kind": "mission_status",
+				"mission": "track_nit_mission_04b",
+				"status": "closed"
+			}
+		]
+	}, {
 		"flag": "UQAM{ca8aee5c245fcd0bf4c09d1bccbd393c}",
 		"triggers": [
 			{
