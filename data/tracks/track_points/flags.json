@@ -519,5 +519,165 @@
 				"reward": 10
 			}
 		]
+	}, {
+		"flag": "244D3DC16B488F07737FDDC23EBE7E13FE58C3A1",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "E139AAD96559092A83995B5C7503392E8D45A724",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "C095F7C6D594EBED6180284334AEE1E165670436",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "7B6167C52CED36052CE97725307E4E83FC744DD0",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "ED98B37FB3DE6BF33B1328E111CFCF28A021AFD1",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "5E1EBE3521952197ED7D0937168DF9B47DE242DF",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "AAE35A736CF74ABB2EA5FDD88994089ACA74B670",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "74D053108E4B05669F9012CF6DAAC7B280258448",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "3A77AC3B7B7D0E34F772783790D4B8407043D527",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "3A68E86140F49C322D454FCFCBFB1592BBE3FE6F",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "107C0BB633BCDD4084D6CC6B61B7FB8C85239121",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "DD2794CE05A1D6CB2852E385D2E84D737020099A",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "6FE9A9AA5438BC0ADAF8F407B749F179D53B2E03",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "E2DEFDD0834947E2B7574DAE2E548D898DE10789",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "0BD90E536AEECF97BA8C025AEB44E9FE983138F1",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "2C7FE8C50727795935C0BA2D8416FD48C77E9709",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "6CC2DDD6C8B90038FA449A6357F14E58462A4415",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "BF4F9E9CF95DC9E9743FE98A7A99D1EF6D82B8A1",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "E09F1600ECBC8B21D41453D90E1DC8454C3809F3",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
+	}, {
+		"flag": "CC2D43C46C1F2468C8FD04C6402ABD651BA8721C",
+		"triggers": [
+			{
+				"kind": "team_score",
+				"reward": 10
+			}
+		]
 	}
 ]
