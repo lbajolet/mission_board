@@ -29,7 +29,7 @@ class PostAdmin(admin.ModelAdmin):
 class TrackStatusAdmin(admin.ModelAdmin):
     ordering = ("team__name", "track__title")
     list_display = ("track", "get_university", "team", "status")
-    search_fields = ("track", "team__university", "team", "status")
+    search_fields = ("track__title", "team__university", "team__name", "status")
     exclude = ("team", "track")
 
     def get_university(self, obj):
@@ -60,7 +60,7 @@ class PostStatusAdmin(admin.ModelAdmin):
     ordering = ("post__id",)
     list_display = ("team", "get_university", "get_track", "get_mission",
                     "get_post", "status")
-    search_fields = ("post",)
+    search_fields = ("post__id", "team__name")
     exclude = ("post", "team")
 
     def get_university(self, obj):
@@ -102,7 +102,7 @@ class GlobalAnnouncementAdmin(admin.ModelAdmin):
 class TeamAnnouncementAdmin(admin.ModelAdmin):
     ordering = ("team", "-time")
     list_display = ("time", "team", "message")
-    search_fields = ("team", "message")
+    search_fields = ("team__name", "message")
 
 
 class TrackAnnouncementAdmin(admin.ModelAdmin):
@@ -143,7 +143,7 @@ class EventAdmin(admin.ModelAdmin):
 
 class PlayerEventAdmin(admin.ModelAdmin):
     list_display = ("time", "type", "player", "message")
-    search_fields = ("time", "type", "player", "message")
+    search_fields = ("time", "type", "player__display_name", "message")
 
 
 class GlobalStatusAdmin(admin.ModelAdmin):
@@ -167,7 +167,7 @@ class FlagAdmin(admin.ModelAdmin):
 class BadFlagEventAdmin(admin.ModelAdmin):
     ordering = ("-time", "player__team__name", "player",)
     list_display = ("time", "get_team", "get_university", "player", "token")
-    search_fields = ("player", "player__team__name", "player__team__university",
+    search_fields = ("player__display_name", "player__team__name", "player__team__university",
                      "token")
 
     def get_team(self, obj):
