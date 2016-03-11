@@ -1,0 +1,120 @@
+{
+	"id": "track_comic",
+	"title": "comic universe",
+	"initial_status": "open",
+	"missions": [
+		{
+			"id": "universe_is_on_fire_01",
+			"title": "Comic trivia",
+			"reward": 50,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "save_the_dog_01",
+					"initial_status": "open",
+					"sender": "Bob",
+					"en": "hero1/post_01.md",
+					"fr": "hero1/post_010.md"
+				}
+			]
+		},{
+			"id": "universe_is_on_fire_02",
+			"title": "Comic trivia 2",
+			"reward": 50,
+			"initial_status": "locked",
+			"dependencies": ["universe_is_on_fire_01"],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "save_the_dog_02",
+					"initial_status": "open",
+					"sender": "Bob",
+					"en": "hero2/post_02.md",
+					"fr": "hero2/post_020.md"
+				}
+			]
+		},{
+			"id": "universe_is_on_fire_06",
+			"title": "Comic trivia 6",
+			"reward": 50,
+			"initial_status": "locked",
+			"dependencies": ["universe_is_on_fire_02"],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "save_the_dog_06",
+					"initial_status": "locked",
+					"sender": "Bob",
+					"en": "hero6/post_06.md",
+					"fr": "hero6/post_060.md"
+				}
+			]
+		},{
+			"id": "universe_is_on_fire_03",
+			"title": "Comic trivia 3",
+			"reward": 50,
+			"initial_status": "open",
+			"dependencies": [],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "save_the_dog_03",
+					"initial_status": "open",
+					"sender": "Bob",
+					"en": "hero3/post_03.md",
+					"fr": "hero3/post_030.md"
+				}
+			]
+		},{
+			"id": "universe_is_on_fire_04",
+			"title": "Comic trivia 4",
+			"reward": 50,
+			"initial_status": "locked",
+			"dependencies": ["universe_is_on_fire_03"],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "save_the_dog_04",
+					"initial_status": "open",
+					"sender": "Bob",
+					"en": "hero4/post_04.md",
+					"fr": "hero4/post_040.md"
+				}
+			]
+		},{
+			"id": "universe_is_on_fire_05",
+			"title": "Comic trivia 5",
+			"reward": 50,
+			"initial_status": "locked",
+			"dependencies": ["universe_is_on_fire_04"],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "save_the_dog_05",
+					"initial_status": "open",
+					"sender": "Bob",
+					"en": "hero5/post_05.md",
+					"fr": "hero5/post_050.md"
+				}
+			]
+		},{
+			"id": "universe_is_on_fire_07",
+			"title": "Comic trivia 7",
+			"reward": 50,
+			"initial_status": "locked",
+			"dependencies": ["universe_is_on_fire_05","universe_is_on_fire_06"],
+			"kind": "trivia",
+			"posts": [
+				{
+					"id": "save_the_dog_07",
+					"initial_status": "open",
+					"sender": "Bob",
+					"en": "hero7/post_07.md",
+					"fr": "hero7/post_070.md"
+				}
+			]
+		}
+	]
+}
