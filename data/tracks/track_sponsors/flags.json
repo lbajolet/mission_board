@@ -79,7 +79,7 @@
 		]
 	},
 	{
-		"flag": "SOME PUZZLES CAN BE HARD TO SOLVE, BUT SOME ARE WASY.",
+		"flag": "SOME PUZZLES CAN BE HARD TO SOLVE, BUT SOME ARE EASY.",
 		"triggers": [
 			{
 				"kind": "team_score",
